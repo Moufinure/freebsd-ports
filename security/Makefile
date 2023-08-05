@@ -53,6 +53,7 @@
     SUBDIR += belier
     SUBDIR += bfbtester
     SUBDIR += binwalk
+    SUBDIR += bitwarden-cli
     SUBDIR += boringssl
     SUBDIR += botan2
     SUBDIR += bruteblock
@@ -197,6 +198,7 @@
     SUBDIR += gpgme
     SUBDIR += gpgme-cpp
     SUBDIR += gpgme-qt
+    SUBDIR += gpgme-qt-headers
     SUBDIR += gsa
     SUBDIR += gsad
     SUBDIR += gsasl
@@ -365,6 +367,7 @@
     SUBDIR += modsecurity3
     SUBDIR += modsecurity3-nginx
     SUBDIR += monkeysphere
+    SUBDIR += monocypher
     SUBDIR += munge
     SUBDIR += n2n
     SUBDIR += ncrack
@@ -877,11 +880,13 @@
     SUBDIR += py-certbot-dns-standalone
     SUBDIR += py-certbot-nginx
     SUBDIR += py-certifi
+    SUBDIR += py-certomancer
     SUBDIR += py-certstream
     SUBDIR += py-ckcc-protocol
     SUBDIR += py-coincurve
     SUBDIR += py-cpe
     SUBDIR += py-cryptography
+    SUBDIR += py-cryptography-legacy
     SUBDIR += py-cryptography-vectors
     SUBDIR += py-ctypescrypto
     SUBDIR += py-cybox
@@ -914,6 +919,7 @@
     SUBDIR += py-gvm-tools
     SUBDIR += py-hkdf
     SUBDIR += py-htpasswd
+    SUBDIR += py-httpx-auth
     SUBDIR += py-iris-check-module
     SUBDIR += py-iris-client
     SUBDIR += py-iris-evtx-module

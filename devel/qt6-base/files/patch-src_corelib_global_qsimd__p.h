@@ -1,12 +1,12 @@
---- src/corelib/global/qsimd_p.h.orig	2023-01-05 22:52:06 UTC
+--- src/corelib/global/qsimd_p.h.orig	2023-08-04 22:13:36 UTC
 +++ src/corelib/global/qsimd_p.h
-@@ -212,15 +212,6 @@ asm(
+@@ -226,15 +226,6 @@ asm(
  //
  // macOS's fat binaries support the "x86_64h" sub-architecture and the GNU libc
  // ELF loader also supports a "haswell/" subdir (e.g., /usr/lib/haswell).
--#  define ARCH_HASWELL_MACROS       (__AVX2__ + __BMI2__ + __FMA__ + __LZCNT__)
+-#  define ARCH_HASWELL_MACROS       (__AVX2__ + __FMA__)
 -#  if ARCH_HASWELL_MACROS != 0
--#    if ARCH_HASWELL_MACROS != 4
+-#    if ARCH_HASWELL_MACROS != 2
 -#      error "Please enable all x86-64-v3 extensions; you probably want to use -march=haswell or -march=x86-64-v3 instead of -mavx2"
 -#    endif
 -static_assert(ARCH_HASWELL_MACROS, "Undeclared identifiers indicate which features are missing.");
@@ -16,7 +16,7 @@
  
  // x86-64 sub-architecture version 4
  //
-@@ -228,15 +219,6 @@ static_assert(ARCH_HASWELL_MACROS, "Undeclared identif
+@@ -242,15 +233,6 @@ static_assert(ARCH_HASWELL_MACROS, "Undeclared identif
  // 6th generation (codename "Skylake"). AMD Zen4 is the their first processor
  // with AVX512 support and it includes all of these too.
  //
