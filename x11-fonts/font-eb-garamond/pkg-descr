@@ -1,0 +1,10 @@
+This project aims at providing a free version of the Garamond types,
+based on the Designs of the Berner specimen from 1592.
+
+In the end, the fonts shall cover extended latin,
+greek and cyrillic scripts in different styles
+(regular, italic, bold, bolditalic) and design sizes.
+There are also fonts containing initials based on those
+found in a 16th century french bible print.
+The fonts make heavy use of opentype features for specialities
+like small caps or different number styles as well as for imitating renaissance typography.
