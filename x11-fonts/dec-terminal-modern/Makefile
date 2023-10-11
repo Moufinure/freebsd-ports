@@ -5,7 +5,7 @@ CATEGORIES=	x11-fonts
 DISTNAME=	dec_terminal_modern
 MASTER_SITE_OVERRIDE=	https://dl.dafont.com/dl/?f=${DISTNAME}
 
-LICENSE=	NONE
+#LICENSE=	NONE
 
 MAINTAINER=	pierre.gnaedig@mailoo.org
 COMMENT=	The famous font from DEC VT terminals
