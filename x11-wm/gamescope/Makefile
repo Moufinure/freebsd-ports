@@ -1,10 +1,9 @@
 PORTNAME=	gamescope
-DISTVERSION=	3.12.0
+DISTVERSION=	3.12.5
 CATEGORIES=	x11-wm wayland
 
 PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
 PATCHFILES+=	a618ea074660.patch:-p1 # https://github.com/ValveSoftware/gamescope/issues/120
-PATCHFILES+=	e0c9e75e7f86.patch:-p1 # https://github.com/ValveSoftware/gamescope/pull/918
 
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	SteamOS session compositing window manager
@@ -20,8 +19,7 @@ BUILD_DEPENDS=	evdev-proto>0:devel/evdev-proto \
 		glm>0:math/glm \
 		hwdata>0:misc/hwdata \
 		wlroots>=0.16.0<0.17.0:x11-toolkits/wlroots
-LIB_DEPENDS=	libepoll-shim.so:devel/libepoll-shim \
-		libdrm.so:graphics/libdrm \
+LIB_DEPENDS=	libdrm.so:graphics/libdrm \
 		libliftoff.so:graphics/libliftoff \
 		libvulkan.so:graphics/vulkan-loader \
 		libwayland-server.so:graphics/wayland \
@@ -39,7 +37,7 @@ GH_TUPLE=	nothings:stb:5736b15:stb/subprojects/stb \
 		Joshua-Ashton:vkroots:2675710:vkroots/subprojects/vkroots
 MESON_ARGS=	--force-fallback-for= # allow system wlroots + libliftoff
 MESON_ARGS+=	-Denable_openvr_support=false # https://github.com/ValveSoftware/openvr/pull/564
-MESON_ARCH_FAMILY=	${ARCH:S/amd/x86_/:S/i3/x/:C/v[67]//:S/powerpc64le/ppc64/:S/powerpc64/ppc64/:S/powerpc/ppc/}
+MESON_ARCH_FAMILY=	${ARCH:S/amd/x86_/:S/i3/x/:C/v[67]//:S/power/p/:S/le$//}
 PLIST_FILES=	bin/${PORTNAME} \
 		lib/libVkLayer_FROG_${PORTNAME}_wsi.so \
 		share/vulkan/implicit_layer.d/VkLayer_FROG_${PORTNAME}_wsi.${MESON_ARCH_FAMILY}.json

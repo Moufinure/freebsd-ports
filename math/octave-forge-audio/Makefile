@@ -1,6 +1,6 @@
 PORTNAME=	octave-forge-audio
 DISTVERSIONPREFIX=	release-
-DISTVERSION=	2.0.7
+DISTVERSION=	2.0.8
 CATEGORIES=	math
 
 MAINTAINER=	stephen@FreeBSD.org

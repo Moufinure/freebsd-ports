@@ -9,7 +9,7 @@
     SUBDIR += albert
     SUBDIR += alttab
     SUBDIR += aminal
-    SUBDIR += antimicro
+    SUBDIR += antimicrox
     SUBDIR += appmenu-registrar
     SUBDIR += appres
     SUBDIR += apwal
@@ -496,6 +496,7 @@
     SUBDIR += xdg-desktop-portal-gnome
     SUBDIR += xdg-desktop-portal-gtk
     SUBDIR += xdg-desktop-portal-hyprland
+    SUBDIR += xdg-desktop-portal-luminous
     SUBDIR += xdg-desktop-portal-wlr
     SUBDIR += xdialog
     SUBDIR += xditview
@@ -613,6 +614,7 @@
     SUBDIR += xvinfo
     SUBDIR += xvkbd
     SUBDIR += xvmcinfo
+    SUBDIR += xvattr
     SUBDIR += xvt
     SUBDIR += xwatchwin
     SUBDIR += xwd

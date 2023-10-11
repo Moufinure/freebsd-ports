@@ -1,6 +1,6 @@
---- ui/ozone/platform/wayland/host/wayland_toplevel_window.h.orig	2023-07-16 15:47:57 UTC
+--- ui/ozone/platform/wayland/host/wayland_toplevel_window.h.orig	2023-09-13 12:11:42 UTC
 +++ ui/ozone/platform/wayland/host/wayland_toplevel_window.h
-@@ -244,7 +244,7 @@ class WaylandToplevelWindow : public WaylandWindow,
+@@ -256,7 +256,7 @@ class WaylandToplevelWindow : public WaylandWindow,
    // Contains the previous state of the window.
    PlatformWindowState previous_state_ = PlatformWindowState::kUnknown;
  
