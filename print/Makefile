@@ -52,7 +52,6 @@
     SUBDIR += foomatic-db-engine
     SUBDIR += foomatic-db-hpijs
     SUBDIR += foomatic-filters
-    SUBDIR += fpc-libcups
     SUBDIR += fpdf
     SUBDIR += freetype2
     SUBDIR += ft2demos
@@ -139,6 +138,7 @@
     SUBDIR += pdfarranger
     SUBDIR += pdfbox
     SUBDIR += pdfchain
+    SUBDIR += pdfcpu
     SUBDIR += pdflib
     SUBDIR += pdflib-perl
     SUBDIR += pdfmixtool
@@ -197,6 +197,7 @@
     SUBDIR += qpdf
     SUBDIR += qpdfview
     SUBDIR += qt5-printsupport
+    SUBDIR += qt6-pdf
     SUBDIR += rlpr
     SUBDIR += rtf2latex2e
     SUBDIR += rubygem-afm

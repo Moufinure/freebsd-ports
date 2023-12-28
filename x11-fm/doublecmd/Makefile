@@ -1,6 +1,6 @@
 PORTNAME=	doublecmd
 PORTVERSION=	1.0.11
-PORTREVISION=	1
+PORTREVISION=	3
 DISTVERSIONPREFIX=	v
 CATEGORIES=	x11-fm
 PKGNAMESUFFIX=	${LAZARUS_PKGNAMESUFFIX}
@@ -18,14 +18,13 @@ qt5_CONFLICTS_INSTALL=	${PORTNAME}-gtk2
 
 USES=		desktop-file-utils dos2unix fpc gnome lazarus:flavors xorg
 DOS2UNIX_FILES=	components/multithreadprocs/mtpcpu.pas src/dmhelpmanager.pas
-USE_FPC=	cairo chm fcl-base fcl-db fcl-image fcl-json fcl-registry \
-		fcl-xml iconvenc pasjpeg rtl-extra x11 regexpr fcl-extra
 USE_GITHUB=	yes
 GH_PROJECT=	doublecmd.github.io:help
 GH_TAGNAME=	1.0.10:help
 USE_GNOME=	cairo glib20
 USE_XORG=	x11
 
+LAZARUS_NO_FLAVORS=	qt6
 LAZARUS_PROJECT_FILES=	components/chsdet/chsdet.lpk \
 			components/CmdLine/cmdbox.lpk \
 			components/multithreadprocs/multithreadprocslaz.lpk \
@@ -92,7 +91,6 @@ LAZBUILD_ARGS+=	--bm="Debug"
 .endif
 
 .if ${PORT_OPTIONS:MWFX_FTP}
-USE_FPC+=		fcl-net
 LAZARUS_PROJECT_FILES+=	plugins/wfx/ftp/src/ftp.lpi
 .endif
 

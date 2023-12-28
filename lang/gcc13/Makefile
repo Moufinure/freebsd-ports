@@ -1,5 +1,5 @@
 PORTNAME=	gcc
-PORTVERSION=	13.1.0
+PORTVERSION=	13.2.0
 PORTREVISION=	1
 CATEGORIES=	lang
 MASTER_SITES=	GCC
@@ -41,7 +41,6 @@ OPTIONS_DEFINE=		GRAPHITE
 OPTIONS_DEFAULT_aarch64=LTO_BOOTSTRAP
 OPTIONS_DEFAULT_amd64=	LTO_BOOTSTRAP
 OPTIONS_DEFAULT_i386=	LTO_BOOTSTRAP
-OPTIONS_DEFAULT_powerpc=LTO_BOOTSTRAP
 OPTIONS_DEFAULT_powerpc64=LTO_BOOTSTRAP
 OPTIONS_DEFAULT_powerpc64le=LTO_BOOTSTRAP
 OPTIONS_RADIO=	BOOTSTRAP
@@ -154,6 +153,10 @@ full-regression-test: build
 post-stage:
 	${RM} ${STAGEDIR}${PREFIX}/man/man7/*
 	${RM} -r ${STAGEDIR}${TARGLIB}/gcc/*/${GCC_VERSION}/include-fixed/
+	# Install ISO_Fortran_binding.h in an easily findable directory
+	${MKDIR} ${STAGEDIR}${PREFIX}/include/gcc${SUFFIX}
+	${INSTALL_DATA} ${STAGEDIR}${PREFIX}/lib/gcc${SUFFIX}/gcc/${CONFIGURE_TARGET}/${GCC_VERSION}/include/ISO_Fortran_binding.h	\
+		${STAGEDIR}${PREFIX}/include/gcc${SUFFIX}
 	# Add target libraries and include files to packaging list.
 	${RM} ${WRKDIR}/PLIST.lib
 

@@ -1,5 +1,5 @@
 PORTNAME=	gitlab-runner
-DISTVERSION=	16.3.0
+DISTVERSION=	16.6.1
 PORTREVISION=	1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	devel
@@ -33,7 +33,7 @@ GO_BUILDFLAGS= -ldflags=" \
 		-s -w"
 USE_GITLAB=	yes
 GL_ACCOUNT=	gitlab-org
-GITBRANCH=	16-3-stable
+GITBRANCH=	16-6-stable
 
 # for go dependencies
 # Gitlab hosts there dependencies on their own platform and not on go-proxy

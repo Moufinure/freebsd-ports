@@ -1,6 +1,7 @@
 PORTNAME=	netdata-go
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.56.0
+DISTVERSION=	0.57.2
+PORTREVISION=	1
 CATEGORIES=	net-mgmt
 
 MAINTAINER=	driesm@FreeBSD.org
@@ -10,7 +11,7 @@ WWW=		https://github.com/netdata/go.d.plugin
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+USES=		go:1.21,modules
 
 GO_MODULE=	github.com/netdata/go.d.plugin
 GO_TARGET=	./cmd/godplugin:${PREFIX}/libexec/netdata/plugins.d/god.plugin

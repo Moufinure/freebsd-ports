@@ -29,7 +29,6 @@
     SUBDIR += R-cran-png
     SUBDIR += R-cran-qcc
     SUBDIR += R-cran-rgdal
-    SUBDIR += R-cran-rtiff
     SUBDIR += R-cran-s2
     SUBDIR += R-cran-scales
     SUBDIR += R-cran-shape
@@ -143,6 +142,7 @@
     SUBDIR += djvulibre
     SUBDIR += dmtx-utils
     SUBDIR += drawing
+    SUBDIR += drawio
     SUBDIR += drawpile
     SUBDIR += drm-510-kmod
     SUBDIR += drm-515-kmod
@@ -201,19 +201,6 @@
     SUBDIR += fortytwo
     SUBDIR += fotoxx
     SUBDIR += founts
-    SUBDIR += fpc-cairo
-    SUBDIR += fpc-graph
-    SUBDIR += fpc-hermes
-    SUBDIR += fpc-imagemagick
-    SUBDIR += fpc-libgd
-    SUBDIR += fpc-libpng
-    SUBDIR += fpc-ncurses
-    SUBDIR += fpc-opengl
-    SUBDIR += fpc-pasjpeg
-    SUBDIR += fpc-proj4
-    SUBDIR += fpc-rsvg
-    SUBDIR += fpc-svgalib
-    SUBDIR += fpc-vcl-compat
     SUBDIR += fracplanet
     SUBDIR += fractgen
     SUBDIR += fraqtive
@@ -341,7 +328,9 @@
     SUBDIR += guile-cairo
     SUBDIR += guilib
     SUBDIR += gwenview
+    SUBDIR += gwenview-devel
     SUBDIR += h3
+    SUBDIR += halftone
     SUBDIR += hdr_tools
     SUBDIR += heimer
     SUBDIR += hiptext
@@ -408,6 +397,11 @@
     SUBDIR += kf5-kplotting
     SUBDIR += kf5-kquickcharts
     SUBDIR += kf5-prison
+    SUBDIR += kf6-kimageformats
+    SUBDIR += kf6-kplotting
+    SUBDIR += kf6-kquickcharts
+    SUBDIR += kf6-ksvg
+    SUBDIR += kf6-prison
     SUBDIR += kgeotag
     SUBDIR += kgraphviewer
     SUBDIR += kimageannotator
@@ -455,6 +449,7 @@
     SUBDIR += libcaca
     SUBDIR += libcdr01
     SUBDIR += libchamplain
+    SUBDIR += libdicom
     SUBDIR += libdmtx
     SUBDIR += libdrm
     SUBDIR += libecwj2
@@ -483,6 +478,7 @@
     SUBDIR += libjxr
     SUBDIR += libkdcraw
     SUBDIR += libkexiv2
+    SUBDIR += libkexiv2-devel
     SUBDIR += libkipi
     SUBDIR += libksane
     SUBDIR += libliftoff
@@ -605,10 +601,12 @@
     SUBDIR += ogre3d19
     SUBDIR += oidn
     SUBDIR += okular
+    SUBDIR += okular-devel
     SUBDIR += open3d
     SUBDIR += opencollada
     SUBDIR += opencolorio
     SUBDIR += opencolorio-tools
+    SUBDIR += opencoloriov1
     SUBDIR += opencsg
     SUBDIR += opencv
     SUBDIR += opendx
@@ -845,6 +843,7 @@
     SUBDIR += py-PyOpenGL
     SUBDIR += py-PyOpenGL-accelerate
     SUBDIR += py-actdiag
+    SUBDIR += py-albumentations
     SUBDIR += py-altair
     SUBDIR += py-asciitree
     SUBDIR += py-beziers
@@ -894,6 +893,7 @@
     SUBDIR += py-imageio-ffmpeg
     SUBDIR += py-imagesize
     SUBDIR += py-img2pdf
+    SUBDIR += py-imutils
     SUBDIR += py-leather
     SUBDIR += py-lerc
     SUBDIR += py-mapclassify
@@ -955,6 +955,7 @@
     SUBDIR += py-qpageview
     SUBDIR += py-qrencode
     SUBDIR += py-qt6-3d
+    SUBDIR += py-qudida
     SUBDIR += py-railroad-diagrams
     SUBDIR += py-rasterio
     SUBDIR += py-rasterstats
@@ -1083,6 +1084,7 @@
     SUBDIR += sane-airscan
     SUBDIR += sane-backends
     SUBDIR += sane-epkowa
+    SUBDIR += satty
     SUBDIR += scale2x
     SUBDIR += scantailor
     SUBDIR += scr2png
@@ -1138,7 +1140,6 @@
     SUBDIR += tgif
     SUBDIR += tif22pnm
     SUBDIR += tiff
-    SUBDIR += tiffgt
     SUBDIR += tifmerge
     SUBDIR += tikzit
     SUBDIR += tiled

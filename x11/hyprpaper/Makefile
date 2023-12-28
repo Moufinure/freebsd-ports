@@ -1,7 +1,10 @@
 PORTNAME=	hyprpaper
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.4.0
+DISTVERSION=	0.5.0
 CATEGORIES=	x11 wayland
+
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+PATCHFILES+=	81d6b682f6e6.patch:-p1 # https://github.com/hyprwm/hyprpaper/pull/117
 
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	Blazing fast Wayland wallpaper utility with IPC controls
@@ -9,9 +12,6 @@ WWW=		https://github.com/hyprwm/hyprpaper
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
-
-NOT_FOR_ARCHS=	mips mips64 powerpc powerpc64 powerpcspe sparc64
-NOT_FOR_ARCHS_REASON=	only little-endian is supported
 
 BUILD_DEPENDS=	gmake:devel/gmake \
 		wayland-protocols>0:graphics/wayland-protocols
@@ -30,9 +30,6 @@ post-patch:
 		-e 's/$${GIT_COMMIT_HASH}/${GH_TAGNAME}/' \
 		-e '/$${GIT_COMMIT_MESSAGE}/d' \
 		-e 's/$${GIT_DIRTY}/portbld/' \
-		${WRKSRC}/CMakeLists.txt
-# https://clang.llvm.org/cxx_status.html#cxx23
-	@${REINPLACE_CMD} -e 's/c++23/c++2b/' \
 		${WRKSRC}/CMakeLists.txt
 # Drop unused dependencies
 	@${REINPLACE_CMD} 's/ wlroots//' ${WRKSRC}/Makefile

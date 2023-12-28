@@ -1,6 +1,7 @@
 PORTNAME=	rosenpass
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.2.0
+DISTVERSION=	0.2.1
+PORTREVISION=	1
 CATEGORIES=	net net-vpn security
 
 MAINTAINER=	fuz@FreeBSD.org
@@ -18,6 +19,7 @@ RUN_DEPENDS=	bash:shells/bash \
 
 USES=		cargo llvm:build pkgconfig shebangfix
 USE_GITHUB=	yes
+CARGO_INSTALL_PATH=	rosenpass
 
 PLIST_FILES=	bin/rosenpass \
 		bin/rp \

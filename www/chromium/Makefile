@@ -1,11 +1,11 @@
 PORTNAME=	chromium
-PORTVERSION=	117.0.5938.149
-PORTREVISION=	2
+PORTVERSION=	120.0.6099.129
+PORTREVISION=	1
 CATEGORIES=	www wayland
 MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official/ \
 		https://nerd.hu/distfiles/:external
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
-		chrome-linux-${PORTVERSION}-llvm13.profdata${EXTRACT_SUFX}:external
+		chrome-linux-${PORTVERSION}-llvm16.profdata${EXTRACT_SUFX}:external
 
 MAINTAINER=	chromium@FreeBSD.org
 COMMENT=	Google web browser based on WebKit

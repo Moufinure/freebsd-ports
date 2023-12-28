@@ -74,7 +74,6 @@
     SUBDIR += c3270
     SUBDIR += calendarsupport
     SUBDIR += ccxstream
-    SUBDIR += ceph14
     SUBDIR += cf
     SUBDIR += charm
     SUBDIR += chrony
@@ -131,6 +130,7 @@
     SUBDIR += downzemall
     SUBDIR += dpdk
     SUBDIR += dpdk-20.11
+    SUBDIR += dpdk-22.11
     SUBDIR += dpinger
     SUBDIR += drawterm
     SUBDIR += drive
@@ -159,13 +159,11 @@
     SUBDIR += flower
     SUBDIR += foreman-proxy
     SUBDIR += fort
-    SUBDIR += fpc-ldap
-    SUBDIR += fpc-libenet
-    SUBDIR += fpc-pcap
     SUBDIR += fping
     SUBDIR += freebsd-telnetd
     SUBDIR += freebsd-uucp
     SUBDIR += freediameter
+    SUBDIR += freeipa-client
     SUBDIR += freeradius-client
     SUBDIR += freeradius3
     SUBDIR += freerdp
@@ -232,12 +230,8 @@
     SUBDIR += guacamole-server
     SUBDIR += gupnp
     SUBDIR += gupnp-av
-    SUBDIR += gupnp-dlna
     SUBDIR += gupnp-igd
-    SUBDIR += gupnp-igd12
     SUBDIR += gupnp-tools
-    SUBDIR += gupnp-ui
-    SUBDIR += gupnp14
     SUBDIR += gutenfetch
     SUBDIR += gwhois
     SUBDIR += h323plus
@@ -327,6 +321,11 @@
     SUBDIR += kf5-kholidays
     SUBDIR += kf5-kxmlrpcclient
     SUBDIR += kf5-syndication
+    SUBDIR += kf6-kcalendarcore
+    SUBDIR += kf6-kcontacts
+    SUBDIR += kf6-kdav
+    SUBDIR += kf6-kholidays
+    SUBDIR += kf6-syndication
     SUBDIR += kget
     SUBDIR += kidentitymanagement
     SUBDIR += kimap
@@ -343,6 +342,7 @@
     SUBDIR += kontactinterface
     SUBDIR += kpeoplevcard
     SUBDIR += kpimtextedit
+    SUBDIR += krakend-ce
     SUBDIR += krdc
     SUBDIR += krfb
     SUBDIR += krill
@@ -387,7 +387,6 @@
     SUBDIR += libiscsi
     SUBDIR += libkgapi
     SUBDIR += libksieve
-    SUBDIR += libkvkontakte
     SUBDIR += liblinphone
     SUBDIR += libmaia
     SUBDIR += libmateweather
@@ -427,6 +426,7 @@
     SUBDIR += librsync
     SUBDIR += libsignal-protocol-c
     SUBDIR += libslirp
+    SUBDIR += libsockpp
     SUBDIR += libsrtp2
     SUBDIR += libtnl
     SUBDIR += libtrace
@@ -571,13 +571,13 @@
     SUBDIR += openbgpd
     SUBDIR += openbgpd6
     SUBDIR += openbgpd7
+    SUBDIR += openbgpd8
     SUBDIR += openldap25-client
     SUBDIR += openldap25-server
     SUBDIR += openldap26-client
     SUBDIR += openldap26-server
     SUBDIR += openmdns
     SUBDIR += openmpi
-    SUBDIR += openmpi3
     SUBDIR += openntpd
     SUBDIR += openpgm
     SUBDIR += openradius
@@ -930,7 +930,6 @@
     SUBDIR += p5-ldap2pw
     SUBDIR += p5-perl-ldap
     SUBDIR += p5-srv2pf
-    SUBDIR += pacemaker1
     SUBDIR += pacemaker2
     SUBDIR += packetdrill
     SUBDIR += packter-agent
@@ -1037,7 +1036,6 @@
     SUBDIR += py-aiohttp-socks
     SUBDIR += py-amqp
     SUBDIR += py-amqplib
-    SUBDIR += py-anonfile
     SUBDIR += py-avahi
     SUBDIR += py-blobfile
     SUBDIR += py-bonsai
@@ -1069,7 +1067,6 @@
     SUBDIR += py-iptools
     SUBDIR += py-kafka-python
     SUBDIR += py-kombu
-    SUBDIR += py-ldap
     SUBDIR += py-ldap0
     SUBDIR += py-ldap3
     SUBDIR += py-ldapdomaindump
@@ -1122,6 +1119,7 @@
     SUBDIR += py-python-glanceclient
     SUBDIR += py-python-heatclient
     SUBDIR += py-python-keystoneclient
+    SUBDIR += py-python-ldap
     SUBDIR += py-python-neutronclient
     SUBDIR += py-python-novaclient
     SUBDIR += py-python-openstackclient
@@ -1189,6 +1187,7 @@
     SUBDIR += qrcp
     SUBDIR += qt5-network
     SUBDIR += qt5-networkauth
+    SUBDIR += qt6-coap
     SUBDIR += qt6-networkauth
     SUBDIR += quagga
     SUBDIR += quiche
@@ -1221,6 +1220,7 @@
     SUBDIR += remotebox
     SUBDIR += remotedesk
     SUBDIR += repeater
+    SUBDIR += revsocks
     SUBDIR += rfbproxy
     SUBDIR += rinetd
     SUBDIR += ripe-whois
@@ -1232,6 +1232,7 @@
     SUBDIR += rscsi
     SUBDIR += rsplib
     SUBDIR += rssguard
+    SUBDIR += rsyn
     SUBDIR += rsync
     SUBDIR += rsync-bpc
     SUBDIR += rtg
@@ -1241,6 +1242,7 @@
     SUBDIR += rubygem-activestorage60
     SUBDIR += rubygem-activestorage61
     SUBDIR += rubygem-activestorage70
+    SUBDIR += rubygem-activestorage71
     SUBDIR += rubygem-amazon-ec2
     SUBDIR += rubygem-amq-protocol
     SUBDIR += rubygem-amqp
@@ -1309,8 +1311,13 @@
     SUBDIR += rubygem-google-cloud-core
     SUBDIR += rubygem-google-cloud-env
     SUBDIR += rubygem-google-cloud-errors
+    SUBDIR += rubygem-google-cloud-location
     SUBDIR += rubygem-google-cloud-logging
     SUBDIR += rubygem-google-cloud-logging-v2
+    SUBDIR += rubygem-google-cloud-monitoring
+    SUBDIR += rubygem-google-cloud-monitoring-dashboard-v1
+    SUBDIR += rubygem-google-cloud-monitoring-metrics_scope-v1
+    SUBDIR += rubygem-google-cloud-monitoring-v3
     SUBDIR += rubygem-google-cloud-pubsub
     SUBDIR += rubygem-google-cloud-pubsub-v1
     SUBDIR += rubygem-google-cloud-resource_manager
@@ -1319,6 +1326,10 @@
     SUBDIR += rubygem-google-cloud-spanner-admin-instance-v1
     SUBDIR += rubygem-google-cloud-spanner-v1
     SUBDIR += rubygem-google-cloud-storage
+    SUBDIR += rubygem-google-cloud-storage144
+    SUBDIR += rubygem-google-cloud-trace
+    SUBDIR += rubygem-google-cloud-trace-v1
+    SUBDIR += rubygem-google-cloud-trace-v2
     SUBDIR += rubygem-grpc
     SUBDIR += rubygem-hangouts-chat
     SUBDIR += rubygem-http-parser
@@ -1453,6 +1464,7 @@
     SUBDIR += shmux
     SUBDIR += sie-nmsg
     SUBDIR += simpleproxy
+    SUBDIR += sing-box
     SUBDIR += siproxd
     SUBDIR += sipsak
     SUBDIR += skstream
@@ -1555,6 +1567,7 @@
     SUBDIR += trafshow3
     SUBDIR += trickle
     SUBDIR += trippy
+    SUBDIR += ts-warp
     SUBDIR += tsclient
     SUBDIR += tsctp
     SUBDIR += tsocks

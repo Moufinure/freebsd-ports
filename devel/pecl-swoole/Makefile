@@ -1,5 +1,5 @@
 PORTNAME=	swoole
-PORTVERSION=	5.1.0
+PORTVERSION=	5.1.1
 CATEGORIES=	devel net
 
 MAINTAINER=	vanilla@FreeBSD.org
@@ -9,7 +9,7 @@ WWW=		https://pecl.php.net/package/swoole
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-NOT_FOR_ARCHS=	i386
+NOT_FOR_ARCHS=	i386 powerpc
 NOT_FOR_ARCHS_REASON= 	upstream drop 32 bits support
 
 USES=		compiler:c11 localbase:ldflags php:build,pecl ssl

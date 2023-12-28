@@ -9,6 +9,7 @@
     SUBDIR += R-cran-sqldf
     SUBDIR += WWWdb
     SUBDIR += adminer
+    SUBDIR += adminerevo
     SUBDIR += adodb5
     SUBDIR += akonadi
     SUBDIR += apache-commons-dbutils
@@ -68,16 +69,6 @@
     SUBDIR += firebird40-server
     SUBDIR += fortytwo-bdb
     SUBDIR += foundationdb
-    SUBDIR += fpc-dblib
-    SUBDIR += fpc-fpindexer
-    SUBDIR += fpc-gdbm
-    SUBDIR += fpc-ibase
-    SUBDIR += fpc-mysql
-    SUBDIR += fpc-odbc
-    SUBDIR += fpc-oracle
-    SUBDIR += fpc-postgres
-    SUBDIR += fpc-pxlib
-    SUBDIR += fpc-sqlite
     SUBDIR += frece
     SUBDIR += freetds
     SUBDIR += freetds-devel
@@ -95,6 +86,7 @@
     SUBDIR += go-pgweb
     SUBDIR += gobang
     SUBDIR += gom
+    SUBDIR += goose
     SUBDIR += gqlplus
     SUBDIR += grass7
     SUBDIR += grass8
@@ -120,6 +112,7 @@
     SUBDIR += kbibtex
     SUBDIR += kdb
     SUBDIR += kexi
+    SUBDIR += keydb
     SUBDIR += kyotocabinet
     SUBDIR += kyototycoon
     SUBDIR += ldb15
@@ -206,6 +199,8 @@
     SUBDIR += mysql57-server
     SUBDIR += mysql80-client
     SUBDIR += mysql80-server
+    SUBDIR += mysql81-client
+    SUBDIR += mysql81-server
     SUBDIR += mysqlbackup
     SUBDIR += mysqldump-secure
     SUBDIR += mysqlreport
@@ -485,7 +480,6 @@
     SUBDIR += p5-Search-InvertedIndex
     SUBDIR += p5-Search-Namazu
     SUBDIR += p5-Search-Xapian
-    SUBDIR += p5-Search-Xapian12
     SUBDIR += p5-Store-CouchDB
     SUBDIR += p5-T2
     SUBDIR += p5-Tangram
@@ -558,6 +552,7 @@
     SUBDIR += pg_similarity
     SUBDIR += pg_stat_kcache
     SUBDIR += pg_tileserv
+    SUBDIR += pg_vector
     SUBDIR += pgaccess
     SUBDIR += pgadmin3
     SUBDIR += pgagroal
@@ -643,10 +638,10 @@
     SUBDIR += plpgsql_check
     SUBDIR += pointcloud
     SUBDIR += postgis-jdbc
-    SUBDIR += postgis30
     SUBDIR += postgis31
     SUBDIR += postgis32
     SUBDIR += postgis33
+    SUBDIR += postgis34
     SUBDIR += postgresql-cstore_fdw
     SUBDIR += postgresql-idn
     SUBDIR += postgresql-jdbc
@@ -755,6 +750,10 @@
     SUBDIR += py-couchdb
     SUBDIR += py-databases
     SUBDIR += py-dbf
+    SUBDIR += py-dbt-core
+    SUBDIR += py-dbt-duckdb
+    SUBDIR += py-dbt-semantic-interfaces
+    SUBDIR += py-dbt-snowflake
     SUBDIR += py-dbutils
     SUBDIR += py-duckdb
     SUBDIR += py-fakeredis
@@ -823,7 +822,10 @@
     SUBDIR += py-redis3
     SUBDIR += py-redis4
     SUBDIR += py-rrdtool
+    SUBDIR += py-schemachange
     SUBDIR += py-sispy
+    SUBDIR += py-snowddl
+    SUBDIR += py-snowflake-connector-python
     SUBDIR += py-south
     SUBDIR += py-sqlalchemy-json
     SUBDIR += py-sqlalchemy-migrate
@@ -875,6 +877,7 @@
     SUBDIR += replibyte
     SUBDIR += retcl
     SUBDIR += rocksdb
+    SUBDIR += rqlite
     SUBDIR += rrdman
     SUBDIR += rrdmerge
     SUBDIR += rrdtool
@@ -894,11 +897,13 @@
     SUBDIR += rubygem-activemodel60
     SUBDIR += rubygem-activemodel61
     SUBDIR += rubygem-activemodel70
+    SUBDIR += rubygem-activemodel71
     SUBDIR += rubygem-activerecord-explain-analyze
     SUBDIR += rubygem-activerecord-import
     SUBDIR += rubygem-activerecord-jdbc-adapter
     SUBDIR += rubygem-activerecord-jdbcmysql-adapter
     SUBDIR += rubygem-activerecord-session_store
+    SUBDIR += rubygem-activerecord-trilogy-adapter
     SUBDIR += rubygem-activerecord4
     SUBDIR += rubygem-activerecord5
     SUBDIR += rubygem-activerecord50
@@ -906,6 +911,7 @@
     SUBDIR += rubygem-activerecord60
     SUBDIR += rubygem-activerecord61
     SUBDIR += rubygem-activerecord70
+    SUBDIR += rubygem-activerecord71
     SUBDIR += rubygem-after_commit_queue
     SUBDIR += rubygem-amalgalite
     SUBDIR += rubygem-arel
@@ -962,6 +968,11 @@
     SUBDIR += rubygem-globalid-rails60
     SUBDIR += rubygem-globalid-rails61
     SUBDIR += rubygem-globalid-rails70
+    SUBDIR += rubygem-globalid-rails71
+    SUBDIR += rubygem-google-cloud-datastore
+    SUBDIR += rubygem-google-cloud-datastore-v1
+    SUBDIR += rubygem-google-cloud-firestore
+    SUBDIR += rubygem-google-cloud-firestore-v1
     SUBDIR += rubygem-her
     SUBDIR += rubygem-hiredis
     SUBDIR += rubygem-influxdb
@@ -1014,6 +1025,7 @@
     SUBDIR += rubygem-state_machines-activerecord
     SUBDIR += rubygem-state_machines-activerecord08
     SUBDIR += rubygem-tarantool
+    SUBDIR += rubygem-trilogy
     SUBDIR += sequeler
     SUBDIR += sfcgal
     SUBDIR += sharedance
@@ -1059,6 +1071,7 @@
     SUBDIR += tinycdb
     SUBDIR += tokyocabinet
     SUBDIR += tokyotyrant
+    SUBDIR += trilogy
     SUBDIR += tsearch_extras
     SUBDIR += tuning-primer
     SUBDIR += twemproxy
@@ -1070,9 +1083,7 @@
     SUBDIR += webdis
     SUBDIR += wfb2sql
     SUBDIR += xapian-bindings
-    SUBDIR += xapian-bindings12
     SUBDIR += xapian-core
-    SUBDIR += xapian-core12
     SUBDIR += xls2txt
     SUBDIR += xrootd
     SUBDIR += xtrabackup
