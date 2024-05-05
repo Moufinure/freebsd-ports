@@ -88,10 +88,6 @@ _SUF2=		,${PORTEPOCH}
 LIB_DEPENDS+=	libunwind.so:devel/libunwind
 .endif
 
-.if defined(PPC_ABI) && ${PPC_ABI} == ELFv1
-USE_GCC=	yes
-.endif
-
 .if ${ARCH} == armv6 || ${ARCH} == armv7 || ${ARCH} == powerpc
 CONFIGURE_ARGS+=	--with-setjmp-type=_setjmp
 CONFIGURE_ENV+=		ac_cv_func__setjmp=yes
@@ -115,6 +111,9 @@ EXTDOCS=	ripper/README stringio/README.md syslog/syslog.txt
 RB_SET_CONF_VAR=	${SH} -c \
 			'${REINPLACE_CMD} -E -e "s,(CONFIG\[\"$$0\"\][[:space:]]*=[[:space:]]*)(\(?)(.*)(\)?),\1\2$$1\4," ${WRKSRC}/rbconfig.rb' \
 			--
+
+post-extract-DOCS-on:
+	${MV} ${WRKSRC}/ChangeLog ${WRKSRC}/doc/ChangeLog
 
 post-patch:
 # We get these from other ports
@@ -163,7 +162,7 @@ post-install:
 # Link "ruby.1.gz" to "ruby31.1.gz", etc.
 #
 . for FILE in ${INSTALLED_MANUALS}
-	${LN} -fs ${FILE}${RUBY_SUFFIX}.1.gz ${STAGEDIR}${MANPREFIX}/man/man1/${FILE}.1.gz
+	${LN} -fs ${FILE}${RUBY_SUFFIX}.1.gz ${STAGEDIR}${PREFIX}/share/man/man1/${FILE}.1.gz
 . endfor
 .endif
 
@@ -191,7 +190,6 @@ post-install-DOCS-on:
 .endfor
 	@(cd ${WRKSRC}/doc/ && ${COPYTREE_SHARE} \* ${STAGEDIR}${RUBY_DOCDIR}/)
 	${INSTALL_DATA} ${WRKSRC}/COPYING*	\
-			${WRKSRC}/ChangeLog	\
 			${WRKSRC}/LEGAL		\
 			${WRKSRC}/README*	\
 			${STAGEDIR}${RUBY_DOCDIR}/

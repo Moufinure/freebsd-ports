@@ -155,6 +155,7 @@
     SUBDIR += hashcash
     SUBDIR += hbiff
     SUBDIR += heirloom-mailx
+    SUBDIR += hydroxide
     SUBDIR += ifile
     SUBDIR += im
     SUBDIR += imapdedup
@@ -181,7 +182,6 @@
     SUBDIR += libpst
     SUBDIR += libsieve
     SUBDIR += libspamtest
-    SUBDIR += libspf
     SUBDIR += libspf2
     SUBDIR += libsrs2
     SUBDIR += libsrs_alt
@@ -199,6 +199,7 @@
     SUBDIR += mailfront
     SUBDIR += mailgraph
     SUBDIR += mailhog
+    SUBDIR += mailio
     SUBDIR += mailman
     SUBDIR += mailman-exim4
     SUBDIR += mailman-postfix
@@ -351,6 +352,7 @@
     SUBDIR += p5-Mail-Audit
     SUBDIR += p5-Mail-Audit-Attach
     SUBDIR += p5-Mail-AuthenticationResults
+    SUBDIR += p5-Mail-BIMI
     SUBDIR += p5-Mail-Box
     SUBDIR += p5-Mail-Box-IMAP4
     SUBDIR += p5-Mail-Box-IMAP4-SSL
@@ -360,6 +362,7 @@
     SUBDIR += p5-Mail-CheckUser
     SUBDIR += p5-Mail-DKIM
     SUBDIR += p5-Mail-DMARC
+    SUBDIR += p5-Mail-DataFeed-Abusix
     SUBDIR += p5-Mail-DeliveryStatus-BounceParser
     SUBDIR += p5-Mail-DomainKeys
     SUBDIR += p5-Mail-Ezmlm
@@ -376,6 +379,7 @@
     SUBDIR += p5-Mail-Mbox-MessageParser
     SUBDIR += p5-Mail-MboxParser
     SUBDIR += p5-Mail-Message
+    SUBDIR += p5-Mail-Milter-Authentication
     SUBDIR += p5-Mail-OpenDKIM
     SUBDIR += p5-Mail-OpenRelay-Simple
     SUBDIR += p5-Mail-POP3Client
@@ -456,7 +460,6 @@
     SUBDIR += perdition
     SUBDIR += pflogsumm
     SUBDIR += pfqueue
-    SUBDIR += php80-imap
     SUBDIR += php81-imap
     SUBDIR += php82-imap
     SUBDIR += php83-imap
@@ -484,7 +487,6 @@
     SUBDIR += postfixadmin-lite
     SUBDIR += postfixadmin33
     SUBDIR += postfixadmin33-lite
-    SUBDIR += postforward
     SUBDIR += postgrey
     SUBDIR += postsrsd
     SUBDIR += prepflog
@@ -508,6 +510,7 @@
     SUBDIR += py-flask-mail
     SUBDIR += py-flufl.bounce
     SUBDIR += py-fuglu
+    SUBDIR += py-imap-tools
     SUBDIR += py-imapclient
     SUBDIR += py-imaplib2
     SUBDIR += py-mail-parser
@@ -551,7 +554,6 @@
     SUBDIR += qmhandle
     SUBDIR += qpopper
     SUBDIR += qsf
-    SUBDIR += qsheff
     SUBDIR += queue-fix
     SUBDIR += queue-repair
     SUBDIR += rainloop
@@ -718,7 +720,6 @@
     SUBDIR += tlb
     SUBDIR += tmpmail
     SUBDIR += tpop3d
-    SUBDIR += trojita
     SUBDIR += tumgreyspf
     SUBDIR += up-imapproxy
     SUBDIR += usendmail

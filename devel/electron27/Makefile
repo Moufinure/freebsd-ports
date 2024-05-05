@@ -1,7 +1,6 @@
 PORTNAME=	electron
 DISTVERSIONPREFIX=	v
 DISTVERSION=	${ELECTRON_VER:S/-beta./.b/}
-PORTREVISION=	1
 CATEGORIES=	devel
 MASTER_SITES=	https://github.com/tagattie/FreeBSD-Electron/releases/download/v27.1.3/:chromium \
 		https://commondatastorage.googleapis.com/chromium-nodejs/:chromium_node \
@@ -21,11 +20,15 @@ LICENSE=	BSD3CLAUSE LGPL21 MPL11 MIT
 LICENSE_COMB=	multi
 LICENSE_FILE=	${WRKSRC}/electron/LICENSE
 
+DEPRECATED=	EOLed upstream, switch to newer version
+EXPIRATION_DATE=	2024-05-31
+
 ONLY_FOR_ARCHS=	aarch64 amd64 i386
 
 FETCH_DEPENDS=	yarn${NODEJS_SUFFIX}>0:www/yarn${NODEJS_SUFFIX}
 EXTRACT_DEPENDS=yarn${NODEJS_SUFFIX}>0:www/yarn${NODEJS_SUFFIX}
-PATCH_DEPENDS=	git:devel/git
+PATCH_DEPENDS=	git:devel/git \
+		jq:textproc/jq
 BUILD_DEPENDS=	gperf:devel/gperf \
 		yasm:devel/yasm \
 		${LOCALBASE}/libdata/pkgconfig/dri.pc:graphics/mesa-dri \
@@ -188,7 +191,7 @@ DEBUG_VARS_OFF=		BUILDTYPE=Release \
 DIST_IMPLIES=		DRIVER
 DRIVER_MAKE_ARGS=	chromedriver
 
-HEIMDAL_LIB_DEPENDS=	libkrb.so.26:security/heimdal
+HEIMDAL_LIB_DEPENDS=	libkrb5.so.26:security/heimdal
 KERBEROS_VARS=		GN_ARGS+=use_kerberos=true
 KERBEROS_VARS_OFF=	GN_ARGS+=use_kerberos=false
 
@@ -197,7 +200,7 @@ LTO_VARS=		GN_ARGS+=use_thin_lto=true \
 			WANTSPACE="14 GB"
 LTO_VARS_OFF=		GN_ARGS+=use_thin_lto=false
 
-MIT_LIB_DEPENDS=	libkrb.so.3:security/krb5
+MIT_LIB_DEPENDS=	libkrb5.so.3:security/krb5
 
 PIPEWIRE_LIB_DEPENDS=	libpipewire-0.3.so:multimedia/pipewire
 PIPEWIRE_VARS=		GN_ARGS+=rtc_use_pipewire=true \
@@ -234,7 +237,7 @@ REACTIVEOBJC_VER=		74ab5baccc6f7202c8ac69a8d1e152c29dc1ea76
 # See ${WRKSRC}/electron/DEPS for MANTLE_VER
 MANTLE_VER=			78d3966b3c331292ea29ec38661b25df0a245948
 
-YARN_TIMESTAMP=	1703284301
+YARN_TIMESTAMP=	61171200
 
 .include "Makefile.version"
 .include <bsd.port.pre.mk>

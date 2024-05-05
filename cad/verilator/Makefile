@@ -1,7 +1,6 @@
 PORTNAME=	verilator
 DISTVERSIONPREFIX=	v
-DISTVERSION=	5.018
-PORTREVISION=	1
+DISTVERSION=	5.024
 CATEGORIES=	cad
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -33,6 +32,7 @@ SHEBANG_FILES=	bin/verilator_ccache_report \
 		bin/verilator_profcfunc
 
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 CONFIGURE_ENV=	INSTALL_PROGRAM="${INSTALL_SCRIPT}"
 CONFIGURE_ARGS=	AR=${LOCALBASE}/bin/ar \
 		PYTHON3=${PYTHON_CMD}
@@ -63,11 +63,19 @@ pre-configure:
 	cd ${WRKSRC} && \
 		autoconf
 
-post-build:
-	@${STRIP_CMD} ${WRKSRC}/bin/verilator_bin
+post-install:
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/share/verilator/bin/verilator_bin
+
+post-install-INSTALL_DBG_EXECUTABLES-on:
+	@${STRIP_CMD} \
+		${STAGEDIR}${PREFIX}/share/verilator/bin/verilator_bin_dbg \
+		${STAGEDIR}${PREFIX}/share/verilator/bin/verilator_coverage_bin_dbg
 
 post-install-INSTALL_DBG_EXECUTABLES-off:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/verilator_bin
-	@${RM} ${STAGEDIR}${PREFIX}/bin/verilator_bin_dbg ${STAGEDIR}${PREFIX}/bin/verilator_coverage_bin_dbg
+	@${RM} \
+		${STAGEDIR}${PREFIX}/bin/verilator_bin_dbg \
+		${STAGEDIR}${PREFIX}/bin/verilator_coverage_bin_dbg \
+		${STAGEDIR}${PREFIX}/share/verilator/bin/verilator_bin_dbg \
+		${STAGEDIR}${PREFIX}/share/verilator/bin/verilator_coverage_bin_dbg
 
 .include <bsd.port.mk>

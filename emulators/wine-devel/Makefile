@@ -1,8 +1,8 @@
 PORTNAME=	wine
-DISTVERSION=	9.0-rc3
+DISTVERSION=	9.6
 PORTEPOCH=	1
 CATEGORIES=	emulators
-MASTER_SITES=	https://dl.winehq.org/wine/source/9.0/
+MASTER_SITES=	https://dl.winehq.org/wine/source/9.x/
 PKGNAMESUFFIX=	-devel
 
 MAINTAINER=	ports@FreeBSD.org
@@ -27,6 +27,7 @@ CPE_VENDOR=	winehq
 CONFLICTS_INSTALL=	wine
 
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 CONFIGURE_ARGS+=--verbose \
 		--disable-kerberos \
 		--disable-tests \
@@ -123,7 +124,7 @@ CONFIGURE_ARGS+=	--without-gstreamer
 PLIST_SUB+=		GSTREAMER="@comment "
 .endif
 
-.if (${LLVM_DEFAULT} == 10 || ${LLVM_DEFAULT} == 11)
+.if ${LLVM_DEFAULT} == 11
 _LLVM_VERSION=	15
 .else
 _LLVM_VERSION=	${LLVM_DEFAULT}
@@ -170,7 +171,7 @@ post-install:
 .endif
 
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
-.for i in README ANNOUNCE AUTHORS
+.for i in ANNOUNCE.md AUTHORS README.md
 	${INSTALL_DATA} ${WRKSRC}/${i} ${STAGEDIR}${DOCSDIR}
 .endfor
 	${INSTALL_DATA} ${WRKSRC}/programs/winedbg/README ${STAGEDIR}${DOCSDIR}/README.winedbg

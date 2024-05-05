@@ -1,5 +1,6 @@
 PORTNAME=	lux
-PORTVERSION=	1.1.8
+DISTVERSION=	1.1.8
+PORTREVISION=	1
 CATEGORIES=	graphics
 MASTER_SITES=	https://bitbucket.org/kfj/pv/get/
 PKGNAMESUFFIX=	-pv	# distinguish from www/lux
@@ -18,7 +19,7 @@ LIB_DEPENDS=	libhwy.so:devel/highway \
 		libsfml-window.so:devel/sfml \
 		libexiv2.so:graphics/exiv2 \
 		libvigraimpex.so:graphics/vigra
-RUN_DEPENDS=	${GUIFONT}:x11-fonts/noto-basic
+RUN_DEPENDS=	${GUIFONT}:x11-fonts/noto-sans-basic
 GUIFONT=	${LOCALBASE}/share/fonts/noto/NotoSans-Regular.ttf
 
 USES=		cmake desktop-file-utils dos2unix pkgconfig tar:bz2
@@ -41,7 +42,7 @@ AVX_DESC=	support AVX flavor
 AVX2_DESC=	support AVX2 flavor
 AVX512_DESC=	support AVX-512F flavor
 
-SSE2_CXXFLAGS_OFF=	${${OSVERSION}>=1300000:?-march=i686:}
+SSE2_CXXFLAGS_OFF=	-march=i686
 SSE2_CXXFLAGS=		-march=pentium4
 SSSE3_CMAKE_BOOL=	FLV_SSSE3
 SSE42_CMAKE_BOOL=	FLV_SSE42

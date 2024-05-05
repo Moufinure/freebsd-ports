@@ -1,7 +1,6 @@
 PORTNAME=	squeekboard
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.22.0
-PORTREVISION=	5
+DISTVERSION=	1.38.0
 CATEGORIES=	x11 wayland
 
 PATCH_SITES=	${GL_SITE}/${GL_ACCOUNT}/${GL_PROJECT}/-/commit/
@@ -14,7 +13,6 @@ WWW=		https://gitlab.gnome.org/World/Phosh/squeekboard
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BROKEN_FreeBSD_12_powerpc64=	fails to compile: rs.e2mg9us3-cgu.14:(.text.imservice_handle_commit_state+0x228): undefined reference to 'eekboard_context_service_show_keyboard'
 BROKEN_FreeBSD_13_powerpc64=	fails to link: ld: error: undefined symbol: eekboard_context_service_get_overlay
 
 BUILD_DEPENDS=	wayland-protocols>=1.12:graphics/wayland-protocols
@@ -33,14 +31,12 @@ MAKE_ENV=	${CARGO_ENV}
 CARGO_BUILD=	no
 CARGO_INSTALL=	no
 CARGO_TEST=	no
-TARGET_ORDER_OVERRIDE=	750:cargo-configure
-CARGO_CARGOTOML=	${BUILD_WRKSRC}/Cargo.toml
 MESON_ARGS=	-Dstrict=false
-MESON_ARGS+=	-Dnewer=true # XXX Cargo.lock
 PLIST_FILES=	bin/${PORTNAME} \
 		bin/${PORTNAME}-entry \
 		bin/${PORTNAME}-test-layout \
 		share/applications/sm.puri.Squeekboard.desktop \
+		share/locale/be/LC_MESSAGES/${PORTNAME}.mo \
 		share/locale/ca/LC_MESSAGES/${PORTNAME}.mo \
 		share/locale/cs/LC_MESSAGES/${PORTNAME}.mo \
 		share/locale/de/LC_MESSAGES/${PORTNAME}.mo \
@@ -55,6 +51,7 @@ PLIST_FILES=	bin/${PORTNAME} \
 		share/locale/he/LC_MESSAGES/${PORTNAME}.mo \
 		share/locale/hi/LC_MESSAGES/${PORTNAME}.mo \
 		share/locale/hr/LC_MESSAGES/${PORTNAME}.mo \
+		share/locale/ht/LC_MESSAGES/${PORTNAME}.mo \
 		share/locale/hu/LC_MESSAGES/${PORTNAME}.mo \
 		share/locale/it/LC_MESSAGES/${PORTNAME}.mo \
 		share/locale/ka/LC_MESSAGES/${PORTNAME}.mo \
@@ -74,18 +71,9 @@ PLIST_FILES=	bin/${PORTNAME} \
 		share/locale/zh_CN/LC_MESSAGES/${PORTNAME}.mo \
 		${NULL}
 
-post-extract:
-.if ${MESON_ARGS:M-Dnewer=true}
-	@${CP} -p ${WRKSRC}/Cargo.lock.newer ${WRKSRC}/Cargo.lock
-.endif
-
 post-patch:
 # Make each cargo subcommand very verbose
 	@${REINPLACE_CMD} -e '/^cargo/s/"$$@"/--verbose --verbose &/' \
 		${WRKSRC}/cargo.sh
-
-post-configure:
-# Provide preprocessed Cargo.toml for USES=cargo
-	@${DO_MAKE_BUILD} -C ${BUILD_WRKSRC} Cargo.toml
 
 .include <bsd.port.mk>

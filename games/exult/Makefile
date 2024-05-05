@@ -1,6 +1,6 @@
 PORTNAME=	exult
 DISTVERSION?=	1.8
-PORTREVISION?=	5
+PORTREVISION?=	6
 PORTEPOCH=	1
 CATEGORIES=	games
 
@@ -83,7 +83,7 @@ post-install-DOCS-on:
 
 # Silence cast warnings from GTK callbacks in clang >=16
 # https://github.com/exult/exult/issues/416
-.if ${OPSYS} == FreeBSD && ( ${OSVERSION} >= 1400091 || ( ${OSVERSION} >= 1302507 && ${OSVERSION} < 1400000 ))
+.if !defined(PKGNAMESUFFIX) && ( ${OPSYS} == FreeBSD && ( ${OSVERSION} >= 1400091 || ( ${OSVERSION} >= 1302507 && ${OSVERSION} < 1400000 )))
 CFLAGS+=	-Wno-cast-function-type-strict
 .endif
 

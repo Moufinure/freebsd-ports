@@ -3,8 +3,6 @@
     SUBDIR += Bento4
     SUBDIR += ab-av1
     SUBDIR += ab25
-    SUBDIR += acidrip
-    SUBDIR += aegisub
     SUBDIR += alass
     SUBDIR += aom
     SUBDIR += aravis
@@ -24,9 +22,7 @@
     SUBDIR += bino
     SUBDIR += bitstream
     SUBDIR += blind
-    SUBDIR += bsdbktr_tvtune
     SUBDIR += butt
-    SUBDIR += camserv
     SUBDIR += celluloid
     SUBDIR += cheese
     SUBDIR += chilitags
@@ -41,6 +37,7 @@
     SUBDIR += deforaos-player
     SUBDIR += dirac
     SUBDIR += dragon
+    SUBDIR += droidcam
     SUBDIR += dtv-scan-tables
     SUBDIR += dumpmpeg
     SUBDIR += dv2sub
@@ -66,15 +63,11 @@
     SUBDIR += ffsubsync
     SUBDIR += filebot
     SUBDIR += flvmeta
-    SUBDIR += flvstreamer
-    SUBDIR += flvtool++
     SUBDIR += fswebcam
-    SUBDIR += fxtv
     SUBDIR += gaupol
     SUBDIR += gavl
     SUBDIR += gdialog
     SUBDIR += get_iplayer
-    SUBDIR += gmerlin
     SUBDIR += gmmlib
     SUBDIR += gmp-api
     SUBDIR += gmtk
@@ -106,7 +99,6 @@
     SUBDIR += gstreamer1-plugins-msdk
     SUBDIR += gstreamer1-plugins-openh264
     SUBDIR += gstreamer1-plugins-resindvd
-    SUBDIR += gstreamer1-plugins-rtmp
     SUBDIR += gstreamer1-plugins-rust
     SUBDIR += gstreamer1-plugins-smoothstreaming
     SUBDIR += gstreamer1-plugins-svt-av1
@@ -141,6 +133,7 @@
     SUBDIR += kdemultimedia
     SUBDIR += kdemultimedia-ffmpegthumbs
     SUBDIR += kdenlive
+    SUBDIR += kew
     SUBDIR += kf5-kmediaplayer
     SUBDIR += kmplayer
     SUBDIR += kodi
@@ -187,13 +180,12 @@
     SUBDIR += librav1e
     SUBDIR += librespot
     SUBDIR += librist
-    SUBDIR += librtmp
     SUBDIR += libtheora
     SUBDIR += libtuner
+    SUBDIR += libudfread
     SUBDIR += libuvc
     SUBDIR += libv4l
     SUBDIR += libva
-    SUBDIR += libva-glx
     SUBDIR += libva-intel-driver
     SUBDIR += libva-intel-hybrid-driver
     SUBDIR += libva-intel-media-driver
@@ -204,6 +196,7 @@
     SUBDIR += libvdpau-va-gl
     SUBDIR += libvlcpp
     SUBDIR += libvpx
+    SUBDIR += libwebm
     SUBDIR += libx264
     SUBDIR += libxine
     SUBDIR += libxspf
@@ -218,12 +211,12 @@
     SUBDIR += lsdvd
     SUBDIR += m2vrequantiser
     SUBDIR += makemkv
+    SUBDIR += mediaelch
     SUBDIR += mediainfo
     SUBDIR += mencoder
     SUBDIR += minisatip
     SUBDIR += minitube
     SUBDIR += mjpegtools
-    SUBDIR += mjpg-streamer
     SUBDIR += mkclean
     SUBDIR += mkvalidator
     SUBDIR += mkvtoolnix
@@ -241,6 +234,7 @@
     SUBDIR += mpv
     SUBDIR += mpv-mpris
     SUBDIR += mpvpaper
+    SUBDIR += mpvqt
     SUBDIR += msdl
     SUBDIR += msopenh264
     SUBDIR += mswebrtc
@@ -265,7 +259,6 @@
     SUBDIR += ogmrip
     SUBDIR += ogmtools
     SUBDIR += olive
-    SUBDIR += omxplayer
     SUBDIR += onevpl
     SUBDIR += openh264
     SUBDIR += openshot
@@ -282,7 +275,6 @@
     SUBDIR += peek
     SUBDIR += phonon
     SUBDIR += phonon-designerplugin
-    SUBDIR += phonon-gstreamer
     SUBDIR += phonon-vlc
     SUBDIR += photofilmstrip
     SUBDIR += pipe-viewer
@@ -295,7 +287,6 @@
     SUBDIR += plexmediaserver-plexpass
     SUBDIR += podcastdl
     SUBDIR += poe
-    SUBDIR += ppm2fli
     SUBDIR += projectx
     SUBDIR += ptx-kmod
     SUBDIR += pwcbsd
@@ -307,7 +298,6 @@
     SUBDIR += py-ffmpeg-python
     SUBDIR += py-gstreamer1
     SUBDIR += py-guessit
-    SUBDIR += py-librtmp
     SUBDIR += py-mat2
     SUBDIR += py-metadata-cleaner
     SUBDIR += py-mido
@@ -317,6 +307,7 @@
     SUBDIR += py-pretty_midi
     SUBDIR += py-pymediainfo
     SUBDIR += py-pysubs2
+    SUBDIR += py-python-mpv
     SUBDIR += py-soco
     SUBDIR += py-srt
     SUBDIR += py-subliminal
@@ -337,13 +328,10 @@
     SUBDIR += recordmydesktop
     SUBDIR += replex
     SUBDIR += ringrtc
-    SUBDIR += rtmpdump
     SUBDIR += rubygem-av
     SUBDIR += rubygem-clutter-gstreamer
     SUBDIR += rubygem-flvtool2
     SUBDIR += rubygem-gstreamer
-    SUBDIR += rubygem-paperclip-av-transcoder
-    SUBDIR += rubygem-paperclip-av-transcoder-rails50
     SUBDIR += rubygem-streamio-ffmpeg
     SUBDIR += scte35dump
     SUBDIR += shotcut
@@ -353,7 +341,6 @@
     SUBDIR += smplayer
     SUBDIR += smplayer-skins
     SUBDIR += smplayer-themes
-    SUBDIR += smtube
     SUBDIR += snapcast
     SUBDIR += spook
     SUBDIR += streamlink
@@ -397,6 +384,7 @@
     SUBDIR += webcamoid
     SUBDIR += wf-recorder
     SUBDIR += winff
+    SUBDIR += wireplumber
     SUBDIR += wl-screenrec
     SUBDIR += wlrobs
     SUBDIR += x264

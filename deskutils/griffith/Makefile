@@ -1,5 +1,6 @@
 PORTNAME=	griffith
 PORTVERSION=	0.15
+PORTREVISION=	1
 CATEGORIES=	deskutils
 
 MAINTAINER=	ports@FreeBSD.org
@@ -8,6 +9,9 @@ WWW=		https://www.griffith.cc/
 
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
+
+DEPRECATED=	Depends on expired databases/py-sqlalchemy12
+EXPIRATION_DATE=2024-06-04
 
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}sqlite3>=0:databases/py-sqlite3@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}sqlalchemy12>=1.1:databases/py-sqlalchemy12@${PY_FLAVOR} \
@@ -39,7 +43,7 @@ post-patch:
 .for f in docs/en/Makefile docs/pl/Makefile docs/pt/Makefile
 	@${REINPLACE_CMD} -e \
 		'/^PREFIX/s|?=|=|g ; s|/usr|${PREFIX}|; \
-		 /^MANDIR/s|=.*|=${STAGEDIR}${MANPREFIX}/man|g' \
+		 /^MANDIR/s|=.*|=${STAGEDIR}${PREFIX}/share/man|g' \
 		 ${WRKSRC}/${f}
 .endfor
 

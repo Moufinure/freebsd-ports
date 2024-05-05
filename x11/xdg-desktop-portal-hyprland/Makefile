@@ -1,7 +1,14 @@
 PORTNAME=	xdg-desktop-portal-hyprland
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.2.6
+DISTVERSION=	1.3.1
+PORTREVISION=	5
 CATEGORIES=	x11 wayland
+
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+PATCHFILES+=	65fb44ae4960.patch:-p1 # https://github.com/hyprwm/xdg-desktop-portal-hyprland/issues/190
+PATCHFILES+=	9c370fd55d6e.patch:-p1 # https://github.com/hyprwm/xdg-desktop-portal-hyprland/pull/193
+PATCHFILES+=	4fc83e6871e9.patch:-p1 # unbreak MALLOC_CONF=junk:true
+PATCHFILES+=	9ace6f969ce4.patch:-p1 # https://github.com/hyprwm/xdg-desktop-portal-hyprland/issues/207
 
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	xdg-desktop-portal backend for hyprland
@@ -10,55 +17,50 @@ WWW=		https://github.com/hyprwm/xdg-desktop-portal-hyprland
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BROKEN_FreeBSD_12=	libc++ too old
-
 BUILD_DEPENDS=	wayland-protocols>=1.31:graphics/wayland-protocols
-LIB_DEPENDS=	libsdbus-c++.so:devel/sdbus-cpp \
+LIB_DEPENDS=	libhyprlang.so:devel/hyprlang \
+		libsdbus-c++.so:devel/sdbus-cpp \
 		libdrm.so:graphics/libdrm \
 		libwayland-client.so:graphics/wayland \
 		libpipewire-0.3.so:multimedia/pipewire
-RUN_DEPENDS=	grim:x11/grim \
-		hyprland-share-picker:x11/hyprland-share-picker@${FLAVOR} \
+RUN_DEPENDS=	xdg-desktop-portal>0:deskutils/xdg-desktop-portal \
+		grim:x11/grim \
 		slurp:x11/slurp
 
-FLAVORS=	qt5 qt6
-qt5_CONFLICTS_INSTALL=	${PORTNAME}-qt6
-qt6_CONFLICTS_INSTALL=	${PORTNAME}
-qt6_PKGNAMESUFFIX=	-qt6
+FLAVORS=	qt6 qt5
+qt5_PKGNAMESUFFIX=	-qt5
+qt5_CONFLICTS_INSTALL=	${PORTNAME}
+qt6_CONFLICTS_INSTALL=	${PORTNAME}-qt5
 
-USES=		compiler:c++11-lib gl meson pkgconfig
+USES=		cmake compiler:c++11-lib gl pkgconfig qt:6
 USE_GITHUB=	yes
 USE_GL=		gbm
+USE_QT=		base wayland:run
 GH_ACCOUNT=	hyprwm
 GH_TUPLE=	hyprwm:hyprland-protocols:v0.2:hyprland_protocols/subprojects/hyprland-protocols
-MESON_ARGS=	-Dsystemd=disabled
-PLIST_FILES=	libexec/${PORTNAME} \
+LDFLAGS+=	-Wl,--as-needed # GL, sdbus-cpp deps
+PLIST_FILES=	bin/hyprland-share-picker \
+		lib/systemd/user/${PORTNAME}.service \
+		libexec/${PORTNAME} \
 		share/dbus-1/services/org.freedesktop.impl.portal.desktop.hyprland.service \
 		share/xdg-desktop-portal/portals/hyprland.portal
+
+.if ${FLAVOR:U} == qt5
+USES:=		${USES:S/qt:6/qt:5/}
+USE_QT=		qmake:build buildtools:build core gui wayland:run widgets
+.endif
 
 # XXX Drop after FreeBSD 14.0 EOL around 2025-03-01
 .if exists(/usr/lib/libc++.so) && !exists(/usr/include/c++/v1/__format/write_escaped.h)
 CXXFLAGS+=	-fexperimental-library
 .endif
 
-post-patch:
-# XXX Merge with hyprland-share-picker instead
-	@${REINPLACE_CMD} '/hyprland-share-picker/d' ${WRKSRC}/meson.build
-
-.ifdef GH_TUPLE
-post-configure:
-	@${REINPLACE_CMD} 's/meson install/& \
-		--skip-subprojects/' ${BUILD_WRKSRC}/build.ninja
-.endif
-
-# XXX Drop after FreeBSD 13.2 EOL around 2024-05-01 (don't forget distinfo)
+# XXX Drop after FreeBSD 13.2 EOL around 2024-07-01 (don't forget distinfo)
 .if ${CXX} == c++ && exists(/usr/lib/libc++.so)
 .if !exists(/usr/include/c++/v1/__ranges/as_rvalue_view.h) || make(makesum) || make(fetch)
-BUILD_DEPENDS+=	${CMAKE_BIN}:devel/cmake-core
 USES+=		llvm:min=16,build,export
 PATH:=		${LLVM_PREFIX}/bin:${PATH} # XXX _CMAKE_TOOLCHAIN_SUFFIX vs. devel/llvm*
 CONFIGURE_ENV+=	CC="${CC}" CXX="${CXX}" CPP="${CPP}"
-CMAKE_BIN=	${LOCALBASE}/bin/cmake
 
 # XXX Move into separate port and standardize via USES
 GH_TUPLE+=	llvm:llvm-project:llvmorg-16.0.1:libcxx

@@ -1,5 +1,6 @@
 PORTNAME=	salt
-PORTVERSION=	3006.5
+PORTVERSION=	3006.8
+PORTEPOCH=	1
 CATEGORIES=	sysutils python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -25,7 +26,7 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}Jinja2>0:devel/py-Jinja2@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}looseversion>0:devel/py-looseversion@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}packaging>0:devel/py-packaging@${PY_FLAVOR}
 
-USES=		cpe python:3.8-3.10
+USES=		cpe python
 
 CPE_VENDOR=	saltstack
 CPE_PRODUCT=	salt
@@ -102,6 +103,7 @@ post-patch:
 		-e 's|/srv/pillar|${ETCDIR}/pillar|' ${WRKSRC}/${file}
 .endfor
 	@${REINPLACE_CMD} -e 's|yumpkg5|pkgng|' ${WRKSRC}/conf/minion
+	@${REINPLACE_CMD} -e 's|"/usr/bin/python3"|"${PYTHON_CMD}"|' ${WRKSRC}/salt/auth/pam.py
 
 do-install-BASH-on:
 	@${MKDIR} ${STAGEDIR}${PREFIX}/share/bash-completion/completions/

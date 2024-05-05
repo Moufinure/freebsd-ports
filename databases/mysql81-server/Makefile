@@ -189,7 +189,6 @@ SSP_UNSAFE=	yes
 LDFLAGS+=	-latomic
 USES+=		compiler:gcc-c++11-lib
 .else
-CXXFLAGS+=	-malign-double
 USES+=		compiler:c++17-lang
 .endif
 
@@ -197,11 +196,6 @@ USES+=		compiler:c++17-lang
 
 post-extract:
 	@${RM} -rv ${WRKSRC}/sql/sql_hints.yy.cc ${WRKSRC}/sql/sql_hints.yy.h
-
-# This can be removed after FreeBSD 12.4 and 13.1 EoL
-.if defined(CLIENT_ONLY) && !exists(${OPENSSLBASE}/libdata/pkgconfig/openssl.pc)
-EXTRA_PATCHES+=	${PATCHDIR}/extra-patch-scripts_CMakeLists.txt
-.endif
 
 # XXX MBi alignment issue
 .if ${ARCH} == i386

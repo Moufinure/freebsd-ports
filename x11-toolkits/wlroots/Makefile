@@ -1,5 +1,5 @@
 PORTNAME=	wlroots
-DISTVERSION=	0.17.1
+DISTVERSION=	0.17.3
 CATEGORIES=	x11-toolkits
 
 PATCH_SITES+=	https://github.com/swaywm/${GL_PROJECT}/commit/:github
@@ -56,8 +56,8 @@ X11_LIB_DEPENDS=	libxcb-errors.so:x11/xcb-util-errors \
 			libxcb-render-util.so:x11/xcb-util-renderutil \
 			libxcb-icccm.so:x11/xcb-util-wm
 X11_BUILD_DEPENDS=	evdev-proto>0:devel/evdev-proto \
-			xwayland-devel>0:x11-servers/xwayland-devel
-X11_RUN_DEPENDS=	xwayland-devel>0:x11-servers/xwayland-devel
+			Xwayland:x11-servers/xwayland
+X11_RUN_DEPENDS=	Xwayland:x11-servers/xwayland
 X11_USE=		XORG=xcb
 X11_MESON_ENABLED=	xwayland
 X11_VARS=		BACKENDS+=x11
@@ -66,13 +66,5 @@ post-patch:
 # Extract (snapshot) version from the port instead of meson.build
 	@${REINPLACE_CMD} "/STR/s/meson.project_version()/'${DISTVERSIONFULL}'/" \
 		${WRKSRC}/include/wlr/meson.build
-# XXX Drop after FreeBSD 12.4 EOL around 2023-12-31
-# https://cgit.freebsd.org/src/commit/?id=d7535fb3e3cb
-	@if [ ${OPSYS} = FreeBSD -a ${OSVERSION} -lt 1300515 ]; then \
-		${REINPLACE_CMD} -e '/POSIX/s/199309/200112/' \
-		${WRKSRC}/render/gles2/pass.c \
-		${WRKSRC}/render/gles2/renderer.c \
-		${WRKSRC}/types/wlr_presentation_time.c; \
-	fi
 
 .include <bsd.port.mk>

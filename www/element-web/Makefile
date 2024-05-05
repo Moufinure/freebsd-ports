@@ -1,13 +1,13 @@
 PORTNAME=	element
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.11.52
+DISTVERSION=	1.11.65
 CATEGORIES=	www
 MASTER_SITES=	https://github.com/element-hq/element-web/releases/download/${DISTVERSIONFULL}/
 PKGNAMESUFFIX=	-web
 
 MAINTAINER=	ports@xanderio.de
 COMMENT=	Glossy Matrix collaboration client for the web
-WWW=		https://github.com/vector-im/element-web
+WWW=		https://element.io
 
 LICENSE=	APACHE20
 
@@ -18,7 +18,7 @@ CPE_VENDOR=	matrix
 NO_ARCH=	yes
 NO_BUILD=	yes
 SUB_FILES=	pkg-message
-PLIST_SUB=	COMMITID=31758c0532e561d83388
+PLIST_SUB=	COMMITID=ad882b5866028f8f562c
 
 do-install:
 	@${MKDIR} ${STAGEDIR}${WWWDIR}

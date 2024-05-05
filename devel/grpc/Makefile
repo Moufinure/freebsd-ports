@@ -1,5 +1,5 @@
 PORTNAME=	grpc
-PORTVERSION=	1.60.0
+PORTVERSION=	1.62.2
 DISTVERSIONPREFIX=	v
 PORTEPOCH=	2
 CATEGORIES=	devel
@@ -22,8 +22,6 @@ LIB_DEPENDS=	libabsl_base.so:devel/abseil \
 USES=		cmake compiler:c++17-lang cpe localbase:ldflags pkgconfig ssl
 
 USE_GITHUB=	yes
-GH_TUPLE=	census-instrumentation:opencensus-proto:v0.4.1:census_instrumentation_opencensus_proto/third_party/opencensus-proto/src \
-		cncf:xds:0fa0005:cncf_xds/third_party/xds
 
 CMAKE_ARGS=	-DCMAKE_CXX_STANDARD=17 \
 		-DgRPC_ABSL_PROVIDER=package \
@@ -33,8 +31,8 @@ CMAKE_ARGS=	-DCMAKE_CXX_STANDARD=17 \
 		-DgRPC_RE2_PROVIDER=package \
 		-DgRPC_SSL_PROVIDER=package \
 		-DgRPC_ZLIB_PROVIDER=package
-CMAKE_OFF=	gRPC_BACKWARDS_COMPATIBILITY_MODE \
-		gRPC_BUILD_TESTS
+CMAKE_OFF=	gRPC_BUILD_TESTS \
+		gRPC_DOWNLOAD_ARCHIVES
 CMAKE_ON=	BUILD_SHARED_LIBS \
 		gRPC_BUILD_CODEGEN \
 		gRPC_BUILD_GRPC_CPP_PLUGIN \
@@ -53,13 +51,6 @@ PLIST_SUB=	SHLIB_MAJOR=${PORTVERSION:R} \
 
 CONFLICTS_INSTALL=	grpc[0-9][0-9][0-9]
 
-.include <bsd.port.pre.mk>
-
-# Skip openssl.pc while using OpenSSL from base system on older FreeBSD versions which does not skip this file
-.if ${SSL_DEFAULT} == base && !exists(/usr/libdata/pkgconfig/openssl.pc)
-EXTRA_PATCHES+=	${PATCHDIR}/extra-patch-openssl
-.endif
-
 post-patch:
 # Clean up bundled libraries
 	@${RM} -r ${WRKSRC}/third_party/abseil-cpp/
@@ -73,4 +64,4 @@ post-patch:
 	@${RM} -r ${WRKSRC}/third_party/xxhash/
 	@${RM} -r ${WRKSRC}/third_party/zlib/
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

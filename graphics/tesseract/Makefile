@@ -1,6 +1,6 @@
 PORTNAME=	tesseract
-PORTVERSION=	5.3.3
-PORTREVISION=	1
+PORTVERSION=	5.3.4
+PORTREVISION=	2
 CATEGORIES=	graphics
 
 MAINTAINER=	pkubaj@FreeBSD.org
@@ -25,6 +25,7 @@ USES=		autoreconf compiler:c++20-lang cpe gnome libarchive libtool \
 USE_LDCONFIG=	yes
 
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 
 CPE_VENDOR=	tesseract_project
 

@@ -1,5 +1,6 @@
 PORTNAME=	tg_owt
-PORTVERSION=	0.0.20231101
+PORTVERSION=	0.0.20231221
+PORTREVISION=	1
 CATEGORIES=	net-im
 
 MAINTAINER=	ports@FreeBSD.org
@@ -18,16 +19,16 @@ LIB_DEPENDS=	libavformat.so:multimedia/ffmpeg \
 
 USES=		cmake gl pkgconfig xorg
 USE_XORG=	x11 xcomposite xdamage xrender xrandr xtst
-USE_GL=		gbm
+USE_GL=		gbm gl
 USE_GITHUB=	yes
 GH_ACCOUNT=	desktop-app
-GH_TAGNAME=	71cce98
+GH_TAGNAME=	afd9d5d
 
 # libyuv cloned from https://chromium.googlesource.com/libyuv/libyuv
 # when updating port check if hash tag in the submodule was updated
 GH_TUPLE=	abseil:abseil-cpp:8c0b94e:abseilcpp/src/third_party/abseil-cpp \
 		cisco:libsrtp:a566a9:libsrtp/src/third_party/libsrtp \
 		google:crc32c:21fc8ef:crc32c/src/third_party/crc32c/src \
-		klemensn:libyuv:04821d:libyuv/src/third_party/libyuv
+		klemensn:libyuv:3aae5c7:libyuv/src/third_party/libyuv
 
 .include <bsd.port.mk>

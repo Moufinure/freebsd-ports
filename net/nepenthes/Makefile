@@ -1,12 +1,15 @@
 PORTNAME=	nepenthes
 PORTVERSION=	0.2.2
-PORTREVISION=	17
+PORTREVISION=	18
 CATEGORIES=	net
 MASTER_SITES=	SF/${PORTNAME}/Nepenthes%20development/${PORTVERSION}
 
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Determine the malware activity on a network
 WWW=		http://nepenthes.carnivore.it/
+
+DEPRECATED=	Abandonware, last update in 2008 and upstream is gone.
+EXPIRATION_DATE=2024-05-31
 
 LIB_DEPENDS=	libpcre.so:devel/pcre \
 		libadns.so:dns/adns \
@@ -17,6 +20,7 @@ USES=		dos2unix libtool perl5
 USE_CXXSTD=	gnu++98
 USE_GCC=	yes
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 CONFIGURE_ARGS=	--localstatedir=/var
 INSTALL_TARGET=	install-strip
 

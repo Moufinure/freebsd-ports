@@ -1,6 +1,7 @@
     COMMENT = Desktop publishing
 
     SUBDIR += R-cran-knitr
+    SUBDIR += R-cran-textshaping
     SUBDIR += R-cran-tinytex
     SUBDIR += a2pdf
     SUBDIR += a2ps
@@ -56,8 +57,6 @@
     SUBDIR += freetype2
     SUBDIR += ft2demos
     SUBDIR += ghostscript10
-    SUBDIR += ghostscript9-agpl-base
-    SUBDIR += ghostscript9-agpl-x11
     SUBDIR += gimp-gutenprint
     SUBDIR += gl2ps
     SUBDIR += gsfonts
@@ -154,6 +153,7 @@
     SUBDIR += pkfonts360
     SUBDIR += pkfonts400
     SUBDIR += pkfonts600
+    SUBDIR += plasma6-print-manager
     SUBDIR += pnm2ppa
     SUBDIR += posterazor
     SUBDIR += print-manager
@@ -205,6 +205,7 @@
     SUBDIR += rubygem-color-tools
     SUBDIR += rubygem-color_diff
     SUBDIR += rubygem-pdf-core
+    SUBDIR += rubygem-pdf-core09
     SUBDIR += rubygem-pdf-reader
     SUBDIR += rubygem-pdf-writer
     SUBDIR += rubygem-prawn
@@ -219,10 +220,13 @@
     SUBDIR += rubygem-prawn-svg
     SUBDIR += rubygem-prawn-table
     SUBDIR += rubygem-prawn-templates
+    SUBDIR += rubygem-prawn24
     SUBDIR += rubygem-prawn_shapes
     SUBDIR += rubygem-rbpdf
     SUBDIR += rubygem-rbpdf-font
     SUBDIR += rubygem-ttfunk
+    SUBDIR += rubygem-ttfunk17
+    SUBDIR += scribus
     SUBDIR += scribus-devel
     SUBDIR += sgf2tex
     SUBDIR += shrinkpdf

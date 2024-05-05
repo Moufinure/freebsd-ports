@@ -74,7 +74,6 @@
     SUBDIR += flowd
     SUBDIR += flowviewer
     SUBDIR += fprobe
-    SUBDIR += glpi-plugins-fusioninventory-server
     SUBDIR += gnu-ipcalc
     SUBDIR += gping
     SUBDIR += grepcidr
@@ -149,6 +148,7 @@
     SUBDIR += nagios-certexp-plugin
     SUBDIR += nagios-check_bacula11
     SUBDIR += nagios-check_bacula13
+    SUBDIR += nagios-check_bacula15
     SUBDIR += nagios-check_bacula9
     SUBDIR += nagios-check_clamav
     SUBDIR += nagios-check_cpu_usage
@@ -267,6 +267,8 @@
     SUBDIR += p5-NetAddr-IP-Lite
     SUBDIR += p5-NetApp
     SUBDIR += p5-POE-Component-SNMP
+    SUBDIR += p5-Prometheus-Tiny
+    SUBDIR += p5-Prometheus-Tiny-Shared
     SUBDIR += p5-RDR-Collector
     SUBDIR += p5-SNMP-Info
     SUBDIR += p5-SNMP-MIB-Compiler
@@ -289,13 +291,11 @@
     SUBDIR += pandorafms_server
     SUBDIR += pftabled
     SUBDIR += php-fpm_exporter
-    SUBDIR += php80-snmp
     SUBDIR += php81-snmp
     SUBDIR += php82-snmp
     SUBDIR += php83-snmp
     SUBDIR += phpfpm_exporter
     SUBDIR += phpipam
-    SUBDIR += phpweathermap
     SUBDIR += ping_exporter
     SUBDIR += pktstat
     SUBDIR += pmacct
@@ -394,7 +394,6 @@
     SUBDIR += torrus
     SUBDIR += triton-guesttools
     SUBDIR += unbound_exporter
-    SUBDIR += unifi7
     SUBDIR += unifi8
     SUBDIR += victoria-metrics
     SUBDIR += virt-viewer
@@ -406,10 +405,6 @@
     SUBDIR += xymon-client
     SUBDIR += xymon-server
     SUBDIR += yaf
-    SUBDIR += zabbix4-agent
-    SUBDIR += zabbix4-java
-    SUBDIR += zabbix4-proxy
-    SUBDIR += zabbix4-server
     SUBDIR += zabbix5-agent
     SUBDIR += zabbix5-java
     SUBDIR += zabbix5-proxy

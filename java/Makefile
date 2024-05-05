@@ -81,7 +81,6 @@
     SUBDIR += mmake
     SUBDIR += mx4j
     SUBDIR += netbeans
-    SUBDIR += netcomponents
     SUBDIR += netrexx
     SUBDIR += netty
     SUBDIR += openjdk11
@@ -92,13 +91,12 @@
     SUBDIR += openjdk19
     SUBDIR += openjdk20
     SUBDIR += openjdk21
+    SUBDIR += openjdk22
     SUBDIR += openjdk8
     SUBDIR += openjdk8-jre
     SUBDIR += openjfx14
     SUBDIR += phpeclipse
     SUBDIR += proguard
-    SUBDIR += sablevm
-    SUBDIR += sablevm-classpath
     SUBDIR += servingxml
     SUBDIR += sigar
     SUBDIR += springframework
@@ -108,6 +106,5 @@
     SUBDIR += veditor
     SUBDIR += visualvm
     SUBDIR += wildfly
-    SUBDIR += wildfly10
 
 .include <bsd.port.subdir.mk>

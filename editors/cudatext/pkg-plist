@@ -117,7 +117,9 @@ share/applications/cudatext.desktop
 %%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_markdown.png
 %%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_matlab.png
 %%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_maya.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_mdx.png
 %%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_mediawiki.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_mojo.png
 %%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_mustache.png
 %%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_nim.png
 %%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_nsi.png
@@ -146,6 +148,7 @@ share/applications/cudatext.desktop
 %%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_razor.png
 %%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_reason.png
 %%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_red.png
+%%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_rescript.png
 %%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_rest.png
 %%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_rexx.png
 %%DATADIR%%/data/filetypeicons/vscode_16x16/file_type_rmd.png
@@ -272,7 +275,19 @@ share/applications/cudatext.desktop
 %%DATADIR%%/data/projtoolbaricons/default_16x16/open.png
 %%DATADIR%%/data/projtoolbaricons/default_16x16/readme.txt
 %%DATADIR%%/data/projtoolbaricons/default_16x16/readme2.txt
+%%DATADIR%%/data/projtoolbaricons/default_16x16/recents.png
 %%DATADIR%%/data/projtoolbaricons/default_16x16/save.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/add-dir.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/add-file.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/cfg.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/del.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/license.txt
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/open.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/readme.txt
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/readme2.txt
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/recents.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/save-min.png
+%%DATADIR%%/data/projtoolbaricons/default_white_16x16/save.png
 %%DATADIR%%/data/projtoolbaricons/feather_black_16x16/add-dir.png
 %%DATADIR%%/data/projtoolbaricons/feather_black_16x16/add-dir.svg
 %%DATADIR%%/data/projtoolbaricons/feather_black_16x16/add-file.png
@@ -284,6 +299,7 @@ share/applications/cudatext.desktop
 %%DATADIR%%/data/projtoolbaricons/feather_black_16x16/license.txt
 %%DATADIR%%/data/projtoolbaricons/feather_black_16x16/open.png
 %%DATADIR%%/data/projtoolbaricons/feather_black_16x16/open.svg
+%%DATADIR%%/data/projtoolbaricons/feather_black_16x16/recents.png
 %%DATADIR%%/data/projtoolbaricons/feather_black_16x16/save.png
 %%DATADIR%%/data/projtoolbaricons/feather_black_16x16/save.svg
 %%DATADIR%%/data/projtoolbaricons/feather_white_16x16/add-dir.png
@@ -297,6 +313,7 @@ share/applications/cudatext.desktop
 %%DATADIR%%/data/projtoolbaricons/feather_white_16x16/license.txt
 %%DATADIR%%/data/projtoolbaricons/feather_white_16x16/open.png
 %%DATADIR%%/data/projtoolbaricons/feather_white_16x16/open.svg
+%%DATADIR%%/data/projtoolbaricons/feather_white_16x16/recents.png
 %%DATADIR%%/data/projtoolbaricons/feather_white_16x16/save.png
 %%DATADIR%%/data/projtoolbaricons/feather_white_16x16/save.svg
 %%DATADIR%%/data/sideicons/common_20x20/console.png

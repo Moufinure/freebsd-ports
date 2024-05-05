@@ -1,5 +1,5 @@
 PORTNAME=	wine-proton
-DISTVERSION=	8.0-3
+DISTVERSION=	8.0-5
 PORTREVISION=	0
 CATEGORIES=	emulators
 
@@ -11,7 +11,6 @@ LICENSE=	LGPL21 LGPL3
 LICENSE_COMB=	dual
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-IGNORE_FreeBSD_12=requires F_ADD_SEALS
 ONLY_FOR_ARCHS=	amd64 i386
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/flex:textproc/flex \
@@ -29,7 +28,7 @@ PIE_UNSAFE=	yes
 USE_GITHUB=	yes
 GH_ACCOUNT=	ValveSoftware
 GH_PROJECT=	wine
-GH_TAGNAME=	8a8ec5f86d8ab1e1d4c6bc88dda016b5e8cf479e
+GH_TAGNAME=	bb66944d9d7a0fc7692f05d4a2db418b468d3021
 
 USE_GL=		gl
 USE_GNOME=	glib20
@@ -103,7 +102,7 @@ PULSEAUDIO_CONFIGURE_OFF=	--without-pulse
 
 .include <bsd.port.pre.mk>
 
-.if (${LLVM_DEFAULT} == 10 || ${LLVM_DEFAULT} == 11)
+.if ${LLVM_DEFAULT} == 11
 _LLVM_VERSION=	15
 .else
 _LLVM_VERSION=	${LLVM_DEFAULT}
@@ -137,7 +136,7 @@ post-install:
 	${INSTALL_SCRIPT} ${FILESDIR}/wine-wow64.sh           ${STAGEDIR}${PREFIX}/${PORTNAME}/bin/wine
 .endif
 	${RM} -r ${STAGEDIR}${PREFIX}/${PORTNAME}/include
-	${RM} -r ${STAGEDIR}${MANPREFIX}/man
+	${RM} -r ${STAGEDIR}${PREFIX}/man
 	${MKDIR} ${STAGEDIR}${DOCSDIR}
 .for i in README ANNOUNCE AUTHORS
 	${INSTALL_DATA} ${WRKSRC}/${i} ${STAGEDIR}${DOCSDIR}

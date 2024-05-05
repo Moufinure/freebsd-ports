@@ -15,6 +15,9 @@ LICENSE_COMB=	dual
 LICENSE_FILE_BSD2CLAUSE=	${WRKSRC}/BSDL
 LICENSE_FILE_RUBY=	${WRKSRC}/COPYING
 
+DEPRECATED=	Please migrate to newer version. Ruby 3.1 is expected to reach its EoL on March 31, 2025
+EXPIRATION_DATE=	2025-03-31
+
 # Using LIB_DEPENDS finds the libffi from gcc which causes problems
 BUILD_DEPENDS=	libffi>=0:devel/libffi
 LIB_DEPENDS=	libyaml.so:textproc/libyaml
@@ -96,10 +99,6 @@ _SUF2=		,${PORTEPOCH}
 LIB_DEPENDS+=	libunwind.so:devel/libunwind
 .endif
 
-.if defined(PPC_ABI) && ${PPC_ABI} == ELFv1
-USE_GCC=	yes
-.endif
-
 .if ${ARCH} == armv6 || ${ARCH} == armv7 || ${ARCH} == powerpc
 CONFIGURE_ARGS+=	--with-setjmp-type=_setjmp
 CONFIGURE_ENV+=		ac_cv_func__setjmp=yes
@@ -172,7 +171,7 @@ post-install:
 # Link "ruby.1.gz" to "ruby31.1.gz", etc.
 #
 . for FILE in ${INSTALLED_MANUALS}
-	${LN} -fs ${FILE}${RUBY_SUFFIX}.1.gz ${STAGEDIR}${MANPREFIX}/man/man1/${FILE}.1.gz
+	${LN} -fs ${FILE}${RUBY_SUFFIX}.1.gz ${STAGEDIR}${PREFIX}/share/man/man1/${FILE}.1.gz
 . endfor
 .endif
 

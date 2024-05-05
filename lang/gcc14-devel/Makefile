@@ -1,5 +1,6 @@
 PORTNAME=	gcc
-PORTVERSION=	14.0.0.s20231224
+PORTVERSION=	14.0.1.s20240503
+PORTEPOCH=	1
 CATEGORIES=	lang
 MASTER_SITES=	GCC/snapshots/${DIST_VERSION}
 PKGNAMESUFFIX=	${SUFFIX}-devel
@@ -12,7 +13,7 @@ WWW=		https://gcc.gnu.org
 LICENSE=	GPLv3 GPLv3RLE
 LICENSE_COMB=	multi
 
-ONLY_FOR_ARCHS=	aarch64 amd64 arm armv6 armv7 i386 powerpc powerpc64 powerpc64le
+ONLY_FOR_ARCHS=	aarch64 amd64 armv6 armv7 i386 powerpc powerpc64 powerpc64le
 
 LIB_DEPENDS=	libgmp.so:math/gmp \
 		libmpfr.so:math/mpfr \
@@ -34,7 +35,7 @@ CPE_VERSION=	${GCC_VERSION}
 # of executables and directories once installed.  A PORTVERSION of
 # Y.2.1.s20140817 results in values of Y-20140817, Y.2.1, and Y
 # for these three.
-DIST_VERSION=	${PORTVERSION:C/([0-9]+).*\.s([0-9]+)/\1-\2/}
+DIST_VERSION=	14.1.0-RC-20240503
 GCC_VERSION=	${PORTVERSION:C/(.+)\.s[0-9]{8}/\1/}
 SUFFIX=		${PORTVERSION:C/([0-9]+).*/\1/}
 CFLAGS:=	${CFLAGS:N-mretpoline} -D__USE_ISOC11
@@ -47,8 +48,8 @@ OPTIONS_DEFAULT_i386=	STANDARD_BOOTSTRAP
 OPTIONS_DEFAULT_powerpc=LTO_BOOTSTRAP
 OPTIONS_DEFAULT_powerpc64=LTO_BOOTSTRAP
 OPTIONS_DEFAULT_powerpc64le=LTO_BOOTSTRAP
-OPTIONS_RADIO=	BOOTSTRAP
-OPTIONS_RADIO_BOOTSTRAP=	LTO_BOOTSTRAP STANDARD_BOOTSTRAP
+OPTIONS_SINGLE=	BOOTSTRAP
+OPTIONS_SINGLE_BOOTSTRAP=	LTO_BOOTSTRAP STANDARD_BOOTSTRAP
 LTO_BOOTSTRAP_DESC=	Build using a full LTO bootstrap
 STANDARD_BOOTSTRAP_DESC=	Build using a full bootstrap without LTO
 GRAPHITE_DESC=		Support for Graphite loop optimizations
@@ -74,7 +75,7 @@ CXXFLAGS:=	${CFLAGS:S/mcpu=g/mcpu=G/}
 .if ${ARCH} == amd64
 CONFIGURE_TARGET=	x86_64-portbld-${OPSYS:tl}${OSREL}
 
-.elif defined(PPC_ABI) && ${PPC_ABI} == ELFv2
+.elif ${ARCH} == powerpc64
 CONFIGURE_ARGS+=	--with-abi=elfv2
 USE_GCC=	yes
 
@@ -82,15 +83,18 @@ USE_GCC=	yes
 USE_GCC=	yes
 .endif
 
+.if ${ARCH} == i386
+LANGUAGES:=	c,c++,objc,fortran
+.else
 LANGUAGES:=	c,c++,objc,fortran,jit
+.endif
 TARGLIB=	${PREFIX}/lib/gcc${SUFFIX}
 TARGLIB32=	${PREFIX}/lib32	# The version information is added later
 LIBEXEC=	${PREFIX}/libexec/gcc${SUFFIX}
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 CONFIGURE_OUTSOURCE=	yes
-.if empty(PORT_OPTIONS:M*BOOTSTRAP)
-CONFIGURE_ARGS+=--disable-bootstrap
-.elif ${PORT_OPTIONS:MLTO_BOOTSTRAP}
+.if ${PORT_OPTIONS:MLTO_BOOTSTRAP}
 CONFIGURE_ARGS+=--with-build-config=bootstrap-lto-noplugin
 ALL_TARGET=	bootstrap-lean
 PIE_UNSAFE=	yes
@@ -162,7 +166,7 @@ full-regression-test: build
 .endif
 
 post-stage:
-	${RM} ${STAGEDIR}${PREFIX}/man/man7/*
+	${RM} ${STAGEDIR}${PREFIX}/share/man/man7/*
 	${RM} -r ${STAGEDIR}${TARGLIB}/gcc/*/${GCC_VERSION}/include-fixed/
 	# Install ISO_Fortran_binding.h in an easily findable directory
 	${MKDIR} ${STAGEDIR}${PREFIX}/include/gcc${SUFFIX}

@@ -1,5 +1,6 @@
 PORTNAME=	openssl
 PORTVERSION=	1.1.1w
+PORTREVISION=	2
 CATEGORIES=	security devel
 MASTER_SITES=	https://www.openssl.org/source/ \
 		ftp://ftp.cert.dfn.de/pub/tools/net/openssl/source/
@@ -33,6 +34,8 @@ LDFLAGS_i386=	-Wl,-znotext
 MAKE_ARGS+=	WHOLE_ARCHIVE_FLAG=--whole-archive CNF_LDFLAGS="${LDFLAGS}"
 MAKE_ENV+=	LIBRPATH="${PREFIX}/lib" GREP_OPTIONS=
 
+EXTRA_PATCHES+=	${.CURDIR}/../openssl/files/patch-crypto_async_arch_async__posix.h
+
 OPTIONS_GROUP=		CIPHERS HASHES OPTIMIZE PROTOCOLS
 OPTIONS_GROUP_CIPHERS=	ARIA DES GOST IDEA SM4 RC2 RC4 RC5 WEAK-SSL-CIPHERS
 OPTIONS_GROUP_HASHES=	MD2 MD4 MDC2 RMD160 SM2 SM3
@@ -45,8 +48,7 @@ OPTIONS_DEFINE=	ASYNC CRYPTODEV CT KTLS MAN3 RFC3779 SHARED ZLIB
 OPTIONS_DEFAULT=ASM ASYNC CT GOST DES EC KTLS MAN3 MD4 NEXTPROTONEG RC2 \
 		RC4 RMD160 SCTP SHARED SSE2 THREADS TLS1 TLS1_1 TLS1_2
 
-OPTIONS_EXCLUDE=${${OSVERSION} < 1300042:?KTLS:} \
-		${${OSVERSION} > 1300000:?CRYPTODEV:}
+OPTIONS_EXCLUDE=CRYPTODEV
 
 .if ${MACHINE_ARCH} == "amd64"
 OPTIONS_GROUP_OPTIMIZE+=	EC
@@ -125,22 +127,13 @@ PORTSCOUT=		limit=^1\.1\.1
 IGNORE=	the OpenSSL port can not be installed over the base version
 .endif
 
-.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1300000 && !${PORT_OPTIONS:MCRYPTODEV}
-CONFIGURE_ARGS+=	no-devcryptoeng
-.endif
-
 OPENSSLDIR?=	${PREFIX}/openssl
 PLIST_SUB+=	OPENSSLDIR=${OPENSSLDIR:S=^${PREFIX}/==}
 
 .include "version.mk"
 
-.if ${PORT_OPTIONS:MASM}
-BROKEN_sparc64=	option ASM generates illegal instructions
-.endif
-
 post-patch:
 	${REINPLACE_CMD} \
-		-e 's|^MANDIR=.*$$|MANDIR=$$(INSTALLTOP)/man|' \
 		-e 's| install_html_docs$$||' \
 		-e 's|$$(LIBDIR)/pkgconfig|libdata/pkgconfig|g' \
 		${WRKSRC}/Configurations/unix-Makefile.tmpl
@@ -167,7 +160,7 @@ post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/openssl
 
 post-install-MAN3-on:
-	( cd ${STAGEDIR}/${PREFIX} ; ${FIND} man/man3 man/man7 -not -type d ) | \
+	( cd ${STAGEDIR}/${PREFIX} ; ${FIND} share/man/man3 share/man/man7 -not -type d ) | \
 		${SED} 's/$$/.gz/' >>${TMPPLIST}
 
 .include <bsd.port.post.mk>

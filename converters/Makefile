@@ -20,6 +20,7 @@
     SUBDIR += cmios9
     SUBDIR += cocot
     SUBDIR += convmv
+    SUBDIR += dos2ansi
     SUBDIR += dos2unix
     SUBDIR += dosunix
     SUBDIR += drg2sbg
@@ -136,8 +137,6 @@
     SUBDIR += pear-Services_JSON
     SUBDIR += pecl-igbinary
     SUBDIR += php-bsdconv
-    SUBDIR += php80-iconv
-    SUBDIR += php80-mbstring
     SUBDIR += php81-iconv
     SUBDIR += php81-mbstring
     SUBDIR += php82-iconv
@@ -149,6 +148,7 @@
     SUBDIR += py-bencoder
     SUBDIR += py-better-bencode
     SUBDIR += py-bsdconv
+    SUBDIR += py-gotenberg-client
     SUBDIR += py-rencode
     SUBDIR += py-svglib
     SUBDIR += py-text-unidecode

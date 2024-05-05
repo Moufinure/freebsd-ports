@@ -1,6 +1,6 @@
 PORTNAME=	asymptote
 PORTVERSION=	2.81
-PORTREVISION=	4
+PORTREVISION=	5
 CATEGORIES=	math
 MASTER_SITES=	SF/${PORTNAME}/${PORTVERSION}
 DISTNAME=	${PORTNAME}-${PORTVERSION}.src
@@ -16,7 +16,6 @@ LICENSE=	GPLv3 LGPL3
 LICENSE_COMB=	dual
 
 ONLY_FOR_ARCHS=	amd64 i386
-BROKEN_FreeBSD_12_i386=	./base/plain_filldraw.asy: 21.5: runtime: gmake[2]: *** [Makefile:42: makepen.pdf] Floating point exception (core dumped)
 
 LIB_DEPENDS=	libboost_filesystem.so:devel/boost-libs \
 		libcurl.so:ftp/curl \
@@ -35,6 +34,7 @@ USE_PYQT=	pyqt5:run
 
 CPPFLAGS+=	-I${LOCALBASE}/include
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 CONFIGURE_ARGS=	--disable-lsp # disable the module with Boost-related errors
 
 MAKE_ENV=	ASYMPTOTE_HOME=${WRKDIR} HOME=${WRKDIR}

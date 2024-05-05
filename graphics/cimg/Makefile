@@ -1,6 +1,7 @@
 PORTNAME=	cimg
 DISTVERSIONPREFIX=	v.
-DISTVERSION=	3.3.2
+DISTVERSION=	3.3.5
+PORTREVISION=	1
 PORTEPOCH=	3
 CATEGORIES=	graphics devel
 
@@ -18,7 +19,7 @@ LICENSE_PERMS_CeCILL_C=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 LICENSE_PERMS_CeCILL=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	dtschump
+GH_ACCOUNT=	GreycLab
 GH_PROJECT=	CImg
 
 BUILD_WRKSRC=	${WRKSRC}/examples
@@ -51,7 +52,6 @@ LIB_DEPENDS+=	libcurl.so:ftp/curl			\
 		libImath.so:math/Imath			\
 		libheif.so:graphics/libheif		\
 		libOpenEXR.so:graphics/openexr		\
-		libgimp-2.0.so:graphics/gimp-app	\
 		libfftw3.so:math/fftw3			\
 		libopencv_core.so:graphics/opencv	\
 		libGraphicsMagick.so:graphics/GraphicsMagick

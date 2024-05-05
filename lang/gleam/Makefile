@@ -1,7 +1,6 @@
 PORTNAME=	gleam
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.31.0
-PORTREVISION=	2
+DISTVERSION=	1.1.0
 CATEGORIES=	lang
 
 MAINTAINER=	dch@FreeBSD.org
@@ -14,8 +13,6 @@ LICENSE_FILE=	${WRKSRC}/compiler-core/LICENCE
 USES=		cargo ssl
 USE_GITHUB=	yes
 GH_ACCOUNT=	gleam-lang
-
-.include "Makefile.deps"
 
 RUSTFLAGS+=	--cap-lints=warn
 

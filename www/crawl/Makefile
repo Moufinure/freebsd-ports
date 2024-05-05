@@ -1,6 +1,6 @@
 PORTNAME=	crawl
 PORTVERSION=	0.4
-PORTREVISION=	14
+PORTREVISION=	15
 CATEGORIES=	www
 MASTER_SITES=	http://www.monkey.org/~provos/
 
@@ -10,11 +10,15 @@ WWW=		https://www.monkey.org/~provos/crawl/
 
 LICENSE=	BSD4CLAUSE
 
+DEPRECATED=	Abandonware and obsolete, last release in 2003 and no longer developed. Consider using ftp/wget
+EXPIRATION_DATE=2024-06-30
+
 LIB_DEPENDS=	libevent.so:devel/libevent
 
 USES=		bdb pkgconfig
 
 GNU_CONFIGURE=	yes
+GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 CONFIGURE_ARGS=	--with-libevent --program-transform-name=''
 CONFIGURE_ENV=	EVENTINC="`pkgconf --cflags libevent`" EVENTLIB="`pkgconf --libs libevent`"
 

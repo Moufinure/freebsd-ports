@@ -1,5 +1,5 @@
 PORTNAME=	php82
-DISTVERSION=	8.2.14
+DISTVERSION=	8.2.18
 PORTREVISION?=	0
 CATEGORIES?=	lang devel www
 MASTER_SITES=	PHP/distributions
@@ -21,25 +21,26 @@ CONFLICTS_INSTALL?=	php[0-9][0-9]${PKGNAMESUFFIX}
 LIB_DEPENDS=	libargon2.so:security/libargon2 \
 		libpcre2-8.so:devel/pcre2
 
-GNU_CONFIGURE=		yes
-CONFIGURE_ARGS+=	--disable-all \
-			--program-prefix="" \
-			--with-config-file-scan-dir=${PREFIX}/etc/php \
-			--with-layout=GNU \
-			--with-libxml \
-			--with-openssl \
-			--with-password-argon2=${LOCALBASE}
+GNU_CONFIGURE=	yes
+CONFIGURE_ARGS+=	\
+		--disable-all \
+		--program-prefix="" \
+		--with-config-file-scan-dir=${PREFIX}/etc/php \
+		--with-layout=GNU \
+		--with-libxml \
+		--with-openssl \
+		--with-password-argon2=${LOCALBASE}
 
 USES+=		autoreconf:build ssl
 USE_GNOME=	libxml2
 
-LDFLAGS=	-L${OPENSSLLIB} -lcrypto -lssl
+LDFLAGS+=	-L${OPENSSLLIB} -lcrypto -lssl
 # PR230207 Allow relocations against read-only segments (override lld default)
 LDFLAGS_i386=	-Wl,-z,notext
 
-OPTIONS_DEFINE+=		CGI CLI DEBUG DTRACE EMBED FPM IPV6 LINKTHR \
+OPTIONS_DEFINE+=CGI CLI DEBUG DTRACE EMBED FPM IPV6 LINKTHR \
 				MYSQLND PCRE PHPDBG ZTS
-OPTIONS_DEFAULT=		CGI CLI DTRACE EMBED FPM LINKTHR MYSQLND PCRE
+OPTIONS_DEFAULT=	CGI CLI DTRACE EMBED FPM LINKTHR MYSQLND PCRE
 OPTIONS_EXCLUDE_DragonFly=	DTRACE
 # ld(1) fails to link probes: Relocations in generic ELF (EM: 0)
 OPTIONS_EXCLUDE_aarch64=	DTRACE
@@ -49,10 +50,7 @@ OPTIONS_EXCLUDE_armv7=	DTRACE
 # Bug 197128:  No ASM code for MIPS/MIPS64, disable FPM
 OPTIONS_EXCLUDE_mips=	DTRACE FPM
 OPTIONS_EXCLUDE_mips64=	DTRACE FPM
-OPTIONS_EXCLUDE_powerpc64=	${OPTIONS_EXCLUDE_${ARCH}_${OSREL:R}}
-OPTIONS_EXCLUDE_powerpc64_12=	DTRACE
 OPTIONS_EXCLUDE_riscv64=	DTRACE
-OPTIONS_EXCLUDE_sparc64=	DTRACE
 NO_OPTIONS_SORT=	yes
 OPTIONS_SUB=			yes
 
@@ -91,7 +89,7 @@ PHPDBG_VARS=		PHP_SAPI+=phpdbg
 ZTS_CONFIGURE_ON=	--enable-zts
 ZTS_CONFIGURE_ENV=	pthreads_working="yes"
 
-DESTDIRNAME=		INSTALL_ROOT
+DESTDIRNAME=	INSTALL_ROOT
 
 .if defined(PKGNAMEPREFIX)
 USES+=			apache
@@ -179,7 +177,7 @@ COMMENT=	The ${PHP_MODNAME} shared extension for php
 USES+=		php:ext,noflavors
 PHP_MODNAME=	${PKGNAMESUFFIX:S/-//}
 PHP_VER=	82
-IGNORE_WITH_PHP=	80 81 83
+IGNORE_WITH_PHP=	81 83
 
 EXTSUBDIR=	${DISTNAME}/ext/${PHP_MODNAME}
 WRKSRC=		${WRKDIR}/${EXTSUBDIR}
@@ -257,8 +255,8 @@ USE_GNOME=	libxml2
 
 .if ${PHP_MODNAME} == "enchant"
 LIB_DEPENDS+=   libenchant-2.so:textproc/enchant2
-CONFIGURE_ARGS+=	--with-enchant=${LOCALBASE}
-USES+=			pkgconfig
+CONFIGURE_ARGS+=--with-enchant=${LOCALBASE}
+USES+=		pkgconfig
 .endif
 
 .if ${PHP_MODNAME} == "exif"
@@ -355,14 +353,8 @@ USES+=		pkgconfig
 CPPFLAGS+=	-DU_USING_ICU_NAMESPACE=1
 .endif
 
-.if ${PHP_MODNAME} == "json"
-CONFIGURE_ARGS+=	--enable-json
-BUILD_DEPENDS=		re2c:devel/re2c
-.endif
-
 .if ${PHP_MODNAME} == "ldap"
-CONFIGURE_ARGS+=	--with-ldap-sasl=${LOCALBASE} \
-			--with-ldap=${LOCALBASE}
+CONFIGURE_ARGS+=--with-ldap=${LOCALBASE} --with-ldap-sasl=${LOCALBASE}
 USES+=	ldap
 .endif
 
@@ -387,8 +379,7 @@ CONFIGURE_ARGS+=	--with-mysqli
 .if ${PHP_MODNAME} == "odbc"
 LIB_DEPENDS+=	libodbc.so:databases/unixODBC
 
-CONFIGURE_ARGS+=	--enable-odbc \
-			--with-unixODBC=${LOCALBASE}
+CONFIGURE_ARGS+=	--enable-odbc --with-unixODBC=${LOCALBASE}
 .endif
 
 .if ${PHP_MODNAME} == "opcache"
@@ -548,7 +539,7 @@ CONFIGURE_ARGS+=	--enable-sysvshm
 .if ${PHP_MODNAME} == "tidy"
 CONFIGURE_ARGS+=	--with-tidy=${LOCALBASE}
 
-LIB_DEPENDS+=	libtidy.so:www/tidy-lib
+LIB_DEPENDS+=	libtidy5.so:www/tidy-html5
 .endif
 
 .if ${PHP_MODNAME} == "tokenizer"
@@ -599,8 +590,7 @@ USE_PHP=	dom:build xml:build
 .if ${PHP_MODNAME} == "zip"
 LIB_DEPENDS+=	libzip.so:archivers/libzip
 
-CONFIGURE_ARGS+=	--with-zip \
-			--with-zlib-dir=/usr
+CONFIGURE_ARGS+=	--with-zip --with-zlib-dir=/usr
 USES+=			pkgconfig
 .endif
 

@@ -1,5 +1,5 @@
 PORTNAME=	sflowtool
-DISTVERSION=	6.02
+DISTVERSION=	6.04
 CATEGORIES=	net
 MASTER_SITES=	https://github.com/sflow/${PORTNAME}/releases/download/v${DISTVERSION}/
 
@@ -21,13 +21,6 @@ PORTDOCS=	README
 PORTEXAMPLES=	sflowenable
 
 OPTIONS_DEFINE=	DOCS EXAMPLES
-
-.include <bsd.port.options.mk>
-
-# Patch byteswap.h where not available
-.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1301511
-EXTRA_PATCHES=	${PATCHDIR}/extra-patch-src_sflowtool.c
-.endif
 
 post-install:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}

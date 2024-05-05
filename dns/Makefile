@@ -7,7 +7,6 @@
     SUBDIR += axfr2acl
     SUBDIR += bind-tools
     SUBDIR += bind9-devel
-    SUBDIR += bind916
     SUBDIR += bind918
     SUBDIR += bindgraph
     SUBDIR += blocky
@@ -25,10 +24,8 @@
     SUBDIR += dns-ui
     SUBDIR += dns2blackhole
     SUBDIR += dns2tcp
-    SUBDIR += dns_balance
     SUBDIR += dnsblast
     SUBDIR += dnscap
-    SUBDIR += dnscheckengine
     SUBDIR += dnscontrol
     SUBDIR += dnscrypt-proxy2
     SUBDIR += dnscrypt-wrapper
@@ -69,7 +66,6 @@
     SUBDIR += dynip
     SUBDIR += encrypted-dns-server
     SUBDIR += fastresolve
-    SUBDIR += firedns
     SUBDIR += flamethrower
     SUBDIR += fpdns
     SUBDIR += gdnsd2
@@ -80,6 +76,7 @@
     SUBDIR += hesiod
     SUBDIR += hetzner_ddns
     SUBDIR += hostdb
+    SUBDIR += https_dns_proxy
     SUBDIR += idnkit
     SUBDIR += idnkit2
     SUBDIR += inadyn
@@ -168,6 +165,7 @@
     SUBDIR += p5-POE-Filter-DNS-TCP
     SUBDIR += p5-Tie-DNS
     SUBDIR += p5-URBL-Prepare
+    SUBDIR += p5-Zonemaster-LDNS
     SUBDIR += packetq
     SUBDIR += pdnsd
     SUBDIR += pear-File_DNS
@@ -225,13 +223,11 @@
     SUBDIR += rubygem-zonefile
     SUBDIR += samba-nsupdate
     SUBDIR += scavenge
-    SUBDIR += sheerdns
     SUBDIR += sleuth
     SUBDIR += subfinder
     SUBDIR += totd
     SUBDIR += udns
     SUBDIR += unbound
-    SUBDIR += updatedd
     SUBDIR += utdns
     SUBDIR += vhostcname
     SUBDIR += vizone

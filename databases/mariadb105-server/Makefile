@@ -12,7 +12,6 @@ MASTER_SITES=	\
 		https://ftp.ubuntu-tw.org/mirror/${SITESDIR}/ \
 		https://mirror.kku.ac.th/${SITESDIR}/ \
 		https://espejito.fder.edu.uy/${SITESDIR}/ \
-		https://mirror1.cl.netactuate.com/${SITESDIR}/ \
 		https://ftp.osuosl.org/pub/${SITESDIR}/ \
 		https://downloads.mariadb.org/rest-api/mariadb/${PORTVERSION}/
 PKGNAMESUFFIX?=	105-server
@@ -23,6 +22,8 @@ WWW=		https://mariadb.org/
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
+
+#EXPIRATION_DATE=	2025-06-01
 
 LIB_DEPENDS+=	libpcre2-8.so:devel/pcre2
 
