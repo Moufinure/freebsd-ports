@@ -1,6 +1,6 @@
 PORTNAME=	taglookup
 PORTVERSION=	0.2
-PORTREVISION=	6
+PORTREVISION=	7
 CATEGORIES=	audio
 MASTER_SITES=	http://www.kamaz.org.uk/taglookup/
 
@@ -10,6 +10,9 @@ WWW=		https://www.kamaz.org.uk/taglookup
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
+
+DEPRECATED=	Obsolete, depends on legacy service that is defunct once again
+EXPIRATION_DATE=2024-06-14
 
 LIB_DEPENDS=	libcddb.so:audio/libcddb \
 		libtag.so:audio/taglib

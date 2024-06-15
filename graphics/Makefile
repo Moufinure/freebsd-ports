@@ -154,6 +154,7 @@
     SUBDIR += dspdfviewer
     SUBDIR += dssim
     SUBDIR += duhdraw
+    SUBDIR += durdraw
     SUBDIR += dust3d
     SUBDIR += dynamechs
     SUBDIR += ebsynth
@@ -541,6 +542,24 @@
     SUBDIR += linux-c7-sdl_ttf
     SUBDIR += linux-c7-tiff
     SUBDIR += linux-c7-wayland
+    SUBDIR += linux-rl9-cairo
+    SUBDIR += linux-rl9-cairo-gobject
+    SUBDIR += linux-rl9-dri
+    SUBDIR += linux-rl9-gdk-pixbuf2
+    SUBDIR += linux-rl9-graphite2
+    SUBDIR += linux-rl9-jasper
+    SUBDIR += linux-rl9-jbigkit
+    SUBDIR += linux-rl9-jpeg
+    SUBDIR += linux-rl9-libdrm
+    SUBDIR += linux-rl9-libepoxy
+    SUBDIR += linux-rl9-libglvnd
+    SUBDIR += linux-rl9-librsvg2
+    SUBDIR += linux-rl9-openjpeg
+    SUBDIR += linux-rl9-png
+    SUBDIR += linux-rl9-tiff
+    SUBDIR += linux-rl9-vulkan
+    SUBDIR += linux-rl9-wayland
+    SUBDIR += linux-rl9-webp
     SUBDIR += lua-gd
     SUBDIR += luminance-qt5
     SUBDIR += lux
@@ -601,6 +620,8 @@
     SUBDIR += ocaml-images
     SUBDIR += ocaml-lablgl
     SUBDIR += ocrad
+    SUBDIR += ocrs
+    SUBDIR += oculante
     SUBDIR += ogre3d
     SUBDIR += ogre3d19
     SUBDIR += oidn
@@ -769,6 +790,7 @@
     SUBDIR += pear-Image_Graph
     SUBDIR += pear-Image_GraphViz
     SUBDIR += pear-Image_Transform
+    SUBDIR += pecl-geospatial
     SUBDIR += pecl-imagick
     SUBDIR += pecl-qrencode
     SUBDIR += pecl-vips
@@ -1066,7 +1088,6 @@
     SUBDIR += rubygem-imagesize
     SUBDIR += rubygem-invisible_captcha
     SUBDIR += rubygem-mini_magick
-    SUBDIR += rubygem-mini_magick410
     SUBDIR += rubygem-opengl
     SUBDIR += rubygem-pdfkit
     SUBDIR += rubygem-png
@@ -1132,6 +1153,7 @@
     SUBDIR += svg2png
     SUBDIR += svgalib
     SUBDIR += svgbob
+    SUBDIR += svgpp
     SUBDIR += swappy
     SUBDIR += swfmill
     SUBDIR += swftools
@@ -1175,7 +1197,6 @@
     SUBDIR += vips
     SUBDIR += visprint
     SUBDIR += viu
-    SUBDIR += vkd3d
     SUBDIR += volpack
     SUBDIR += vp
     SUBDIR += vpaint
