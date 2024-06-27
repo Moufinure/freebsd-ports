@@ -1,11 +1,8 @@
 PORTNAME	= openarena
 PKGNAMESUFFIX	= -server
-PORTREVISION	= 18.1
 
 MAINTAINER	= ports@FreeBSD.org
 COMMENT		= OpenArena dedicated server
-
-LICENSE		= GPLv2
 
 MASTERDIR	= ${.CURDIR}/../${PORTNAME}
 
