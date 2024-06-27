@@ -27,6 +27,7 @@
     SUBDIR += bgs
     SUBDIR += bitmap
     SUBDIR += bmpanel2
+    SUBDIR += boomer
     SUBDIR += brisk-menu
     SUBDIR += budgie
     SUBDIR += budgie-desktop
@@ -479,7 +480,7 @@
     SUBDIR += wmblob
     SUBDIR += wmbutton
     SUBDIR += wmcliphist
-    SUBDIR += wmctrl
+    SUBDIR += wmctrl-fork
     SUBDIR += wmdrawer
     SUBDIR += wmenu
     SUBDIR += wmfocus

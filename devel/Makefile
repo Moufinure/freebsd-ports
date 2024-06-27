@@ -270,6 +270,7 @@
     SUBDIR += aws-c-sdkutils
     SUBDIR += aws-checksums
     SUBDIR += aws-crt-cpp
+    SUBDIR += aws-crt-ffi
     SUBDIR += aws-sdk-cpp
     SUBDIR += aws-sdk-php
     SUBDIR += axmldec
@@ -623,7 +624,6 @@
     SUBDIR += efl
     SUBDIR += egypt
     SUBDIR += eiffelstudio
-    SUBDIR += electron25
     SUBDIR += electron27
     SUBDIR += electron28
     SUBDIR += electron29
@@ -1020,6 +1020,7 @@
     SUBDIR += ipython
     SUBDIR += ireport
     SUBDIR += isa-l
+    SUBDIR += iscd-commons
     SUBDIR += isfreedesktop
     SUBDIR += isl
     SUBDIR += ispc
@@ -4278,6 +4279,7 @@
     SUBDIR += py-PyExecJS
     SUBDIR += py-PyGithub
     SUBDIR += py-PyLD
+    SUBDIR += py-PyPubSub
     SUBDIR += py-PyUtilib
     SUBDIR += py-QtPy
     SUBDIR += py-RPyC
@@ -4600,6 +4602,7 @@
     SUBDIR += py-confusable_homoglyphs
     SUBDIR += py-confuse
     SUBDIR += py-connection_pool
+    SUBDIR += py-connexion
     SUBDIR += py-cons
     SUBDIR += py-constantly
     SUBDIR += py-construct
@@ -4691,7 +4694,6 @@
     SUBDIR += py-diskcache
     SUBDIR += py-distlib
     SUBDIR += py-distributed
-    SUBDIR += py-dj42-django-rq
     SUBDIR += py-django-rq
     SUBDIR += py-dm-tree
     SUBDIR += py-docformatter
@@ -5102,6 +5104,7 @@
     SUBDIR += py-memory-allocator
     SUBDIR += py-memory-profiler
     SUBDIR += py-mergedeep
+    SUBDIR += py-methodtools
     SUBDIR += py-microversion-parse
     SUBDIR += py-milc
     SUBDIR += py-mime
@@ -5456,6 +5459,7 @@
     SUBDIR += py-pyparsing2
     SUBDIR += py-pyperclip
     SUBDIR += py-pyperf
+    SUBDIR += py-pyperscan
     SUBDIR += py-pyplusplus
     SUBDIR += py-pyproject-api
     SUBDIR += py-pyproject-flake8
@@ -5542,6 +5546,7 @@
     SUBDIR += py-pytest-relaxed
     SUBDIR += py-pytest-remotedata
     SUBDIR += py-pytest-rerunfailures
+    SUBDIR += py-pytest-ruff
     SUBDIR += py-pytest-runner
     SUBDIR += py-pytest-services
     SUBDIR += py-pytest-shutil
@@ -5693,6 +5698,7 @@
     SUBDIR += py-ruamel.yaml
     SUBDIR += py-ruamel.yaml.clib
     SUBDIR += py-rubymarshal
+    SUBDIR += py-ruff
     SUBDIR += py-rush
     SUBDIR += py-rx
     SUBDIR += py-rx1
@@ -5964,6 +5970,7 @@
     SUBDIR += py-whistle
     SUBDIR += py-widgetsnbextension
     SUBDIR += py-wimpy
+    SUBDIR += py-wirerope
     SUBDIR += py-wlc
     SUBDIR += py-woops
     SUBDIR += py-wrapt
@@ -6281,11 +6288,13 @@
     SUBDIR += rubygem-aws-sdk-applicationcostprofiler
     SUBDIR += rubygem-aws-sdk-applicationdiscoveryservice
     SUBDIR += rubygem-aws-sdk-applicationinsights
+    SUBDIR += rubygem-aws-sdk-applicationsignals
     SUBDIR += rubygem-aws-sdk-appmesh
     SUBDIR += rubygem-aws-sdk-appregistry
     SUBDIR += rubygem-aws-sdk-apprunner
     SUBDIR += rubygem-aws-sdk-appstream
     SUBDIR += rubygem-aws-sdk-appsync
+    SUBDIR += rubygem-aws-sdk-apptest
     SUBDIR += rubygem-aws-sdk-arczonalshift
     SUBDIR += rubygem-aws-sdk-artifact
     SUBDIR += rubygem-aws-sdk-athena
@@ -6540,6 +6549,7 @@
     SUBDIR += rubygem-aws-sdk-paymentcryptography
     SUBDIR += rubygem-aws-sdk-paymentcryptographydata
     SUBDIR += rubygem-aws-sdk-pcaconnectorad
+    SUBDIR += rubygem-aws-sdk-pcaconnectorscep
     SUBDIR += rubygem-aws-sdk-personalize
     SUBDIR += rubygem-aws-sdk-personalizeevents
     SUBDIR += rubygem-aws-sdk-personalizeruntime
@@ -6899,6 +6909,7 @@
     SUBDIR += rubygem-cucumber-messages
     SUBDIR += rubygem-cucumber-messages22
     SUBDIR += rubygem-cucumber-messages23
+    SUBDIR += rubygem-cucumber-messages24
     SUBDIR += rubygem-cucumber-rails
     SUBDIR += rubygem-cucumber-tag-expressions
     SUBDIR += rubygem-cucumber-wire
@@ -6908,12 +6919,12 @@
     SUBDIR += rubygem-daemons
     SUBDIR += rubygem-danger
     SUBDIR += rubygem-danger-gitlab
+    SUBDIR += rubygem-datadog
     SUBDIR += rubygem-datadog-ci
     SUBDIR += rubygem-date
     SUBDIR += rubygem-ddmemoize
     SUBDIR += rubygem-ddmetrics
     SUBDIR += rubygem-ddplugin
-    SUBDIR += rubygem-ddtrace
     SUBDIR += rubygem-deb_version
     SUBDIR += rubygem-debase-ruby_core_source
     SUBDIR += rubygem-debug
@@ -7128,6 +7139,7 @@
     SUBDIR += rubygem-googleapis-common-protos-types
     SUBDIR += rubygem-graf
     SUBDIR += rubygem-grape
+    SUBDIR += rubygem-grape20
     SUBDIR += rubygem-grape-entity
     SUBDIR += rubygem-grape-path-helpers
     SUBDIR += rubygem-grape-route-helpers
@@ -7775,6 +7787,7 @@
     SUBDIR += rubygem-will_paginate
     SUBDIR += rubygem-windows_error
     SUBDIR += rubygem-wisper
+    SUBDIR += rubygem-wisper2
     SUBDIR += rubygem-with_advisory_lock61
     SUBDIR += rubygem-with_env
     SUBDIR += rubygem-wmi-lite
