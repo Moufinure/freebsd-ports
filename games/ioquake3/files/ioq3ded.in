@@ -47,6 +47,6 @@ pidfile="${ioq3ded_home}/ioq3ded-daemon.pid"
 child_pidfile="${ioq3ded_home}/ioq3ded.pid"
 
 command="/usr/sbin/daemon"
-command_args="-c -f -P ${pidfile} -p ${child_pidfile} %%PREFIX%%/bin/ioq3ded +set fs_basepath ${ioq3ded_data} +set fs_homepath ${ioq3ded_home} ${ioq3ded_args}"
+command_args="-c -f -P ${pidfile} -p ${child_pidfile} %%PREFIX%%/bin/%%Q3SERVER%% +set fs_basepath ${ioq3ded_data} +set fs_homepath ${ioq3ded_home} ${ioq3ded_args}"
 
 run_rc_command "$1"
