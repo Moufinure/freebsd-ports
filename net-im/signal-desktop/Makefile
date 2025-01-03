@@ -1,7 +1,7 @@
 PORTNAME=	signal-desktop
 DISTVERSIONPREFIX=	v
-DISTVERSION=	7.16.0
-PORTREVISION=	2
+DISTVERSION=	7.35.0
+PORTREVISION=	1
 CATEGORIES=	net-im
 MASTER_SITES=	LOCAL/mikael/signal-desktop/:npm \
 		https://build-artifacts.signal.org/desktop/:sqlcipher
@@ -24,9 +24,10 @@ EXTRACT_DEPENDS=jq:textproc/jq \
 BUILD_DEPENDS=	${LOCALBASE}/lib/libcrypto.a:security/openssl \
 		${LOCALBASE}/lib/libringrtc.so:multimedia/ringrtc \
 		${LOCALBASE}/lib/libsignal_node.so:net-im/libsignal-node \
-		${LOCALBASE}/lib/libsignal_tokenizer.a:devel/signal-fts5-extension \
+		${LOCALBASE}/lib/libsignal_sqlcipher_extension.a:devel/signal-sqlcipher-extension \
 		app-builder>0:devel/app-builder \
 		electron${ELECTRON_VER_MAJOR}:devel/electron${ELECTRON_VER_MAJOR} \
+		esbuild:devel/esbuild \
 		jq:textproc/jq \
 		npm:www/npm-node20
 LIB_DEPENDS=	libasound.so:audio/alsa-lib \
@@ -65,6 +66,8 @@ USE_GL=		gbm gl
 USE_GNOME=	atk cairo gdkpixbuf2 glib20 gtk30 libxml2 libxslt pango
 USE_XORG=	x11 xcb xcomposite xdamage xext xfixes xi xrandr xrender xtst
 
+PIE_UNSAFE=	yes
+
 PACKAGE_ENV=	SIGNAL_ENV=production \
 		npm_config_runtime=electron \
 		npm_config_target=${ELECTRON_VER_MAJOR} \
@@ -82,11 +85,14 @@ MAKE_ENV+=	ELECTRON_SKIP_BINARY_DOWNLOAD=1
 # This is a workaround to avoid filesystem violations during poudriere build
 MAKE_ENV+=	PYTHONDONTWRITEBYTECODE=1
 
+MAKE_ENV+=	ESBUILD_BINARY_PATH=${LOCALBASE}/bin/esbuild
+
 _BUILD_DATE=	$$(date +'%s')
 
-ELECTRON_VER_MAJOR=	30
+ELECTRON_VER_MAJOR=	32
+ESBUILD_VERSION=	0.21.2
 
-SQLCIPHER=	sqlcipher-4.5.5-fts5-fix--3.0.7--0.2.1-ef53ea45ed92b928ecfd33c552d8d405263e86e63dec38e1ec63e1b0193b630b
+SQLCIPHER=	sqlcipher-v2-4.6.1-signal-patch2--0.2.0-b0dbebe5b2d81879984bfa2318ba364fb4d436669ddc1668d2406eaaaee40b7e
 
 NODE_ARCH=	${ARCH:S/aarch64/arm64/:S/amd64/x64/}
 APP_OUT_DIR=	linux-${ARCH:S/aarch64/arm64-/:S/amd64//}unpacked
@@ -107,12 +113,13 @@ PLIST_SUB+=	NOT_AARCH64=""
 post-extract:
 	# Update node engine
 	${PREFIX}/bin/jq '.engines.node = ""' ${WRKSRC}/package.json > ${WRKSRC}/package.json.tmp.1
-	${MV} ${WRKSRC}/package.json.tmp.1 ${WRKSRC}/package.json
+	${PREFIX}/bin/jq '.devDependencies.esbuild = "${ESBUILD_VERSION}"' ${WRKSRC}/package.json.tmp.1 > ${WRKSRC}/package.json.tmp.2
+	${MV} ${WRKSRC}/package.json.tmp.2 ${WRKSRC}/package.json
 	# remove mock-server as it doesn't build and is useless
 	${PREFIX}/bin/jq 'del(.devDependencies."@signalapp/mock-server")' ${WRKSRC}/package.json > ${WRKSRC}/package.json.tmp
 	${MV} ${WRKSRC}/package.json.tmp ${WRKSRC}/package.json
 
-	# for online build
+#	# for online build
 #	cd ${WRKSRC} && \
 #		${SETENV} ${MAKE_ENV} npm install --ignore-optional --ignore-scripts || ${TRUE}
 
@@ -121,8 +128,8 @@ post-extract:
 		${SETENV} ${MAKE_ENV} npm install --ignore-optional --ignore-scripts --offline || ${TRUE}
 
 do-build:
-# electron-builder is stupid and tries to open ${LOCALBASE}/share/electron30/electron with WRITE priv
-# copy ${LOCALBASE}/share/electron30 in WRKDIR
+# electron-builder is stupid and tries to open ${LOCALBASE}/share/electron32/electron with WRITE priv
+# copy ${LOCALBASE}/share/electron32 in WRKDIR
 # it's needed for the do-install phase, it's here because of this issue
 # https://github.com/MikaelUrankar/signal-desktop/issues/6 (I don't know why it fails though)
 	@${RM} -r ${WRKDIR}/electron${ELECTRON_VER_MAJOR}
@@ -143,11 +150,9 @@ do-build:
 	# patch-package can't patch sqlite3 on aarch64, patch the yarn cache instead
 	cd ${WRKSRC} && ${PATCH} -s -N -i ${FILESDIR}/sqlite3.gyp.diff
 
-	${CP} ${FILESDIR}/dns-fallback.json ${WRKSRC}/build
-
 	@${RM} -r ${WRKSRC}/node_modules/fs-xattr
 
-	# online build
+#	# online build
 #	cd ${WRKSRC} && \
 #		${SETENV} ${MAKE_ENV} npm_config_nodedir=${LOCALBASE}/share/electron${ELECTRON_VER_MAJOR}/node_headers npm install --ignore-optional
 #	cd ${WRKSRC} && \

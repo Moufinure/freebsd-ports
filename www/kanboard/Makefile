@@ -1,6 +1,6 @@
 PORTNAME=	kanboard
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.2.37
+DISTVERSION=	1.2.43
 CATEGORIES=	www
 PKGNAMEPREFIX=	${PHP_PKGNAMEPREFIX}
 
@@ -17,7 +17,6 @@ USES=		cpe php:flavors python
 USE_GITHUB=	yes
 USE_PHP=	ctype curl dom filter gd iconv mbstring mcrypt \
 		pdo session simplexml xml zlib
-IGNORE_WITH_PHP=	84
 
 NO_ARCH=	yes
 NO_BUILD=	yes

@@ -46,6 +46,8 @@
     SUBDIR += dhall
     SUBDIR += dlang-tools
     SUBDIR += dotnet
+    SUBDIR += dotnet-runtime
+    SUBDIR += dotnet8
     SUBDIR += duktape
     SUBDIR += duktape-lib
     SUBDIR += ecl
@@ -74,7 +76,6 @@
     SUBDIR += f2c
     SUBDIR += fasm
     SUBDIR += fennel
-    SUBDIR += ferite
     SUBDIR += ficl
     SUBDIR += fpc
     SUBDIR += fpc-devel
@@ -88,9 +89,7 @@
     SUBDIR += gauche
     SUBDIR += gawk
     SUBDIR += gcc
-    SUBDIR += gcc10
     SUBDIR += gcc11
-    SUBDIR += gcc11-devel
     SUBDIR += gcc12
     SUBDIR += gcc12-devel
     SUBDIR += gcc13
@@ -124,6 +123,7 @@
     SUBDIR += go120
     SUBDIR += go121
     SUBDIR += go122
+    SUBDIR += go123
     SUBDIR += gomacro
     SUBDIR += gprolog
     SUBDIR += gptscript
@@ -181,6 +181,7 @@
     SUBDIR += linux-dotnet11-sdk
     SUBDIR += linux-j
     SUBDIR += linux-rl9-python3
+    SUBDIR += linux-rl9-tcl86
     SUBDIR += lua51
     SUBDIR += lua52
     SUBDIR += lua53
@@ -240,6 +241,7 @@
     SUBDIR += p5-ExtUtils-F77
     SUBDIR += p5-Interpolation
     SUBDIR += p5-JSAN
+    SUBDIR += p5-JavaScript-QuickJS
     SUBDIR += p5-JavaScript-Squish
     SUBDIR += p5-JavaScript-Value-Escape
     SUBDIR += p5-List-MoreUtils
@@ -263,7 +265,6 @@
     SUBDIR += p5-ePerl
     SUBDIR += p5-signatures
     SUBDIR += p5-v6
-    SUBDIR += parrot
     SUBDIR += pbasic
     SUBDIR += pcc
     SUBDIR += perl5-devel
@@ -295,6 +296,7 @@
     SUBDIR += py-dhall
     SUBDIR += py-hy
     SUBDIR += py-lupa
+    SUBDIR += py-sly
     SUBDIR += py-textX
     SUBDIR += python
     SUBDIR += python-doc-html
@@ -334,8 +336,10 @@
     SUBDIR += rust
     SUBDIR += rust-bootstrap
     SUBDIR += rust-nightly
+    SUBDIR += rust182
     SUBDIR += rustpython
     SUBDIR += s7
+    SUBDIR += s7-nrepl
     SUBDIR += sagittarius-scheme
     SUBDIR += sather-specification
     SUBDIR += sather-tutorial
@@ -359,6 +363,7 @@
     SUBDIR += snobol4
     SUBDIR += solidity
     SUBDIR += spidermonkey102
+    SUBDIR += spidermonkey128
     SUBDIR += spidermonkey78
     SUBDIR += spidermonkey91
     SUBDIR += spl
@@ -378,7 +383,6 @@
     SUBDIR += tolua
     SUBDIR += tolua++
     SUBDIR += tuareg-mode.el
-    SUBDIR += twelf
     SUBDIR += typstfmt
     SUBDIR += typstyle
     SUBDIR += ucc

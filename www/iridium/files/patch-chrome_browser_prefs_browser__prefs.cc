@@ -1,6 +1,15 @@
---- chrome/browser/prefs/browser_prefs.cc.orig	2024-08-01 05:47:53 UTC
+--- chrome/browser/prefs/browser_prefs.cc.orig	2024-12-22 12:24:29 UTC
 +++ chrome/browser/prefs/browser_prefs.cc
-@@ -489,18 +489,18 @@
+@@ -313,7 +313,7 @@
+ #include "components/user_notes/user_notes_prefs.h"
+ #endif  // BUILDFLAG(IS_ANDROID)
+ 
+-#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
++#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
+ #include "chrome/browser/ui/webui/whats_new/whats_new_ui.h"
+ #endif
+ 
+@@ -488,18 +488,18 @@
  #endif
  
  #if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || \
@@ -22,7 +31,7 @@
  #include "chrome/browser/enterprise/signin/enterprise_signin_prefs.h"
  #endif
  
-@@ -535,7 +535,7 @@
+@@ -534,7 +534,7 @@
  #include "chrome/browser/sessions/session_service_log.h"
  #endif
  
@@ -31,16 +40,25 @@
  #include "ui/color/system_theme.h"
  #endif
  
-@@ -1953,7 +1953,7 @@ void RegisterLocalState(PrefRegistrySimple* registry) 
-                                 true);
+@@ -1753,7 +1753,7 @@ void RegisterLocalState(PrefRegistrySimple* registry) 
+   on_device_translation::RegisterLocalStatePrefs(registry);
+ #endif  // BUILDFLAG(IS_ANDROID)
+ 
+-#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
++#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
+   WhatsNewUI::RegisterLocalStatePrefs(registry);
+ #endif
+ 
+@@ -1929,7 +1929,7 @@ void RegisterLocalState(PrefRegistrySimple* registry) 
  #endif  // BUILDFLAG(ENABLE_PDF)
  
--#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_WIN)
-+#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_WIN) || BUILDFLAG(IS_BSD)
+ #if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_WIN) || \
+-    BUILDFLAG(IS_ANDROID)
++    BUILDFLAG(IS_ANDROID) || BUILDFLAG(IS_BSD)
    registry->RegisterBooleanPref(prefs::kChromeForTestingAllowed, true);
  #endif
  
-@@ -2309,12 +2309,12 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySync
+@@ -2286,12 +2286,12 @@ void RegisterProfilePrefs(user_prefs::PrefRegistrySync
  #endif
  
  #if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || \

@@ -1,9 +1,8 @@
 PORTNAME=	neomutt
-PORTVERSION=	20240425
-PORTREVISION=	1
+PORTVERSION=	20241212
 CATEGORIES=	mail
 
-MAINTAINER=	bapt@FreeBSD.org
+MAINTAINER=	gahr@FreeBSD.org
 COMMENT=	Bringing together all the Mutt Code
 WWW=		https://neomutt.org
 

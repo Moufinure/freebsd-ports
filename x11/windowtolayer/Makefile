@@ -1,6 +1,6 @@
 PORTNAME=	windowtolayer
-PORTVERSION=	s20240320
-PORTREVISION=	2
+PORTVERSION=	s20241109
+PORTREVISION=	1
 CATEGORIES=	x11 wayland
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -14,10 +14,7 @@ USES=		cargo
 USE_GITLAB=	yes
 GL_SITE=	https://gitlab.freedesktop.org
 GL_ACCOUNT=	mstoeckl
-GL_TAGNAME=	a5b89c3
+GL_TAGNAME=	407b2c6
 PLIST_FILES=	bin/${PORTNAME}
-
-post-install:
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 .include <bsd.port.mk>

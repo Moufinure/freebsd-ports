@@ -1,7 +1,7 @@
 PORTNAME=	bareos
 DISTVERSIONPREFIX=	Release/
 DISTVERSION=	20.0.9
-PORTREVISION?=	0
+PORTREVISION?=	1
 CATEGORIES?=	sysutils
 PKGNAMEPREFIX?=	#
 PKGNAMESUFFIX?=	20-server
@@ -12,6 +12,9 @@ WWW=		https://www.bareos.org/
 
 LICENSE=	AGPLv3 LGPL3
 LICENSE_COMB=	multi
+
+DEPRECATED=	not supported upstream
+EXPIRATION_DATE=	2025-01-21
 
 CONFLICTS?=	bareos19-server bareos18-server bareos-server
 
@@ -235,7 +238,7 @@ post-install:
 
 .include <bsd.port.options.mk>
 
-.if ${OPSYS} == FreeBSD && ( ${OSVERSION} >= 1400091 || ( ${OSVERSION} >= 1302505 && ${OSVERSION} < 1400000 ))
+.if ${OPSYS} == FreeBSD
 USES+=	llvm:max=15
 .endif
 

@@ -10,6 +10,7 @@ LLVM_COMMANDS=	\
 		llvm-bitcode-strip \
 		llvm-cat \
 		llvm-cfi-verify \
+		llvm-cgdata \
 		llvm-config \
 		llvm-cov \
 		llvm-ctxprof-util \
@@ -103,10 +104,9 @@ EXTRAS_COMMANDS= \
 		clang-installapi \
 		clang-move \
 		clang-nvlink-wrapper \
-		clang-pseudo \
 		clang-query \
-		clang-rename \
 		clang-reorder-fields \
+		clang-sycl-linker \
 		clang-tidy \
 		find-all-symbols \
 		modularize \
@@ -115,7 +115,9 @@ EXTRAS_COMMANDS= \
 FLANG_COMMANDS=	\
 		bbc \
 		f18-parse-demo \
+		fir-lsp-server \
 		fir-opt \
+		flang \
 		flang-new \
 		tco
 
@@ -149,6 +151,7 @@ MLIR_COMMANDS=	\
 		mlir-pdll-lsp-server \
 		mlir-query \
 		mlir-reduce \
+		mlir-rewrite \
 		mlir-tblgen \
 		mlir-transform-opt \
 		mlir-translate \

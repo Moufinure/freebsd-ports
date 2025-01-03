@@ -18,6 +18,7 @@ lib/cairo-lang/corelib/src/fmt.cairo
 lib/cairo-lang/corelib/src/gas.cairo
 lib/cairo-lang/corelib/src/hash.cairo
 lib/cairo-lang/corelib/src/integer.cairo
+lib/cairo-lang/corelib/src/internal/bounded_int.cairo
 lib/cairo-lang/corelib/src/internal.cairo
 lib/cairo-lang/corelib/src/iter.cairo
 lib/cairo-lang/corelib/src/iter/traits.cairo
@@ -27,6 +28,7 @@ lib/cairo-lang/corelib/src/lib.cairo
 lib/cairo-lang/corelib/src/math.cairo
 lib/cairo-lang/corelib/src/metaprogramming.cairo
 lib/cairo-lang/corelib/src/nullable.cairo
+lib/cairo-lang/corelib/src/num/traits/ops/widesquare.cairo
 lib/cairo-lang/corelib/src/num.cairo
 lib/cairo-lang/corelib/src/num/traits.cairo
 lib/cairo-lang/corelib/src/num/traits/bit_size.cairo
@@ -35,11 +37,14 @@ lib/cairo-lang/corelib/src/num/traits/one.cairo
 lib/cairo-lang/corelib/src/num/traits/ops.cairo
 lib/cairo-lang/corelib/src/num/traits/ops/checked.cairo
 lib/cairo-lang/corelib/src/num/traits/ops/overflowing.cairo
+lib/cairo-lang/corelib/src/num/traits/ops/pow.cairo
 lib/cairo-lang/corelib/src/num/traits/ops/saturating.cairo
 lib/cairo-lang/corelib/src/num/traits/ops/sqrt.cairo
 lib/cairo-lang/corelib/src/num/traits/ops/widemul.cairo
 lib/cairo-lang/corelib/src/num/traits/ops/wrapping.cairo
 lib/cairo-lang/corelib/src/num/traits/zero.cairo
+lib/cairo-lang/corelib/src/ops/function.cairo
+lib/cairo-lang/corelib/src/ops/range.cairo
 lib/cairo-lang/corelib/src/ops.cairo
 lib/cairo-lang/corelib/src/ops/arith.cairo
 lib/cairo-lang/corelib/src/ops/deref.cairo
@@ -95,9 +100,12 @@ lib/cairo-lang/corelib/src/test/fmt_test.cairo
 lib/cairo-lang/corelib/src/test/hash_test.cairo
 lib/cairo-lang/corelib/src/test/integer_test.cairo
 lib/cairo-lang/corelib/src/test/keccak_test.cairo
+lib/cairo-lang/corelib/src/test/language_features/block_level_items_test.cairo
+lib/cairo-lang/corelib/src/test/language_features/closure_test.cairo
 lib/cairo-lang/corelib/src/test/language_features/const_folding_test.cairo
 lib/cairo-lang/corelib/src/test/language_features/const_test.cairo
 lib/cairo-lang/corelib/src/test/language_features/for_test.cairo
+lib/cairo-lang/corelib/src/test/language_features/glob_use_test.cairo
 lib/cairo-lang/corelib/src/test/language_features/panics_test.cairo
 lib/cairo-lang/corelib/src/test/language_features/trait_test.cairo
 lib/cairo-lang/corelib/src/test/language_features/while_test.cairo

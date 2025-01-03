@@ -1,10 +1,10 @@
 PORTNAME=	metronome
 DISTVERSION=	1.3.0
-PORTREVISION=	9
+PORTREVISION=	13
 CATEGORIES=	audio
 PKGNAMEPREFIX=	gnome-
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Keep the tempo
 WWW=		https://gitlab.gnome.org/World/metronome
 
@@ -29,9 +29,7 @@ post-patch:
 	@${REINPLACE_CMD} -e '/update_desktop_database/d' \
 		${WRKSRC}/meson.build
 # Make each cargo subcommand very verbose
-# Add explicit <triple> subdir for --target from USES=cargo
 	@${REINPLACE_CMD} -e "/cargo_options =/s/ '--/&verbose', &verbose', &/" \
-		-e "/cp/s,'src',& / '${CARGO_BUILD_TARGET}'," \
 		${WRKSRC}/src/meson.build
 
 .include <bsd.port.mk>

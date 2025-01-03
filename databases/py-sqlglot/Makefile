@@ -1,5 +1,5 @@
 PORTNAME=	sqlglot
-PORTVERSION=	25.7.1
+PORTVERSION=	26.0.1
 CATEGORIES=	databases python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -20,5 +20,10 @@ USES=		python
 USE_PYTHON=	autoplist concurrent pep517
 
 NO_ARCH=	yes
+
+OPTIONS_DEFINE=	RS
+RS_DESC=	SQL parser and transpiler in Rust
+
+RS_RUN_DEPENDS=		${PYTHON_PKGNAMEPREFIX}sqlglotrs>=0.3.0<0.3.0_99:databases/py-sqlglotrs@${PY_FLAVOR}
 
 .include <bsd.port.mk>

@@ -4,7 +4,7 @@ CATEGORIES=	www
 MASTER_SITES=	SF/${PORTNAME}/Tiki_24.x_Wolf_359/${DISTVERSION}/
 DISTNAME=	tiki-${DISTVERSION}
 
-MAINTAINER=	joneum@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Powerful PHP based Wiki/CMS/Groupware
 WWW=		https://tiki.org/
 
@@ -14,7 +14,6 @@ LICENSE_FILE=	${WRKSRC}/license.txt
 USES=		php:web
 USE_PHP=	calendar dom fileinfo gd gettext intl mbstring mcrypt \
 		posix session xml zip zlib
-IGNORE_WITH_PHP=	84
 
 NO_BUILD=	yes
 NO_MTREE=	yes

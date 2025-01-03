@@ -1,6 +1,6 @@
 PORTNAME=	drm-510-kmod
 PORTVERSION=	${DRM_KMOD_DISTVERSION}
-PORTREVISION=	9
+PORTREVISION=	10
 CATEGORIES=	graphics kld
 
 .include "Makefile.version"
@@ -27,8 +27,11 @@ GH_TAGNAME=	${DRM_KMOD_GH_TAGNAME}
 
 .include <bsd.port.options.mk>
 
+SUB_FILES=	pkg-message
+SUB_LIST=	OPSYS=${OPSYS} OSREL=${OSREL}
+
 .if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1401501
-IGNORE=		not supported on newer than 14.1
+IGNORE=		not supported on FreeBSD 14.2 and higher
 .endif
 IGNORE_FreeBSD_15=	not supported anymore
 

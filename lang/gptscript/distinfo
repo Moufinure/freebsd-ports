@@ -1,5 +1,5 @@
-TIMESTAMP = 1722613245
-SHA256 (go/lang_gptscript/gptscript-v0.9.3/v0.9.3.mod) = 757d703c9f73175299bcc33b76d1cc9deec389cfd44eebb2599a46ecc7fb86dc
-SIZE (go/lang_gptscript/gptscript-v0.9.3/v0.9.3.mod) = 5181
-SHA256 (go/lang_gptscript/gptscript-v0.9.3/v0.9.3.zip) = 76f42318b6892befd3d287b911e287bb65c7e0af6f6a85b9c1cf1aa5192d5ff6
-SIZE (go/lang_gptscript/gptscript-v0.9.3/v0.9.3.zip) = 3069019
+TIMESTAMP = 1727967021
+SHA256 (go/lang_gptscript/gptscript-v0.9.5/v0.9.5.mod) = a982b21f55c713f4cd55d88ce6b3f2abeb88aef0074b30aadc97b4789cdf6dd3
+SIZE (go/lang_gptscript/gptscript-v0.9.5/v0.9.5.mod) = 6221
+SHA256 (go/lang_gptscript/gptscript-v0.9.5/v0.9.5.zip) = 8c96d0fe0e4b544b87efb9d93e9e6e3b542740eb77fd8bb448fa86641a7ada11
+SIZE (go/lang_gptscript/gptscript-v0.9.5/v0.9.5.zip) = 3122179

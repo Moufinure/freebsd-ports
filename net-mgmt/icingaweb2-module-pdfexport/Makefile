@@ -5,7 +5,7 @@ PORTREVISION=	3
 CATEGORIES=	net-mgmt www
 PKGNAMESUFFIX=	${PHP_PKGNAMESUFFIX}
 
-MAINTAINER=	joneum@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Icinga PDF Export
 WWW=		https://github.com/Icinga/icingaweb2-module-pdfexport
 
@@ -16,7 +16,6 @@ RUN_DEPENDS=	icingaweb2${PHP_PKGNAMESUFFIX}>=2.11.4:net-mgmt/icingaweb2@${PHP_FL
 		chromium>0:www/chromium
 
 USES=		php:web,flavors
-IGNORE_WITH_PHP=	84
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	icinga

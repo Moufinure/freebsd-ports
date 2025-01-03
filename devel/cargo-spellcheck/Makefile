@@ -1,7 +1,7 @@
 PORTNAME=	cargo-spellcheck
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.14.0
-PORTREVISION=	1
+PORTREVISION=	5
 CATEGORIES=	devel
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -12,6 +12,8 @@ LICENSE=	APACHE20 MIT
 LICENSE_COMB=	dual
 LICENSE_FILE_APACHE20=	${WRKSRC}/LICENSE-APACHE
 LICENSE_FILE_MIT=	${WRKSRC}/LICENSE-MIT
+
+BROKEN_armv7=	compilation fails, see https://github.com/eyre-rs/eyre/issues/211
 
 LIB_DEPENDS=	libonig.so:devel/oniguruma
 
@@ -339,8 +341,5 @@ MAKE_ENV=	LIBCLANG_PATH=${LLVM_PREFIX}/lib \
 		LLVM_CONFIG_PATH=${LLVM_CONFIG}
 
 PLIST_FILES=	bin/${PORTNAME}
-
-post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 .include <bsd.port.mk>

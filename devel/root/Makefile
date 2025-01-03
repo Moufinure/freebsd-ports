@@ -1,6 +1,5 @@
 PORTNAME=	root
-DISTVERSION=	6.32.02
-PORTREVISION=	1
+DISTVERSION=	6.32.08
 CATEGORIES=	devel science math parallel python
 MASTER_SITES=	https://root.cern/download/
 DISTFILES=	${PORTNAME}_v${DISTVERSION}.source${EXTRACT_SUFX}
@@ -22,8 +21,7 @@ LIB_DEPENDS=	libfreetype.so:print/freetype2 \
 		libzstd.so:archivers/zstd
 RUN_DEPENDS=	${BUILD_AND_RUN_DEPENDS}
 
-USES=		cmake compiler:c++17-lang desktop-file-utils \
-		iconv shebangfix
+USES=		cmake desktop-file-utils iconv shebangfix
 
 SHEBANG_FILES=	main/python/rootbrowse.py \
 		main/python/rootcp.py \
@@ -47,29 +45,26 @@ SHEBANG_FILES=	main/python/rootbrowse.py \
 python_OLD_CMD+=	"/usr/bin/env @python@"
 
 # Flags and environment variables for building
-CMAKE_ARGS=	-DCMAKE_CXX_STANDARD=17
 CMAKE_ON=	builtin_clang builtin_cling builtin_llvm builtin_openui5 gnuinstall \
-		rpath runtime_cxxmodules shared soversion
+		rpath shared soversion
 CMAKE_OFF=	arrow builtin_afterimage builtin_cfitsio builtin_cppzmq builtin_davix \
 		builtin_fftw3 builtin_freetype builtin_ftgl builtin_gl2ps builtin_glew \
 		builtin_gsl builtin_gtest builtin_lz4 builtin_lzma builtin_nlohmannjson \
 		builtin_openssl builtin_pcre builtin_tbb builtin_unuran builtin_vc builtin_vdt \
 		builtin_veccore builtin_xrootd builtin_xxhash builtin_zeromq builtin_zlib \
-		builtin_zstd cefweb clad cocoa cuda cudnn daos davix dcache fcgi fftw3 gviz \
-		libcxx llvm13_broken_tests macos_native memory_termination minuit2_mpi \
-		minuit2_omp mpi odbc proof pythia8 qt5web qt6web r roofit_multiprocess \
+		builtin_zstd cefweb clad cocoa cuda cudnn daos dcache fcgi fftw3 gviz libcxx \
+		llvm13_broken_tests macos_native memory_termination minuit2_mpi minuit2_omp \
+		mpi odbc proof pythia8 qt5web qt6web r roofit_multiprocess runtime_cxxmodules \
 		shadowpw test_distrdf_dask test_distrdf_pyspark tmva-gpu tmva-rmva tmva-sofie \
 		unfold unuran uring vc veccore vecgeom win_broken_tests winrtdebug
-CONFIGURE_WRKSRC?=	${WRKDIR}/.build
-MAKE_ENV+=		ROOTSYS=${CONFIGURE_WRKSRC}
 
 # Port build options; DOCS also on by default
 # See https://root.cern/install/build_from_source/#all-build-options
-OPTIONS_DEFINE=	DOCS ASIMAGE DATAFRAME FITS FORTRAN GDML HTTP IMT MATHMORE MYSQL \
-		OPENGL PGSQL PYROOT ROOFIT ROOT7 SPECTRUM SQLITE SSL TMLP TMVAML VDT WEBGUI \
-		X11 XML XROOTD
-OPTIONS_DEFAULT=	ASIMAGE DATAFRAME FITS GDML HTTP IMT MATHMORE OPENGL PYROOT \
-		ROOFIT ROOT7 SPECTRUM SSL TMLP TMVAML VDT WEBGUI X11 XML XROOTD
+OPTIONS_DEFINE=	DOCS ASIMAGE DATAFRAME DAVIX FITS FORTRAN GDML HTTP IMT MATHMORE \
+		MYSQL OPENGL PGSQL PYROOT ROOFIT ROOT7 SPECTRUM SQLITE SSL TMLP TMVAML VDT \
+		WEBGUI X11 XML XROOTD
+OPTIONS_DEFAULT=	ASIMAGE DATAFRAME DAVIX FITS GDML HTTP IMT MATHMORE OPENGL \
+		PYROOT ROOFIT ROOT7 SPECTRUM SSL TMLP TMVAML VDT WEBGUI X11 XML XROOTD
 OPTIONS_SUB=	yes
 
 ASIMAGE_CMAKE_BOOL=	asimage
@@ -91,12 +86,10 @@ ASIMAGE_USE=	gnome=cairo,gdkpixbuf2,glib20,librsvg2
 DATAFRAME_CMAKE_BOOL=	dataframe
 DATAFRAME_DESC=			Enable ROOT RDataFrame
 
-# TODO: davix only comes with pkgconfig file on fbsd, while
-# ROOT's configure stage relies on find_package() -- patch
-#DAVIX_CMAKE_BOOL=	davix
-#DAVIX_DESC=		Enable support for Davix (HTTP/WebDAV access)
-#DAVIX_IMPLIES=	libuuid xml2 openssl
-#DAVIX_LIB_DEPENDS=	libdavix.so:www/davix
+DAVIX_CMAKE_BOOL=	davix
+DAVIX_DESC=		Enable support for Davix (HTTP/WebDAV access)
+DAVIX_LIB_DEPENDS=	libdavix.so:www/davix
+DAVIX_USES=	pkgconfig
 
 FITS_CMAKE_BOOL=	fitsio
 FITS_DESC=		Enable support for reading FITS images
@@ -112,7 +105,7 @@ GDML_DESC=		Enable support for GDML (Geometry Description Markup Language)
 
 HTTP_CMAKE_BOOL=	http
 HTTP_DESC=		Enable support for HTTP server
-HTTP_IMPLIES=	WEBGUI
+HTTP_IMPLIES=	ROOT7 WEBGUI
 
 IMT_CMAKE_BOOL=	imt
 IMT_DESC=		Enable support for implicit multi-threading via Intel® Thread Building Blocks (TBB)
@@ -177,7 +170,7 @@ VDT_LIB_DEPENDS=	libvdt.so:math/vdt
 
 WEBGUI_CMAKE_BOOL=	webgui
 WEBGUI_DESC=		Build Web-based UI components of ROOT
-WEBGUI_IMPLIES=	HTTP
+WEBGUI_IMPLIES=	HTTP ROOT7
 
 X11_CMAKE_BOOL=	x11
 X11_DESC=		Enable support for X11/Xft
@@ -204,39 +197,14 @@ PLIST_SUB+=	PYVER="${PYTHON_VER:S/./_/}" \
 		SHLIB_SHVER="${DISTVERSION:R}" \
 		SHLIB_VER="${DISTVERSION}"
 
-# Some .modulemap, .pcm and .idx files are not installed on aarch64, a few headers are only installed on aarch64
+# A few headers are only installed on aarch64
 .if ${OPSYS} == FreeBSD && ${ARCH} == "aarch64"
-PLIST_SUB+=	NOT_INSTALLED_ON_AARCH64="@comment " ONLY_INSTALLED_ON_AARCH64=""
+PLIST_SUB+=	ONLY_INSTALLED_ON_AARCH64=""
 .else
-PLIST_SUB+=	NOT_INSTALLED_ON_AARCH64="" ONLY_INSTALLED_ON_AARCH64="@comment "
+PLIST_SUB+=	ONLY_INSTALLED_ON_AARCH64="@comment "
 .endif
 
-# atexit-like commands need 'throw()' specifier on 15aarch64
-.if ${OPSYS} == FreeBSD && ${ARCH} == "aarch64" && ${OSVERSION} > 1499999
-EXTRA_PATCHES=	${PATCHDIR}/extra-patch-interpreter_cling_lib_Interpreter_Interpreter.cpp.15aarch64
-.endif
-
-# std_config.pcm exclusive to FreeBSD 14.0
-.if ${OPSYS} == FreeBSD && ${OSREL} == 14.0
-PLIST_SUB+=	ONLY_INSTALLED_ON_FBSD140=""
-.else
-PLIST_SUB+=	ONLY_INSTALLED_ON_FBSD140="@comment "
-.endif
-
-# Port patch removes implicit use of system's module.modulemap and applies
-# explicit use of the same module.modulemap, with modifications, provided
-# by the port
-eq_OSREL=	${OSREL}
-.if ${OPSYS} == FreeBSD && ${OSREL} == 14.1
-# module.modulemap identical on 14.1 and 15.0
-eq_OSREL=	15.0
-.endif
-post-patch:
-	${CP} \
-  ${PATCHDIR}/interpreter-cling-include-cling-std__fbsd${eq_OSREL}.modulemap \
-  ${WRKSRC}/interpreter/cling/include/cling/std_fbsd.modulemap
-
-# Files in lib/root/__pycache__ have links into WRKDIR and should not be staged. This happens even when PYROOT option is OFF.
+# Files in lib/root/__pycache__ have links into WRKDIR and should not be staged
 post-install:
 	${RM} -r ${STAGEDIR}${PREFIX}/lib/root/__pycache__
 

@@ -1,4 +1,4 @@
---- chrome/browser/chrome_browser_main_linux.cc.orig	2024-06-25 12:08:48 UTC
+--- chrome/browser/chrome_browser_main_linux.cc.orig	2024-12-22 12:24:29 UTC
 +++ chrome/browser/chrome_browser_main_linux.cc
 @@ -25,7 +25,7 @@
  #include "device/bluetooth/dbus/bluez_dbus_thread_manager.h"
@@ -28,8 +28,8 @@
  void ChromeBrowserMainPartsLinux::PostMainMessageLoopRun() {
    ChromeBrowserMainPartsPosix::PostMainMessageLoopRun();
    ui::OzonePlatform::GetInstance()->PostMainMessageLoopRun();
-@@ -137,7 +139,7 @@ void ChromeBrowserMainPartsLinux::PostBrowserStart() {
- #endif  // defined(USE_DBUS) && !BUILDFLAG(IS_CHROMEOS)
+@@ -136,7 +138,7 @@ void ChromeBrowserMainPartsLinux::PostBrowserStart() {
+ #endif  // (defined(USE_DBUS) && !BUILDFLAG(IS_CHROMEOS))
  
  void ChromeBrowserMainPartsLinux::PostDestroyThreads() {
 -#if BUILDFLAG(IS_CHROMEOS)

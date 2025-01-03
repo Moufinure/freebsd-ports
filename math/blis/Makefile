@@ -3,7 +3,7 @@ PORTVERSION=	0.9.0
 PORTREVISION=	2
 CATEGORIES=	math
 
-MAINTAINER=	jmd@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Software framework for high-performance BLAS-like libraries
 WWW=		https://github.com/flame/blis
 
@@ -60,6 +60,10 @@ PLIST_SUB+=	ARCH="generic"
 .endif
 
 .include <bsd.port.pre.mk>
+
+.if ${COMPILER_TYPE} == clang && ${COMPILER_VERSION} >= 190
+EXTRA_PATCHES+=	${PATCHDIR}/extra-patch-config_knl_make__defs.mk
+.endif
 
 .if ${CHOSEN_COMPILER_TYPE} == gcc
 USE_GCC=	yes

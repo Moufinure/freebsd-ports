@@ -1,4 +1,4 @@
---- media/video/video_encode_accelerator_adapter_test.cc.orig	2024-08-01 05:47:53 UTC
+--- media/video/video_encode_accelerator_adapter_test.cc.orig	2024-11-04 08:56:03 UTC
 +++ media/video/video_encode_accelerator_adapter_test.cc
 @@ -461,7 +461,7 @@ TEST_P(VideoEncodeAcceleratorAdapterTest, TwoFramesRes
        CreateGreenFrame(large_size, pixel_format, base::Milliseconds(2));

@@ -112,7 +112,6 @@
     SUBDIR += gnudatalanguage
     SUBDIR += gpaw-setups
     SUBDIR += gramps
-    SUBDIR += grib_api
     SUBDIR += gromacs
     SUBDIR += gsmc
     SUBDIR += gtamsanalyzer
@@ -159,6 +158,7 @@
     SUBDIR += libmsym
     SUBDIR += libnegf
     SUBDIR += liboglappth
+    SUBDIR += libpsml
     SUBDIR += libquantum
     SUBDIR += libssm
     SUBDIR += libsvm
@@ -183,7 +183,6 @@
     SUBDIR += mdynamix
     SUBDIR += medit
     SUBDIR += meep
-    SUBDIR += mercantile
     SUBDIR += metaphysicl
     SUBDIR += minc2
     SUBDIR += mmdb2
@@ -267,6 +266,7 @@
     SUBDIR += pagmo2
     SUBDIR += paje
     SUBDIR += paraview
+    SUBDIR += parthenon
     SUBDIR += pastix
     SUBDIR += pcmsolver
     SUBDIR += phonopy
@@ -364,6 +364,7 @@
     SUBDIR += py-libpysal
     SUBDIR += py-lifelines
     SUBDIR += py-mdp
+    SUBDIR += py-mercantile
     SUBDIR += py-meshio
     SUBDIR += py-mmcif
     SUBDIR += py-mmtf-python
@@ -379,9 +380,9 @@
     SUBDIR += py-netcdf-flattener
     SUBDIR += py-nglview
     SUBDIR += py-nibabel
-    SUBDIR += py-nilearn
     SUBDIR += py-obspy
     SUBDIR += py-oddt
+    SUBDIR += py-openEMS
     SUBDIR += py-openbabel
     SUBDIR += py-openpiv
     SUBDIR += py-optking
@@ -406,6 +407,7 @@
     SUBDIR += py-pymbd
     SUBDIR += py-pymol
     SUBDIR += py-pyosf
+    SUBDIR += py-pyphot
     SUBDIR += py-pyprecice
     SUBDIR += py-pyqubo
     SUBDIR += py-pysal
@@ -418,6 +420,7 @@
     SUBDIR += py-rmf
     SUBDIR += py-rmsd
     SUBDIR += py-ruffus
+    SUBDIR += py-sarpy
     SUBDIR += py-scikit-fuzzy
     SUBDIR += py-scikit-learn
     SUBDIR += py-scikit-optimize
@@ -433,6 +436,7 @@
     SUBDIR += py-skrebate
     SUBDIR += py-spaghetti
     SUBDIR += py-spglib
+    SUBDIR += py-symfc
     SUBDIR += py-tensorflow
     SUBDIR += py-thewalrus
     SUBDIR += py-tobler
@@ -467,6 +471,7 @@
     SUBDIR += salome-kernel
     SUBDIR += scidavis
     SUBDIR += sciplot
+    SUBDIR += seacas
     SUBDIR += segyio
     SUBDIR += serac
     SUBDIR += shelxle

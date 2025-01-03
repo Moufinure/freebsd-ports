@@ -16,6 +16,8 @@
     SUBDIR += btoa
     SUBDIR += chmview
     SUBDIR += cl-babel
+    SUBDIR += cl-babel-ccl
+    SUBDIR += cl-babel-clisp
     SUBDIR += cl-babel-sbcl
     SUBDIR += cmios9
     SUBDIR += cocot
@@ -149,11 +151,15 @@
     SUBDIR += py-bencode.py
     SUBDIR += py-bencoder
     SUBDIR += py-better-bencode
+    SUBDIR += py-bincopy
     SUBDIR += py-bsdconv
     SUBDIR += py-gotenberg-client
+    SUBDIR += py-mammoth
+    SUBDIR += py-markitdown
     SUBDIR += py-rencode
     SUBDIR += py-svglib
     SUBDIR += py-text-unidecode
+    SUBDIR += py-tlv8
     SUBDIR += py-unidecode
     SUBDIR += py-webencodings
     SUBDIR += py-zfec

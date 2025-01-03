@@ -1,6 +1,6 @@
 PORTNAME=	clisp
 PORTVERSION=	2.49.93+
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=	lang lisp
 
 MAINTAINER=	kiri@TrueFC.org
@@ -13,6 +13,7 @@ LICENSE_FILE=	${WRKSRC}/GNU-GPL
 LIB_DEPENDS=	libffcall.so:devel/libffcall \
 		libreadline.so:devel/readline \
 		libsigsegv.so:devel/libsigsegv
+RUN_DEPENDS=	cl-freebsd-asdf-init>=0:devel/cl-freebsd-asdf-init
 
 USES=		compiler gettext ghostscript gnome iconv localbase:ldflags
 USE_GCC=	yes
@@ -29,6 +30,7 @@ CONFIGURE_ARGS=	--prefix="${PREFIX}" --mandir="${PREFIX}/share/man" \
 		--docdir="${DOCSDIR}" --with-libiconv=${ICONV_PREFIX}
 CONFIGURE_TARGET=	${ARCH:S/amd64/x86_64/}-portbld-freebsd${OSREL}
 # Complaints if the environment changes between build stages.
+CFLAGS+=	-fpermissive
 LDFLAGS+=	${LDFLAGS_${CHOSEN_COMPILER_TYPE}}
 LDFLAGS_gcc=	-lthr
 MAKE_ENV=	${CONFIGURE_ENV}
@@ -65,7 +67,7 @@ OPTIONS_RADIO=	CLX
 OPTIONS_RADIO_CLX=	CLX_MIT CLX_NEW
 CLX_DESC=	X11 Module Selection
 
-OPTIONS_DEFAULT=BDB RAWSOCK ZLIB
+OPTIONS_DEFAULT=	ASDF BDB RAWSOCK ZLIB
 
 SUB_FILES=	pkg-message
 

@@ -1,6 +1,6 @@
 PORTNAME=	clad
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.6
+DISTVERSION=	1.8
 CATEGORIES=	math
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -26,6 +26,7 @@ CMAKE_TESTING_ON=	FREEBSD_BUILD_TESTS FREEBSD_BUILD_DEMOS
 CMAKE_TESTING_TARGET=	check-clad
 
 #CXXFLAGS+=	-D_OPENMP
+CXXFLAGS+=	-fopenmp
 
 post-patch:
 	@${REINPLACE_CMD} \
@@ -35,6 +36,6 @@ post-patch:
 		' \
 		${WRKSRC}/test/lit.cfg
 
-# tests fail to compile: https://github.com/vgvassilev/clad/issues/993
+# tests fail to compile: https://github.com/vgvassilev/clad/issues/993, https://github.com/vgvassilev/clad/issues/1181
 
 .include <bsd.port.mk>

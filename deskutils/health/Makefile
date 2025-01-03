@@ -1,9 +1,9 @@
 PORTNAME=	health
 DISTVERSION=	0.95.0
-PORTREVISION=	8
+PORTREVISION=	12
 CATEGORIES=	deskutils
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Track your fitness goals
 WWW=		https://gitlab.gnome.org/World/Health
 
@@ -35,9 +35,7 @@ CARGO_ENV+=	CARGO_PROFILE_RELEASE_LTO=false
 
 post-patch:
 # Make each cargo subcommand very verbose
-# Add explicit <triple> subdir for --target from USES=cargo
 	@${REINPLACE_CMD} -e "/cargo_options =/s/ '--/&verbose', &verbose', &/" \
-		-e "/cp/s,'src',& / '${CARGO_BUILD_TARGET}'," \
 		${WRKSRC}/src/meson.build
 
 .include <bsd.port.mk>

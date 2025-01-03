@@ -1,6 +1,6 @@
---- sandbox/policy/switches.cc.orig	2024-08-01 05:47:53 UTC
+--- sandbox/policy/switches.cc.orig	2024-12-22 12:24:29 UTC
 +++ sandbox/policy/switches.cc
-@@ -54,10 +54,10 @@ const char kWindowsSystemProxyResolverSandbox[] = "pro
+@@ -55,10 +55,10 @@ const char kWindowsSystemProxyResolverSandbox[] = "pro
  const char kMirroringSandbox[] = "mirroring";
  #endif  // BUILDFLAG(IS_MAC)
  
@@ -13,7 +13,16 @@
  const char kHardwareVideoEncodingSandbox[] = "hardware_video_encoding";
  #endif  // BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS)
  
-@@ -97,7 +97,9 @@ const char kGpuSandboxFailuresFatal[] = "gpu-sandbox-f
+@@ -71,7 +71,7 @@ const char kLibassistantSandbox[] = "libassistant";
+ #endif  // BUILDFLAG(ENABLE_CROS_LIBASSISTANT)
+ #endif  // BUILDFLAG(IS_CHROMEOS_ASH)
+ 
+-#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_MAC)
++#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_BSD)
+ const char kOnDeviceTranslationSandbox[] = "on_device_translation";
+ #endif  // BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_MAC)
+ 
+@@ -102,7 +102,9 @@ const char kGpuSandboxFailuresFatal[] = "gpu-sandbox-f
  // Meant to be used as a browser-level switch for testing purposes only.
  const char kNoSandbox[] = "no-sandbox";
  

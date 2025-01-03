@@ -1,6 +1,10 @@
 PORTNAME=	sigil
-PORTVERSION=	2.2.1
+DISTVERSION=	2.3.1
 CATEGORIES=	textproc
+
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+PATCHFILES+=	9b2773e08ba68f3d35c9f58696d8d1b78dd42e26.patch:-p1 # Fix build with Qt 6.8.x
+PATCHFILES+=	08ed327cf220eca9c814ea2a65adace24a4cf3d9.patch:-p1 # Fix build with Qt 6.8.x
 
 MAINTAINER=	jonc@chen.org.nz
 COMMENT=	WYSIWYG ePub editor
@@ -25,14 +29,13 @@ GH_PROJECT=	Sigil
 
 USE_LDCONFIG=	${PREFIX}/lib/sigil
 
-USE_QT=		base 5compat declarative \
-		svg tools:build positioning webchannel webengine \
-		imageformats:run
+USE_QT=		base declarative positioning svg webchannel webengine \
+		tools:build imageformats:run
 
 SHEBANG_FILES=	src/Resource_Files/plugin_launchers/python/*.py \
 		src/Resource_Files/python3lib/*.py
 
-CMAKE_ARGS=	-DUSE_SYSTEM_LIBS:BOOL=1 -DUSE_QT6=1
+CMAKE_ARGS=	-DUSE_SYSTEM_LIBS:BOOL=1
 
 # Upstream uses pkg-config output to pass libhunspell-1.7.so and
 # libpcre16.so to the linker. pkg-config output does not include full

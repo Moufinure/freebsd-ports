@@ -1,8 +1,13 @@
 PORTNAME=	mongodb
 DISTVERSIONPREFIX=	r
-DISTVERSION=	8.0.0-rc15
+DISTVERSION=	8.0.4
+PORTREVISION=	1
 CATEGORIES=	databases net
+MASTER_SITES=	https://hg.mozilla.org/mozilla-central/raw-rev/:patches
 PKGNAMESUFFIX=	${DISTVERSION:R:S/.//}
+DISTFILES=	223087fdc29f18678f6174e9807b8780e439acf6:patches # https://bugzilla.mozilla.org/1894423
+EXTRACT_ONLY=	${GH_ACCOUNT}-${GH_PROJECT}-${DISTVERSIONPREFIX}${DISTVERSION}_GH0.tar.gz \
+		${GH_ACCOUNT}-forks-spidermonkey-${MOZJS_TAG}_GH0.tar.gz
 
 MAINTAINER=	ronald@FreeBSD.org
 COMMENT=	MongoDB Community Edition (8.0.x Branch)
@@ -39,7 +44,7 @@ LIB_DEPENDS=	libcurl.so:ftp/curl \
 		libyaml-cpp.so:devel/yaml-cpp \
 		libzstd.so:archivers/zstd
 
-USES=		compiler:c++20-lang cpe python:build scons shebangfix
+USES=		compiler:c++20-lang cpe python:build scons shebangfix ssl
 # gmake is used while running ${WRKSRC}/src/third_party/mozjs/gen-config.sh
 USES+=		gmake pkgconfig
 
@@ -61,6 +66,7 @@ MAKE_ARGS=	--allocator=system \
 		--disable-warnings-as-errors \
 		--libc++ \
 		--runtime-hardening=on \
+		--ssl \
 		--use-system-libunwind \
 		--use-system-pcre2 \
 		--use-system-snappy \
@@ -89,9 +95,9 @@ EXTRACT_AFTER_ARGS=	--exclude src/third_party/pcre2 \
 USERS=		mongodb
 GROUPS=		mongodb
 
-OPTIONS_DEFINE=		LTO NOAVX SASL SSL
+OPTIONS_DEFINE=		LTO NOAVX SASL
 OPTIONS_DEFINE_aarch64=	ARMV80A
-OPTIONS_DEFAULT=	NOAVX SASL SSL
+OPTIONS_DEFAULT=	NOAVX SASL
 
 # MongoDB on non-LSE ARM cpu like Raspberry Pi can work but is unsupported upstream.
 # Can give corruption on high concurrency.
@@ -104,12 +110,11 @@ ARMV80A_EXTRA_PATCHES=	${FILESDIR}/extrapatch-SConstruct
 LTO_MAKE_ARGS=	--lto=on
 
 NOAVX_MAKE_ARGS=	--experimental-optimization="-sandybridge"
+NOAVX_EXTRA_PATCHES=	${FILESDIR}/extrapatch-src_third__party_mozjs_SConscript \
+			${FILESDIR}/extrapatch-src_third__party_mozjs_extract_mozglue_misc_SIMD.cpp
 
 SASL_LIB_DEPENDS=	libsasl2.so:security/cyrus-sasl2
 SASL_MAKE_ARGS=		--use-sasl-client
-
-SSL_USES=	ssl
-SSL_MAKE_ARGS=	--ssl
 
 .include <bsd.port.pre.mk>
 
@@ -130,15 +135,11 @@ MOZJS_ARCH=	${ARCH}
 .endif
 
 post-patch:
-# fix build with python-3.11
-	${REINPLACE_CMD} -e 's#rU#r#g' ${WRKDIR}/spidermonkey-${MOZJS_TAG}/python/mozbuild/mozbuild/util.py
-	${REINPLACE_CMD} -e 's#rU#r#g' ${WRKDIR}/spidermonkey-${MOZJS_TAG}/python/mozbuild/mozbuild/preprocessor.py
-	${REINPLACE_CMD} -e 's#rU#r#g' ${WRKDIR}/spidermonkey-${MOZJS_TAG}/python/mozbuild/mozbuild/backend/base.py
-	${REINPLACE_CMD} -e 's#rU#r#g' ${WRKDIR}/spidermonkey-${MOZJS_TAG}/python/mozbuild/mozbuild/action/process_define_files.py
+	${PATCH} -d ${WRKSRC}/src/third_party/mozjs/extract --quiet -p1 -V none < ${DISTDIR}/223087fdc29f18678f6174e9807b8780e439acf6
 
 pre-configure:
-	# Verify we downloaded the proper mozjs git tag.
-	sh -c "test \"X`grep -E '^LIB_GIT_REVISION=' ${WRKSRC}/src/third_party/mozjs/get-sources.sh`\" = \"XLIB_GIT_REVISION=${MOZJS_TAG}\""
+# Verify we downloaded the proper mozjs git tag.
+	${SH} -c "test \"X`grep -E '^LIB_GIT_REVISION=' ${WRKSRC}/src/third_party/mozjs/get-sources.sh`\" = \"XLIB_GIT_REVISION=${MOZJS_TAG}\""
 
 do-configure:
 # Replacement of ${WRKSRC}/src/third_party/mozjs/get-sources.sh

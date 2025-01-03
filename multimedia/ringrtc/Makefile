@@ -1,6 +1,7 @@
 PORTNAME=	ringrtc
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.44.2
+DISTVERSION=	2.48.7
+PORTREVISION=	2
 CATEGORIES=	multimedia
 MASTER_SITES=	LOCAL/mikael/ringrtc/:base \
 		LOCAL/mikael/ringrtc/:boringssl \
@@ -9,6 +10,7 @@ MASTER_SITES=	LOCAL/mikael/ringrtc/:base \
 		LOCAL/mikael/ringrtc/:catapult \
 		LOCAL/mikael/ringrtc/:icu \
 		LOCAL/mikael/ringrtc/:nasm \
+		LOCAL/mikael/ringrtc/:libcubeb \
 		LOCAL/mikael/ringrtc/:libjpeg_turbo \
 		LOCAL/mikael/ringrtc/:libsrtp \
 		LOCAL/mikael/ringrtc/:libvpx \
@@ -26,6 +28,7 @@ DISTFILES=	base-${BASE_REV}.tar.gz:base \
 		catapult-${CATAPULT_REV}.tar.gz:catapult \
 		icu-${ICU_REV}.tar.gz:icu \
 		nasm-${NASM_REV}.tar.gz:nasm \
+		libcubeb-${LIBCUBEB_VER}.tar.gz:libcubeb \
 		libjpeg_turbo-${LIBJPEG_TURBO_REV}.tar.gz:libjpeg_turbo \
 		libsrtp-${LIBSRTP_REV}.tar.gz:libsrtp \
 		libvpx-${LIBVPX_REV}.tar.gz:libvpx \
@@ -62,26 +65,27 @@ GH_TUPLE=	signalapp:ringrtc:${DISTVERSIONPREFIX}${DISTVERSION} \
 		signalapp:webrtc:${WEBRTC_REV}:webrtc
 
 # sh net-im/signal-desktop/get_deps.sh
-WEBRTC_REV=	6478b
+WEBRTC_REV=	6723a
 
 # modify webrtc_fetch.sh, then sh webrtc_fetch.sh
-BASE_REV=		2f20fae2cd5d41fc2dbc912fd462796419c72ce6
-BORINGSSL_REV=		2db0eb3f96a5756298dcd7f9319e56a98585bd10
-BUILD_REV=		ef48ed5d9583911c48a5de44b3fd01308f1b1732
-BUILDTOOLS_REV=		4e0e9c73a0f26735f034f09a9cab2a5c0178536b
-CATAPULT_REV=		923a565b97768d3a51047c3f384f6a0d17990192
-ICU_REV=		98f2494518c2dbb9c488e83e507b070ea5910e95
-LIBJPEG_TURBO_REV=	9b894306ec3b28cea46e84c32b56773a98c483da
-LIBSRTP_REV=		7a7e64c8b5a632f55929cb3bb7d3e6fb48c3205a
-LIBVPX_REV=		108f5128e2969451f77b1523ce30bebe545cdd58
-LIBYUV_REV=		a6a2ec654b1be1166b376476a7555c89eca0c275
+BASE_REV=		7f2a56694b330c2cb2954eee78469ffc69952448
+BORINGSSL_REV=		e724ef02089bf2bb494203231fc5cb62acc2fad6
+BUILD_REV=		8e0612cd2c4e4d7c15a456384760815bdbd64ef1
+BUILDTOOLS_REV=		e4f992c0660e6cee637c7b97aabf04d0a58d5555
+CATAPULT_REV=		296226a4a0067c8cffeb8831fb87526a8035f3cc
+ICU_REV=		9408c6fd4a39e6fef0e1c4077602e1c83b15f3fb
+LIBCUBEB_VER=		0.17.1
+LIBJPEG_TURBO_REV=	927aabfcd26897abb9776ecf2a6c38ea5bb52ab6
+LIBSRTP_REV=		000edd791434c8738455f10e0dd6b268a4852c0b
+LIBVPX_REV=		fbf63dff1f528d44f24bd662abb89fd01a4a1c25
+LIBYUV_REV=		874f391dbf13dcc84e13a494daed57539ffe2935
 NASM_REV=		f477acb1049f5e043904b87b825c5915084a9a29
 OPUS_REV=		0e30966b198ad28943799eaf5b3b08100b6f70c3
-PERFETTO_REV=		6aaa8a1fb15659d1b68179e20993e969d9f500f8
+PERFETTO_REV=		97a5d7ed4d7ddb3844a5cbd184e241b99fe6ebcc
 PROTOBUFJS_REV=		e34549db516f8712f678fcd4bc411613b5cc5295
-TESTING_REV=		066811c908ecb8f4fc8c4927ff646ce03c58e95d
-THIRD_PARTY_REV=	5e3f3bd93a0d8e8ed51ff4395f6621aad50021de
-TOOLS_REV=		7d98d76cecc46a5338f919065d95748de2ee7b14
+TESTING_REV=		3f4138fcb15362469527d9310e21600dfdfab691
+THIRD_PARTY_REV=	27c9b4efc25d7ae5479b884a7d818058c6066d92
+TOOLS_REV=		453f7ad001cd0d341ecb437eb164fd6c4b5cc08d
 
 BINARY_ALIAS=	vpython3=${PYTHON_CMD}
 
@@ -155,6 +159,8 @@ post-patch:
 	${REINPLACE_CMD} "s|LOCALBASE|${LOCALBASE}|" \
 		${WEBRTCDIR}/build/toolchain/gcc_toolchain.gni \
 		${WEBRTCDIR}/buildtools/third_party/libc++/BUILD.gn
+	${REINPLACE_CMD} "s|WRKDIR|${WRKDIR}|" \
+		${WRKSRC}/cargo-crates/cubeb-sys-0.17.0/build.rs
 
 	${ECHO_CMD} "# Generated from 'DEPS'" > ${WEBRTCDIR}/build/config/gclient_args.gni
 	${ECHO_CMD} 1591703586 > ${WEBRTCDIR}/build/util/LASTCHANGE.committime

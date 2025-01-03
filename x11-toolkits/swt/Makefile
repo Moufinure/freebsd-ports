@@ -13,12 +13,9 @@ LICENSE=	EPL
 
 ONLY_FOR_ARCHS=	aarch64 amd64 powerpc64 powerpc64le
 
-USES=		compiler:c++11-lang gl gmake gnome pkgconfig zip:infozip xorg
-
-USE_ANT=	yes
+USES=		compiler:c++11-lang gl gmake gnome java:ant pkgconfig zip:infozip xorg
 USE_GL=		glu gl
 USE_GNOME=	gdkpixbuf2 gtk30
-USE_JAVA=	yes
 USE_XORG=	xtst
 JAVA_OS=	native
 
@@ -52,7 +49,7 @@ post-extract:
 	@${CP} ${FILESDIR}/*.css ${WRKSRC}/org/eclipse/swt/internal/gtk/
 
 post-patch:
-.if ${OPSYS} == FreeBSD && ( ${OSVERSION} >= 1400079 || ( ${OSVERSION} >= 1302505 && ${OSVERSION} < 1400000 ))
+.if ${OPSYS} == FreeBSD
 	${REINPLACE_CMD} -e 's|-DGTK|-DGTK -Wno-error=deprecated-non-prototype|g' \
 		${WRKSRC}/make_freebsd.mak
 .endif

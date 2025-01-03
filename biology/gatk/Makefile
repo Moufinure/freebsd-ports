@@ -1,20 +1,22 @@
 PORTNAME=	gatk
-DISTVERSION=	4.6.0.0
+DISTVERSION=	4.6.1.0
+PORTREVISION=	1
 CATEGORIES=	biology java
 EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
 
 MAINTAINER=	yuri@FreeBSD.org
-COMMENT=	Variant discovery in high-throughput sequencing data
+COMMENT=	Genome Analysis Toolkit
 WWW=		https://gatk.broadinstitute.org/hc/en-us
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE.TXT
 
 BUILD_DEPENDS=	gradle:devel/gradle
+RUN_DEPENDS=	${LOCALBASE}/lib/libfml.so:biology/fermi-lite \
+		gkl>0:biology/gkl \
+		mummer>0:biology/mummer
 
-USES=		gettext-runtime
-USE_JAVA=	yes
-
+USES=		gettext-runtime java python:test
 JAVA_VERSION=	17 # Java 8 fails on aarch64: Internal Error (assembler_aarch64.hpp:237), pid=76025, tid=0x000000000006e359 guarantee(val < (1U << nbits)) failed: Field too big for insn
 
 USE_GITHUB=	yes
@@ -27,10 +29,15 @@ NO_ARCH=	yes
 
 DEPS_CACHE_DIR=	${WRKDIR}
 
+TEST_ENV=	${MAKE_ENV} \
+		JAVA_TOOL_OPTIONS="-DLIBBWA_PATH=${PREFIX}/lib/libfml.so" \
+		GATK_LOCAL_JAR=${STAGEDIR}${JAVAJARDIR}/GenomeAnalysisTK-${PORTVERSION}.jar
+
 PLIST_FILES=	bin/${PORTNAME} \
 		${JAVAJARDIR}/GenomeAnalysisTK-${PORTVERSION}.jar
 
-BINARY_ALIAS=	java=${JAVA}
+BINARY_ALIAS=	java=${JAVA} \
+		python=${PYTHON_CMD}
 
 # to rebuild the deps archive:
 #   1. set DEV_UPDATE_MODE=yes
@@ -109,6 +116,9 @@ do-install:
 
 do-test: # tests require WITH_LARGE_FILES=ON, and they use a lot of disk space
 	@cd ${WRKSRC} && \
-		${SETENV} ${MAKE_ENV} gradle test
+		${SETENV} ${TEST_ENV} gradle -DLIBBWA_PATH=${PREFIX}/lib/libfml.so test
+
+# tests results as of version 4.6.1.0: 288552 tests, 301 failures, 37 ignored, 1h55m5.63s duration, 99% successful, see https://github.com/broadinstitute/gatk/issues/8940
+# see https://github.com/broadinstitute/gatk/issues/8939: Tests fail to find libgkl libraries in /usr/local/lib
 
 .include <bsd.port.mk>

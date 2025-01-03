@@ -1,16 +1,18 @@
 PORTNAME=	juce
-DISTVERSION=	8.0.1
+DISTVERSION=	8.0.3
 CATEGORIES=	devel
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	C++ application framework to develop desktop and mobile applications
-WWW=		https://juce.com/
+WWW=		https://juce.com/ \
+		https://github.com/juce-framework/JUCE
 
 LICENSE=	JUCE6
 LICENSE_NAME=	JUCE 6 End User License Agreement
 LICENSE_FILE=	${WRKSRC}/LICENSE.md
 LICENSE_PERMS=	auto-accept dist-mirror pkg-mirror
 
+BROKEN_armv7=	compilation fails due to the 'mb' variable conflict, pending https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=283492
 BROKEN_riscv64=	Hard-float 'd' ABI can't be used for a target that doesn't support the D instruction set extension (ignoring target-abi)
 
 BUILD_DEPENDS=	ladspa>0:audio/ladspa

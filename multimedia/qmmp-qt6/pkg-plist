@@ -29,6 +29,7 @@ include/qmmp/visual.h
 include/qmmp/visualfactory.h
 include/qmmp/volume.h
 include/qmmp/volumehandler.h
+include/qmmpui/colorwidget.h
 include/qmmpui/commandlinehandler.h
 include/qmmpui/commandlinemanager.h
 include/qmmpui/configdialog.h
@@ -51,10 +52,12 @@ include/qmmpui/playlistparser.h
 include/qmmpui/playlisttrack.h
 include/qmmpui/qmmpui_export.h
 include/qmmpui/qmmpuisettings.h
+include/qmmpui/shortcutdialog.h
 include/qmmpui/templateeditor.h
 include/qmmpui/uifactory.h
 include/qmmpui/uihelper.h
 include/qmmpui/uiloader.h
+include/qmmpui/visualmenu.h
 lib/libqmmp.so
 lib/libqmmp.so.2
 lib/libqmmp.so.%%SHLIB_VER%%
@@ -96,12 +99,10 @@ lib/qmmp%%LIB_SUFFX%%/General/libtrackchange.so
 %%UDISKS%%lib/qmmp%%LIB_SUFFX%%/General/libudisks.so
 %%FAAD%%lib/qmmp%%LIB_SUFFX%%/Input/libaac.so
 %%ARCHIVE%%lib/qmmp%%LIB_SUFFX%%/Input/libarchive.so
-%%CDDA%%lib/qmmp%%LIB_SUFFX%%/Input/libcdaudio.so
 lib/qmmp%%LIB_SUFFX%%/Input/libcue.so
 %%FFMPEG%%lib/qmmp%%LIB_SUFFX%%/Input/libffmpeg.so
 %%FLAC%%lib/qmmp%%LIB_SUFFX%%/Input/libflac.so
 %%GME%%lib/qmmp%%LIB_SUFFX%%/Input/libgme.so
-%%MUSEPACK%%lib/qmmp%%LIB_SUFFX%%/Input/libmpc.so
 %%MPG123%%lib/qmmp%%LIB_SUFFX%%/Input/libmpeg.so
 %%OPUS%%lib/qmmp%%LIB_SUFFX%%/Input/libopus.so
 %%SID%%lib/qmmp%%LIB_SUFFX%%/Input/libsid.so

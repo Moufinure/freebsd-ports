@@ -1,6 +1,7 @@
 PORTNAME=	erlang
 DISTVERSIONPREFIX=	OTP-
-DISTVERSION=	25.3.2.13
+DISTVERSION=	25.3.2.15
+PORTREVISION=	1
 PORTEPOCH=	4
 CATEGORIES=	lang parallel java
 DIST_SUBDIR=	erlang
@@ -81,7 +82,7 @@ FOP_BUILD_DEPENDS=		fop:textproc/fop \
 				xsltproc:textproc/libxslt
 JAVA_CONFIGURE_WITH=		javac
 JAVA_CONFIGURE_ENV=		ac_cv_prog_JAVAC="${JAVAC}"
-JAVA_VARS=			USE_JAVA=yes
+JAVA_USES=			java
 KQUEUE_CONFIGURE_ENABLE=	kernel-poll
 MANPAGES_RUN_DEPENDS=		${LOCALBASE}/etc/man.d/erlang.conf:lang/erlang-man
 ODBC_LIB_DEPENDS=		libodbc.so:databases/unixODBC

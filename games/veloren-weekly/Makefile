@@ -1,5 +1,5 @@
 PORTNAME=	veloren
-PORTVERSION=	s20240801
+PORTVERSION=	s20250101
 CATEGORIES=	games wayland
 PKGNAMESUFFIX=	-weekly
 
@@ -10,7 +10,6 @@ WWW=		https://veloren.net/
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BROKEN_aarch64=	https://github.com/rust-lang/libc/issues/3217
 BROKEN_i386=	https://github.com/bytecodealliance/wasmtime/issues/7924
 ONLY_FOR_ARCHS=	aarch64 amd64 i386
 ONLY_FOR_ARCHS_REASON=	unsupported platform by https://github.com/wasmerio/wasmer
@@ -26,7 +25,7 @@ RUN_DEPENDS=	${LOCALBASE}/lib/alsa-lib/libasound_module_pcm_oss.so:audio/alsa-pl
 USES=		cargo xorg
 USE_XORG=	xcb
 USE_GITLAB=	yes
-GL_TAGNAME=	v0.16.0-398-gb78749e01 # git describe --match='v[0-9]*' weekly
+GL_TAGNAME=	v0.17.0-2-g1f42b5929 # git describe --match='v[0-9]*' weekly
 CARGO_ENV=	VELOREN_USERDATA_STRATEGY=system SHADERC_LIB_DIR="${LOCALBASE}/lib"
 PLIST_FILES=	bin/${PORTNAME}-server-cli \
 		bin/${PORTNAME}-voxygen \
@@ -49,6 +48,10 @@ CARGO_ENV+=		RUSTC_BOOTSTRAP=1
 # XXX https://github.com/rust-lang/cargo/issues/4101
 CARGO_INSTALL_PATH=	server-cli voxygen
 
+# https://github.com/yoanlcq/vek/issues/96
+CARGO_BUILDDEP=	no
+BUILD_DEPENDS+=	rust182>0:lang/rust182
+
 post-patch:
 # .git/ directory is missing, so don't abort if git binary is also missing
 	@${REINPLACE_CMD} -e 's/"git"/"${TRUE}"/' \
@@ -65,12 +68,11 @@ post-patch:
 do-install:
 # XXX [workspace.dependencies] breaks rebuild in subdirs
 .for f in ${CARGO_INSTALL_PATH}
-	${INSTALL_PROGRAM} ${CARGO_TARGET_DIR}/*/*/${PORTNAME}-$f \
+	${INSTALL_PROGRAM} ${CARGO_TARGET_DIR}/*/${PORTNAME}-$f \
 		${STAGEDIR}${PREFIX}/bin
 .endfor
 
 post-install:
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/*
 	(cd ${WRKSRC} && ${COPYTREE_SHARE} assets ${STAGEDIR}${DATADIR})
 	${RLN} ${STAGEDIR}${DATADIR}/assets/voxygen/*.desktop \
 		${STAGEDIR}${PREFIX}/share/applications

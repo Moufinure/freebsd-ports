@@ -1,10 +1,11 @@
 PORTNAME=	hyprpaper
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.7.0
+DISTVERSION=	0.7.3
+PORTREVISION=	2
 CATEGORIES=	x11 wayland
 
 PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
-PATCHFILES+=	03cd362f494d.patch:-p1 # https://github.com/hyprwm/hyprpaper/issues/169
+PATCHFILES+=	505e447b6c48.patch:-p1 # hyprwayland-scanner 0.4.4
 
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	Blazing fast Wayland wallpaper utility with IPC controls
@@ -13,8 +14,11 @@ WWW=		https://github.com/hyprwm/hyprpaper
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	wayland-protocols>0:graphics/wayland-protocols
+BUILD_DEPENDS=	hyprwayland-scanner>=0.4.0:devel/hyprwayland-scanner \
+		wayland-protocols>0:graphics/wayland-protocols
 LIB_DEPENDS=	libhyprlang.so:devel/hyprlang \
+		libhyprutils.so:devel/hyprutils \
+		libhyprgraphics.so:graphics/hyprgraphics \
 		libwayland-client.so:graphics/wayland \
 		libwebp.so:graphics/webp
 
@@ -26,23 +30,20 @@ PLIST_FILES=	bin/${PORTNAME}
 
 post-patch:
 # Extract (snapshot) version from the port instead of Git
-	@${REINPLACE_CMD} -i .nogit -e '/Get git info/,/^#$$/d' \
+	@${REINPLACE_CMD} -i .nogit -e '/Get git info/,/^include/{//p;d;}' \
 		-e 's/$${GIT_BRANCH}/main/' \
 		-e 's/$${GIT_COMMIT_HASH}/${GH_TAGNAME}/' \
-		-e '/$${GIT_COMMIT_MESSAGE}/d' \
+		-e 's/$${GIT_COMMIT_MESSAGE}/?/' \
 		-e 's/$${GIT_DIRTY}/portbld/' \
 		${WRKSRC}/CMakeLists.txt
 # Drop unused dependencies
-	@${REINPLACE_CMD} -e 's/ pango pangocairo//' \
+	@${REINPLACE_CMD} -e '/pango/d' \
 		-e '/OpenGL/d; /GLESv2/d' \
 		-e '/ rt)/d' \
+		-e '/install.*systemd/d' \
 		${WRKSRC}/CMakeLists.txt
 # Respect consolekit2 as XDG_RUNTIME_DIR fallback
 	@${REINPLACE_CMD} 's,/run/user,/var&,' \
 		${WRKSRC}/src/ipc/Socket.cpp
-
-do-install:
-	${INSTALL_PROGRAM} ${INSTALL_WRKSRC}/${PORTNAME} \
-		${STAGEDIR}${PREFIX}/bin
 
 .include <bsd.port.mk>

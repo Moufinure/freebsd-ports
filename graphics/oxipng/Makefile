@@ -1,5 +1,6 @@
 PORTNAME=	oxipng
-DISTVERSION=	9.1.2
+DISTVERSION=	9.1.3
+PORTREVISION=	1
 CATEGORIES=	graphics
 MASTER_SITES=	CRATESIO
 # XXX Teach USES=cargo to have proper default
@@ -17,7 +18,7 @@ PLIST_FILES=	bin/${PORTNAME} \
 		share/man/man1/${PORTNAME}.1.gz
 
 post-install:
-	${INSTALL_MAN} ${CARGO_TARGET_DIR}/${CARGO_BUILD_TARGET}/*/assets/*.1 \
+	${INSTALL_MAN} ${CARGO_TARGET_DIR}/*/assets/*.1 \
 		${STAGEDIR}${PREFIX}/share/man/man1
 
 .include <bsd.port.mk>

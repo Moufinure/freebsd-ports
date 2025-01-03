@@ -1,6 +1,6 @@
---- ui/views/controls/textfield/textfield.cc.orig	2024-07-30 11:12:21 UTC
+--- ui/views/controls/textfield/textfield.cc.orig	2024-11-14 07:57:23 UTC
 +++ ui/views/controls/textfield/textfield.cc
-@@ -91,7 +91,7 @@
+@@ -87,7 +87,7 @@
  #include "base/win/win_util.h"
  #endif
  
@@ -9,7 +9,7 @@
  #include "ui/base/ime/linux/text_edit_command_auralinux.h"
  #include "ui/base/ime/text_input_flags.h"
  #include "ui/linux/linux_ui.h"
-@@ -189,7 +189,7 @@ bool IsControlKeyModifier(int flags) {
+@@ -185,7 +185,7 @@ bool IsControlKeyModifier(int flags) {
  // Control-modified key combination, but we cannot extend it to other platforms
  // as Control has different meanings and behaviors.
  // https://crrev.com/2580483002/#msg46
@@ -18,7 +18,7 @@
    return flags & ui::EF_CONTROL_DOWN;
  #else
    return false;
-@@ -747,7 +747,7 @@ bool Textfield::OnKeyPressed(const ui::KeyEvent& event
+@@ -763,7 +763,7 @@ bool Textfield::OnKeyPressed(const ui::KeyEvent& event
    if (!textfield)
      return handled;
  
@@ -27,7 +27,7 @@
    auto* linux_ui = ui::LinuxUi::instance();
    std::vector<ui::TextEditCommandAuraLinux> commands;
    if (!handled && linux_ui &&
-@@ -930,7 +930,7 @@ void Textfield::AboutToRequestFocusFromTabTraversal(bo
+@@ -946,7 +946,7 @@ void Textfield::AboutToRequestFocusFromTabTraversal(bo
  }
  
  bool Textfield::SkipDefaultKeyEventProcessing(const ui::KeyEvent& event) {
@@ -45,7 +45,7 @@
  // TODO(crbug.com/41452689): Implement this method to support Korean IME
  // reconversion feature on native text fields (e.g. find bar).
  bool Textfield::SetCompositionFromExistingText(
-@@ -2501,14 +2501,14 @@ ui::TextEditCommand Textfield::GetCommandForKeyEvent(
+@@ -2503,14 +2503,14 @@ ui::TextEditCommand Textfield::GetCommandForKeyEvent(
  #endif
          return ui::TextEditCommand::DELETE_BACKWARD;
        }

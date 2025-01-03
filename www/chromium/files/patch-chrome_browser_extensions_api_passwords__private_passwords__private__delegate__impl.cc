@@ -1,6 +1,6 @@
---- chrome/browser/extensions/api/passwords_private/passwords_private_delegate_impl.cc.orig	2024-07-30 11:12:21 UTC
+--- chrome/browser/extensions/api/passwords_private/passwords_private_delegate_impl.cc.orig	2024-11-14 07:57:23 UTC
 +++ chrome/browser/extensions/api/passwords_private/passwords_private_delegate_impl.cc
-@@ -611,7 +611,7 @@ void PasswordsPrivateDelegateImpl::OnFetchingFamilyMem
+@@ -652,7 +652,7 @@ void PasswordsPrivateDelegateImpl::OnFetchingFamilyMem
  }
  
  void PasswordsPrivateDelegateImpl::OsReauthTimeoutCall() {

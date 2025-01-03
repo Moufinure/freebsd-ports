@@ -43,6 +43,7 @@
     SUBDIR += epson-inkjet-printer-escpr
     SUBDIR += epson-inkjet-printer-escpr2
     SUBDIR += epsonepl
+    SUBDIR += extractpdfmark
     SUBDIR += fig2dev
     SUBDIR += flpsed
     SUBDIR += font-amsfonts
@@ -194,6 +195,7 @@
     SUBDIR += py-rtf
     SUBDIR += py-ttfautohint-py
     SUBDIR += py-ufolib2
+    SUBDIR += py-ufomerge
     SUBDIR += py-uharfbuzz
     SUBDIR += py-vharfbuzz
     SUBDIR += py-weasyprint
@@ -217,8 +219,10 @@
     SUBDIR += rubygem-prawn-format
     SUBDIR += rubygem-prawn-graph
     SUBDIR += rubygem-prawn-icon
+    SUBDIR += rubygem-prawn-icon3
     SUBDIR += rubygem-prawn-js
     SUBDIR += rubygem-prawn-layout
+    SUBDIR += rubygem-prawn-rails
     SUBDIR += rubygem-prawn-security
     SUBDIR += rubygem-prawn-svg
     SUBDIR += rubygem-prawn-table

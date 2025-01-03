@@ -1,6 +1,6 @@
 PORTNAME=	inferno
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.11.20
+DISTVERSION=	0.12.0
 CATEGORIES=	benchmarks
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -18,20 +18,21 @@ GH_ACCOUNT=	jonhoo
 CARGO_CRATES=	adler32-1.2.0 \
 		ahash-0.8.11 \
 		aho-corasick-1.1.3 \
-		allocator-api2-0.2.18 \
+		allocator-api2-0.2.20 \
 		anes-0.1.6 \
-		anstream-0.6.14 \
-		anstyle-1.0.7 \
-		anstyle-parse-0.2.4 \
-		anstyle-query-1.1.0 \
-		anstyle-wincon-3.0.3 \
-		arrayvec-0.7.4 \
-		assert_cmd-2.0.14 \
-		autocfg-1.3.0 \
+		anstream-0.6.18 \
+		anstyle-1.0.10 \
+		anstyle-parse-0.2.6 \
+		anstyle-query-1.1.2 \
+		anstyle-wincon-3.0.6 \
+		arrayvec-0.7.6 \
+		assert_cmd-2.0.13 \
+		autocfg-1.4.0 \
 		bitflags-2.6.0 \
-		bstr-1.9.1 \
-		bumpalo-3.16.0 \
-		bytemuck-1.16.1 \
+		bstr-1.10.0 \
+		bumpalo-3.14.0 \
+		bytemuck-1.19.0 \
+		byteorder-1.5.0 \
 		cast-0.3.0 \
 		cfg-if-1.0.0 \
 		ciborium-0.2.2 \
@@ -41,7 +42,7 @@ CARGO_CRATES=	adler32-1.2.0 \
 		clap_builder-4.4.18 \
 		clap_derive-4.4.7 \
 		clap_lex-0.6.0 \
-		colorchoice-1.0.1 \
+		colorchoice-1.0.3 \
 		core2-0.4.0 \
 		crc32fast-1.4.2 \
 		criterion-0.5.1 \
@@ -51,27 +52,28 @@ CARGO_CRATES=	adler32-1.2.0 \
 		crossbeam-epoch-0.9.18 \
 		crossbeam-utils-0.8.20 \
 		crunchy-0.2.2 \
-		dary_heap-0.3.6 \
-		dashmap-6.0.1 \
+		dary_heap-0.3.7 \
+		dashmap-6.1.0 \
 		diff-0.1.13 \
 		difflib-0.4.0 \
 		doc-comment-0.3.3 \
 		either-1.13.0 \
-		env_filter-0.1.0 \
-		env_logger-0.11.3 \
+		env_filter-0.1.2 \
+		env_logger-0.11.5 \
 		equivalent-1.0.1 \
 		getrandom-0.2.15 \
 		half-2.4.1 \
 		hashbrown-0.14.5 \
+		hashbrown-0.15.1 \
 		heck-0.4.1 \
-		hermit-abi-0.3.9 \
-		indexmap-2.2.6 \
-		is-terminal-0.4.12 \
-		is_terminal_polyfill-1.70.0 \
+		hermit-abi-0.4.0 \
+		indexmap-2.6.0 \
+		is-terminal-0.4.13 \
+		is_terminal_polyfill-1.70.1 \
 		itertools-0.10.5 \
 		itoa-1.0.11 \
-		js-sys-0.3.69 \
-		libc-0.2.155 \
+		js-sys-0.3.72 \
+		libc-0.2.164 \
 		libflate-2.1.0 \
 		libflate_lz77-2.1.0 \
 		lock_api-0.4.12 \
@@ -80,58 +82,59 @@ CARGO_CRATES=	adler32-1.2.0 \
 		memchr-2.7.4 \
 		num-format-0.4.4 \
 		num-traits-0.2.19 \
-		once_cell-1.19.0 \
+		once_cell-1.20.2 \
 		oorandom-11.1.4 \
 		parking_lot_core-0.9.10 \
-		plotters-0.3.6 \
-		plotters-backend-0.3.6 \
-		plotters-svg-0.3.6 \
-		ppv-lite86-0.2.17 \
+		plotters-0.3.7 \
+		plotters-backend-0.3.7 \
+		plotters-svg-0.3.7 \
+		ppv-lite86-0.2.20 \
 		predicates-3.1.0 \
 		predicates-core-1.0.6 \
 		predicates-tree-1.0.9 \
-		pretty_assertions-1.4.0 \
-		proc-macro2-1.0.86 \
-		quick-xml-0.26.0 \
-		quote-1.0.36 \
+		pretty_assertions-1.4.1 \
+		proc-macro2-1.0.89 \
+		quick-xml-0.37.1 \
+		quote-1.0.37 \
 		rand-0.8.5 \
 		rand_chacha-0.3.1 \
 		rand_core-0.6.4 \
 		rayon-1.10.0 \
 		rayon-core-1.12.1 \
-		redox_syscall-0.5.2 \
-		regex-1.10.5 \
-		regex-automata-0.4.7 \
-		regex-syntax-0.8.4 \
-		rgb-0.8.44 \
+		redox_syscall-0.5.7 \
+		regex-1.11.1 \
+		regex-automata-0.4.9 \
+		regex-syntax-0.8.5 \
+		rgb-0.8.50 \
 		rle-decode-fast-1.0.3 \
 		ryu-1.0.18 \
 		same-file-1.0.6 \
 		scopeguard-1.2.0 \
-		serde-1.0.204 \
-		serde_derive-1.0.204 \
-		serde_json-1.0.120 \
+		serde-1.0.215 \
+		serde_derive-1.0.215 \
+		serde_json-1.0.133 \
 		smallvec-1.13.2 \
 		str_stack-0.1.0 \
 		strsim-0.10.0 \
-		syn-2.0.71 \
+		syn-2.0.87 \
 		termtree-0.4.1 \
 		testing_logger-0.1.1 \
 		tinytemplate-1.2.1 \
-		unicode-ident-1.0.12 \
+		unicode-ident-1.0.13 \
 		utf8parse-0.2.2 \
-		version_check-0.9.4 \
+		version_check-0.9.5 \
 		wait-timeout-0.2.0 \
 		walkdir-2.5.0 \
 		wasi-0.11.0+wasi-snapshot-preview1 \
-		wasm-bindgen-0.2.92 \
-		wasm-bindgen-backend-0.2.92 \
-		wasm-bindgen-macro-0.2.92 \
-		wasm-bindgen-macro-support-0.2.92 \
-		wasm-bindgen-shared-0.2.92 \
-		web-sys-0.3.69 \
-		winapi-util-0.1.8 \
+		wasm-bindgen-0.2.95 \
+		wasm-bindgen-backend-0.2.95 \
+		wasm-bindgen-macro-0.2.95 \
+		wasm-bindgen-macro-support-0.2.95 \
+		wasm-bindgen-shared-0.2.95 \
+		web-sys-0.3.72 \
+		winapi-util-0.1.9 \
 		windows-sys-0.52.0 \
+		windows-sys-0.59.0 \
 		windows-targets-0.52.6 \
 		windows_aarch64_gnullvm-0.52.6 \
 		windows_aarch64_msvc-0.52.6 \
@@ -141,7 +144,7 @@ CARGO_CRATES=	adler32-1.2.0 \
 		windows_x86_64_gnu-0.52.6 \
 		windows_x86_64_gnullvm-0.52.6 \
 		windows_x86_64_msvc-0.52.6 \
-		yansi-0.5.1 \
+		yansi-1.0.1 \
 		zerocopy-0.7.35 \
 		zerocopy-derive-0.7.35
 EXECUTABLES=	inferno-collapse-dtrace \
@@ -156,8 +159,5 @@ EXECUTABLES=	inferno-collapse-dtrace \
 		inferno-flamegraph
 
 PLIST_FILES=	${EXECUTABLES:S/inferno-/bin\/&/}
-
-post-install:
-	cd ${STAGEDIR}${PREFIX}/bin && ${STRIP_CMD} ${EXECUTABLES}
 
 .include <bsd.port.mk>

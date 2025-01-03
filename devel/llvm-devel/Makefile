@@ -134,7 +134,6 @@ DOCS_BUILD_DEPENDS= \
 	${PYTHON_PKGNAMEPREFIX}myst-parser>0:textproc/py-myst-parser@${PY_FLAVOR} \
 	${PYTHON_PKGNAMEPREFIX}recommonmark>=0.0.20180530:textproc/py-recommonmark@${PY_FLAVOR} \
 	${PYTHON_PKGNAMEPREFIX}sphinx-markdown-tables>=0:textproc/py-sphinx-markdown-tables@${PY_FLAVOR}
-DOCS_CONFLICTS_BUILD=	cmark
 DOCS_PORTDOCS=		llvm
 DOCS_CMAKE_ON= \
 	-DLLVM_ENABLE_SPHINX=ON \
@@ -163,7 +162,7 @@ LLDB_BUILD_DEPENDS=	\
 LLDB_DESC=		Install lldb, the LLVM debugger
 LLDB_IMPLIES=		CLANG
 LLDB_PLIST_SUB=		PYTHON_ABIVER=${PYTHON_ABIVER}
-LLDB_USES=		lua:53 libedit
+LLDB_USES=		lua:54 libedit
 LLDB_USE=		GNOME=libxml2
 LLDB_VARS=		_USES_PYTHON=python
 MLIR_DESC=		Multi-Level Intermediate Representation
@@ -217,7 +216,7 @@ EXTRAS_LIBS=	\
 EXTRAS_FILES=	index.js
 EXTRAS_PATTERN=	${EXTRAS_COMMANDS:tW:C/  */|/g}|${EXTRAS_LIBS:tW:C/  */|/g}|${EXTRAS_FILES:tW:C/  */|/g}
 
-FLANG_PATTERN=	${FLANG_COMMANDS:S/^/bin./:tW:C/  */|/g}|flang|libCUF|libFIR|libFortran|libHLFIR|ISO_Fortran_binding.h
+FLANG_PATTERN=	${FLANG_COMMANDS:S/^/bin./:tW:C/  */|/g}|flang|libCUF|libFIR|libFlang|libFortran|libHLFIR|ISO_Fortran_binding.h
 
 MLIR_PATTERN=	${MLIR_COMMANDS:S/^/bin./:tW:C/  */|/g}|mlir|libMLIR|obj.MLIRCAP
 
@@ -248,7 +247,7 @@ USES+=	gnome
 .endif
 
 .if ${PORT_OPTIONS:MCOMPILER_RT}
-LLVM_ENABLE_PROJECTS+=	compiler-rt
+LLVM_ENABLE_RUNTIMES+=	compiler-rt
 COMPILER_RT_PATTERN=	(sanitizer|include.xray|include\/(fuzzer|orc)|profile\/InstrProfData.inc|profile\/instr_prof_interface.h)
 .endif
 
@@ -302,6 +301,9 @@ POLLY_PATTERN=	include\/polly|cmake\/polly|LLVMPolly.so|libPolly
 
 .if defined(LLVM_ENABLE_PROJECTS)
 CMAKE_ARGS+=	-DLLVM_ENABLE_PROJECTS="${LLVM_ENABLE_PROJECTS:ts;}"
+.endif
+.if defined(LLVM_ENABLE_RUNTIMES)
+CMAKE_ARGS+=	-DLLVM_ENABLE_RUNTIMES="${LLVM_ENABLE_RUNTIMES:ts;}"
 .endif
 
 .include <bsd.port.pre.mk>
@@ -428,6 +430,7 @@ post-install-CLANG-on:
 	    ${STAGEDIR}${PREFIX}/share/toolchains/llvm${LLVM_SUFFIX}.mk
 	${RMDIR} ${STAGEDIR}${LLVM_PREFIX}/include/clang/Basic/Target/MSP430/
 	${RMDIR} ${STAGEDIR}${LLVM_PREFIX}/include/clang/Basic/Target/
+	${RMDIR} ${STAGEDIR}${LLVM_PREFIX}/include/clang/CIRFrontendAction
 
 post-install-EXTRAS-on:
 	${RMDIR} ${STAGEDIR}${LLVM_PREFIX}/include/clang-tidy/misc/ConfusableTable
@@ -438,6 +441,7 @@ post-install-FLANG-on:
 	${RMDIR} ${STAGEDIR}${LLVM_PREFIX}/include/flang/Optimizer/Dialect/CUF/Attributes/CMakeFiles
 	${RMDIR} ${STAGEDIR}${LLVM_PREFIX}/include/flang/Optimizer/Dialect/CUF/CMakeFiles
 	${RMDIR} ${STAGEDIR}${LLVM_PREFIX}/include/flang/Optimizer/HLFIR/CMakeFiles
+	${RMDIR} ${STAGEDIR}${LLVM_PREFIX}/include/flang/Optimizer/OpenMP/CMakeFiles
 	${RMDIR} ${STAGEDIR}${LLVM_PREFIX}/include/flang/Optimizer/Transforms/CMakeFiles
 	${RMDIR} ${STAGEDIR}${LLVM_PREFIX}/include/flang/Optimizer/CMakeFiles
 	${RMDIR} ${STAGEDIR}${LLVM_PREFIX}/include/flang/CMakeFiles

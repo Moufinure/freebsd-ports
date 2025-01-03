@@ -1,4 +1,4 @@
---- chrome/browser/ui/autofill/payments/desktop_payments_window_manager.cc.orig	2024-08-01 05:47:53 UTC
+--- chrome/browser/ui/autofill/payments/desktop_payments_window_manager.cc.orig	2024-12-22 12:24:29 UTC
 +++ chrome/browser/ui/autofill/payments/desktop_payments_window_manager.cc
 @@ -49,7 +49,7 @@ gfx::Rect GetPopupSizeForVcn3ds() {
  DesktopPaymentsWindowManager::DesktopPaymentsWindowManager(

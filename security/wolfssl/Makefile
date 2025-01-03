@@ -1,5 +1,5 @@
 PORTNAME=	wolfssl
-PORTVERSION=	5.7.0
+PORTVERSION=	5.7.6
 CATEGORIES=	security devel
 MASTER_SITES=	https://www.wolfssl.com/ \
 		LOCAL/fox
@@ -34,7 +34,8 @@ CONFIGURE_ARGS=	--disable-dependency-tracking \
 		--enable-ssh \
 		--enable-static \
 		--enable-tls13 \
-		--enable-tls13-draft18
+		--enable-tls13-draft18 \
+		--enable-context-extra-user-data
 TEST_TARGET=	check
 CFLAGS+=	-DWOLFSSL_ALT_NAMES
 

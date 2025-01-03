@@ -1,6 +1,6 @@
 PORTNAME=	llama-cpp
 DISTVERSIONPREFIX=	b
-DISTVERSION=	3505
+DISTVERSION=	4406
 CATEGORIES=	misc # machine-learning
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -11,6 +11,7 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BROKEN_armv7=	clang crashes, see https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=278810
+BROKEN_i386=	compilation fails, see https://github.com/ggerganov/llama.cpp/issues/9545
 
 USES=		cmake:testing compiler:c++11-lang python:run shebangfix
 USE_LDCONFIG=	yes
@@ -26,15 +27,29 @@ CMAKE_ON=	BUILD_SHARED_LIBS
 CMAKE_OFF=	LLAMA_BUILD_TESTS
 CMAKE_TESTING_ON=	LLAMA_BUILD_TESTS
 
-LDFLAGS+=	-pthread
-
-OPTIONS_DEFINE=		EXAMPLES
+OPTIONS_DEFINE=		CURL EXAMPLES VULKAN
+OPTIONS_DEFAULT=	CURL VULKAN
 OPTIONS_SUB=		yes
+
+CURL_DESCR=		Use libcurl to download model from an URL
+CURL_CMAKE_BOOL=	LLAMA_CURL
+CURL_USES=		localbase
+CURL_LIB_DEPENDS=	libcurl.so:ftp/curl
 
 EXAMPLES_CMAKE_BOOL=	LLAMA_BUILD_EXAMPLES
 
+VULKAN_DESC=		Vulkan GPU offload support
+VULKAN_CMAKE_BOOL=	GGML_VULKAN
+VULKAN_BUILD_DEPENDS=	glslc:graphics/shaderc \
+			vulkan-headers>0:graphics/vulkan-headers
+VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-loader
+
 BINARY_ALIAS=	git=false
 
-# 1 test fails due to a missing model file (stories260K.gguf)
+do-test-ci: # build of tests fails, see https://github.com/ggerganov/llama.cpp/issues/10955
+	@cd ${WRKSRC} && \
+		${SETENV} ${MAKE_ENV} bash ci/run.sh ./tmp/results ./tmp/mnt
+
+# tests as of 4404: 97% tests passed, 1 tests failed out of 31, see https://github.com/ggerganov/llama.cpp/issues/11036
 
 .include <bsd.port.mk>

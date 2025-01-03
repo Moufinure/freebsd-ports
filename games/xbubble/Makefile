@@ -8,6 +8,9 @@ MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Puzzle Bobble clone for Unix/X11 platforms
 WWW=		https://www.nongnu.org/xbubble/
 
+DEPRECATED=	GENTOO Master Sites has rerolled and cleaned up all older distfiles
+EXPIRATION_DATE=2025-01-27
+
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
@@ -17,7 +20,6 @@ USES=		gmake localbase:ldflags xorg
 USE_XORG=	x11 xmu
 
 GNU_CONFIGURE=	yes
-GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 
 OPTIONS_DEFINE=	NLS
 OPTIONS_SUB=	yes
@@ -28,7 +30,7 @@ NLS_LIBS=	-lintl
 
 .include <bsd.port.options.mk>
 
-.if ${OPSYS} == FreeBSD && ( ${OSVERSION} >= 1400091 || ( ${OSVERSION} >= 1302507 && ${OSVERSION} < 1400000 ))
+.if ${OPSYS} == FreeBSD
 CFLAGS+=	-Wno-error=incompatible-function-pointer-types
 .endif
 

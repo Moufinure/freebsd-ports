@@ -2,8 +2,8 @@ PORTNAME=	plasma-desktop
 DISTVERSION=	${KDE_PLASMA_VERSION}
 CATEGORIES=	x11 kde kde-plasma
 
-COMMENT=	KDE Plasma Desktop
 MAINTAINER=	kde@FreeBSD.org
+COMMENT=	KDE Plasma Desktop
 
 BUILD_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols \
 		xf86-input-evdev>0:x11-drivers/xf86-input-evdev \

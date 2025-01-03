@@ -8,6 +8,7 @@
     SUBDIR += adios2
     SUBDIR += aichat
     SUBDIR += air
+    SUBDIR += alpaca
     SUBDIR += amanda-client
     SUBDIR += amanda-perl-wrapper
     SUBDIR += amanda-server
@@ -94,7 +95,6 @@
     SUBDIR += dtach
     SUBDIR += dvorak7min
     SUBDIR += dynomite
-    SUBDIR += e2fsprogs-libblkid
     SUBDIR += e2fsprogs-libuuid
     SUBDIR += ecflow
     SUBDIR += edfbrowser
@@ -167,8 +167,8 @@
     SUBDIR += gnome-mime-data
     SUBDIR += gnome-user-docs
     SUBDIR += gnu-watch
-    SUBDIR += gnuls
     SUBDIR += gobuster
+    SUBDIR += gollama
     SUBDIR += gone
     SUBDIR += gplink
     SUBDIR += gpsim
@@ -215,6 +215,7 @@
     SUBDIR += kf6-purpose
     SUBDIR += kgeography
     SUBDIR += klettres
+    SUBDIR += koboldcpp
     SUBDIR += kookbook
     SUBDIR += ktouch
     SUBDIR += kwordquiz
@@ -273,7 +274,6 @@
     SUBDIR += mmv
     SUBDIR += mnn
     SUBDIR += molequeue
-    SUBDIR += morse
     SUBDIR += mtx
     SUBDIR += mxnet
     SUBDIR += najitool
@@ -287,9 +287,12 @@
     SUBDIR += numchar
     SUBDIR += nut
     SUBDIR += ola
+    SUBDIR += ollama
     SUBDIR += ompl
     SUBDIR += ondir
     SUBDIR += onnx
+    SUBDIR += onnxruntime
+    SUBDIR += ooo
     SUBDIR += opencyc
     SUBDIR += openhab
     SUBDIR += openhab-addons
@@ -413,10 +416,12 @@
     SUBDIR += py-ast-comments
     SUBDIR += py-boost-histogram
     SUBDIR += py-censys
+    SUBDIR += py-cmap
     SUBDIR += py-codecarbon
     SUBDIR += py-colorbrewer
     SUBDIR += py-colored
     SUBDIR += py-crudini
+    SUBDIR += py-datasets
     SUBDIR += py-detecta
     SUBDIR += py-dictdiffer
     SUBDIR += py-eemeter
@@ -439,6 +444,7 @@
     SUBDIR += py-icoextract
     SUBDIR += py-instructor
     SUBDIR += py-ipyfastscape
+    SUBDIR += py-jiwer
     SUBDIR += py-kartograph
     SUBDIR += py-laspy
     SUBDIR += py-lazrs
@@ -450,6 +456,7 @@
     SUBDIR += py-llm-claude-3
     SUBDIR += py-log_symbols
     SUBDIR += py-mffpy
+    SUBDIR += py-mixpanel
     SUBDIR += py-mmcv
     SUBDIR += py-mmdet
     SUBDIR += py-mmengine
@@ -459,6 +466,7 @@
     SUBDIR += py-natten
     SUBDIR += py-npTDMS
     SUBDIR += py-numcodecs
+    SUBDIR += py-ollama
     SUBDIR += py-onnx
     SUBDIR += py-onnx-tf
     SUBDIR += py-openai
@@ -472,12 +480,15 @@
     SUBDIR += py-orange3-educational
     SUBDIR += py-orange3-network
     SUBDIR += py-orange3-timeseries
+    SUBDIR += py-oterm
     SUBDIR += py-palettable
     SUBDIR += py-papermill
+    SUBDIR += py-pdd
     SUBDIR += py-pexpect
     SUBDIR += py-pkbar
     SUBDIR += py-placekey
     SUBDIR += py-polars
+    SUBDIR += py-posthog
     SUBDIR += py-powerline-status
     SUBDIR += py-progressbar
     SUBDIR += py-progressbar2
@@ -542,7 +553,6 @@
     SUBDIR += quary
     SUBDIR += randomx
     SUBDIR += raspberrypi-gpioshutdown
-    SUBDIR += raspberrypi-userland
     SUBDIR += raspbsd-led
     SUBDIR += ree
     SUBDIR += retry
@@ -558,7 +568,6 @@
     SUBDIR += rubygem-dotenv-rails-rails4
     SUBDIR += rubygem-dotenv-rails-rails5
     SUBDIR += rubygem-dotenv-rails-rails50
-    SUBDIR += rubygem-dotenv-rails-rails61
     SUBDIR += rubygem-dotenv2
     SUBDIR += rubygem-haversine_distance
     SUBDIR += rubygem-iesd
@@ -624,12 +633,11 @@
     SUBDIR += tvbrowser
     SUBDIR += tvm
     SUBDIR += tzdiff
-    SUBDIR += uk-phone
-    SUBDIR += uk-postcodes
     SUBDIR += umodunpack
     SUBDIR += unclutter
     SUBDIR += unclutter-xfixes
     SUBDIR += unicode-emoji
+    SUBDIR += units
     SUBDIR += upclient
     SUBDIR += urh
     SUBDIR += usbids
@@ -643,6 +651,7 @@
     SUBDIR += vera
     SUBDIR += vfc
     SUBDIR += vifm
+    SUBDIR += vifm-colors
     SUBDIR += visp
     SUBDIR += viz
     SUBDIR += vote

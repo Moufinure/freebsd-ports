@@ -17,8 +17,7 @@ BUILD_DEPENDS+=	bjam:devel/boost-jam
 # following conditions are satisfied.
 # * OSVERSION is included in either of following ranges.
 #   1. 1500000 <= OSVERSION < 1500017
-#   2. 1400000 <= OSVERSION < 1400509
-#   3. 1300000 <= OSVERSION < 1303502
+#   2. 1400000 <= OSVERSION < 1400509 (no longer relevant)
 # * Base system is built with WITH_LLVM_ASSERTIONS variable set.
 # So if your base system fulfills them you need to use LLVM ports to
 # build this port.
@@ -57,6 +56,15 @@ MAKE_ARGS_gcc=	xdll-path=${_GCC_RUNTIME}
 ALL_TARGET=	stage
 
 .include <bsd.port.options.mk>
+
+# boost.stacktrace.from_exceptions is ready only for amd64 yet
+.if ${ARCH:Mamd64}
+PLIST_SUB+=	SFE=""
+.else
+MAKE_ARGS+=	boost.stacktrace.from_exception=off
+PLIST_SUB+=	SFE="@comment "
+
+.endif
 
 do-install:
 	@cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} \

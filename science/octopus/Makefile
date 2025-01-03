@@ -1,6 +1,6 @@
 PORTNAME=	octopus
 DISTVERSION=	13.0
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	science # chemistry
 MASTER_SITES=	https://octopus-code.org/download/${DISTVERSION}/
 
@@ -9,8 +9,6 @@ COMMENT=	Scientific program aimed at the ab initio virtual experimentation
 WWW=		https://octopus-code.org/new-site/main/
 
 LICENSE=	GPLv2
-
-BROKEN_aarch64=	undefined reference to `__aarch64_cas8_acq_rel' #'`
 
 BUILD_DEPENDS=	bash:shells/bash
 LIB_DEPENDS=	libarpack.so:math/arpack-ng \

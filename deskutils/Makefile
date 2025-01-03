@@ -13,7 +13,6 @@
     SUBDIR += ausweisapp2
     SUBDIR += autocutsel
     SUBDIR += baobab
-    SUBDIR += basket
     SUBDIR += belcard
     SUBDIR += bigyear
     SUBDIR += bijiben
@@ -43,6 +42,7 @@
     SUBDIR += coregarage
     SUBDIR += countdown
     SUBDIR += dailystrips
+    SUBDIR += deforaos-notes
     SUBDIR += deforaos-todo
     SUBDIR += dfshow
     SUBDIR += dmenu-wayland
@@ -61,6 +61,7 @@
     SUBDIR += freebsd-update-notify
     SUBDIR += freemind
     SUBDIR += freeplane
+    SUBDIR += fyi
     SUBDIR += ganttproject
     SUBDIR += gcal
     SUBDIR += gcalcli
@@ -161,6 +162,7 @@
     SUBDIR += libportal-gtk3
     SUBDIR += libportal-gtk4
     SUBDIR += libportal-qt5
+    SUBDIR += libportal-qt6
     SUBDIR += ljclive
     SUBDIR += lumina-archiver
     SUBDIR += lumina-calculator
@@ -237,6 +239,7 @@
     SUBDIR += py-taskw
     SUBDIR += py-term-background
     SUBDIR += py-todoman
+    SUBDIR += py-trash-cli
     SUBDIR += py-vdirsyncer
     SUBDIR += py-vobject
     SUBDIR += py-vorta

@@ -1,12 +1,13 @@
 PORTNAME=	pokerth
 PORTVERSION=	1.1.2
-PORTREVISION=	19
+PORTREVISION=	24
 CATEGORIES=	games
 MASTER_SITES=	SF
 
 PATCH_SITES=	https://gitweb.gentoo.org/repo/gentoo.git/plain/games-board/pokerth/files/ \
 		https://raw.githubusercontent.com/gentoo/gentoo/master/games-board/pokerth/files/
-PATCHFILES=	pokerth-1.1.2-boost-1.73.patch:-p1
+PATCHFILES=	pokerth-1.1.2-boost-1.73.patch:-p1 \
+		pokerth-1.1.2-boost-1.85.patch:-p1
 
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Poker game written in C++/Qt

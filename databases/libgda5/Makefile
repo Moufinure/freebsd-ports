@@ -92,14 +92,14 @@ CONFIGURE_ARGS+=	--without-mdb
 .endif
 
 .if ${LIBGDA5_SLAVE}==jdbc
-USE_JAVA=		yes
-JAVA_VENDOR=		bsdjava openjdk
+USES+=			java
+JAVA_VENDOR=		openjdk
 CFLAGS+=		-I${JAVA_HOME}/include -I${JAVA_HOME}/include/freebsd
 .else
 CONFIGURE_ARGS+=	--without-java
 .endif
 
-.if ${OPSYS} == FreeBSD && ( ${OSVERSION} >= 1400091 || ( ${OSVERSION} >= 1302507 && ${OSVERSION} < 1400000 ))
+.if ${OPSYS} == FreeBSD
 CFLAGS+=	-Wno-error=incompatible-function-pointer-types
 .endif
 

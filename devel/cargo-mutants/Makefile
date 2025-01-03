@@ -1,6 +1,7 @@
 PORTNAME=	cargo-mutants
 DISTVERSIONPREFIX=	v
-DISTVERSION=	24.7.1
+DISTVERSION=	24.11.0
+PORTREVISION=	1
 CATEGORIES=	devel
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -55,7 +56,7 @@ CARGO_CRATES=	aho-corasick-0.7.20 \
 		colorchoice-1.0.1 \
 		console-0.15.0 \
 		core-foundation-sys-0.8.6 \
-		cp_r-0.5.1 \
+		cp_r-0.5.2 \
 		crossbeam-channel-0.5.13 \
 		crossbeam-utils-0.8.20 \
 		ctor-0.1.26 \
@@ -92,6 +93,7 @@ CARGO_CRATES=	aho-corasick-0.7.20 \
 		itertools-0.10.5 \
 		itertools-0.12.0 \
 		itoa-1.0.11 \
+		jobserver-0.1.31 \
 		js-sys-0.3.69 \
 		lazy_static-1.4.0 \
 		libc-0.2.155 \
@@ -112,6 +114,7 @@ CARGO_CRATES=	aho-corasick-0.7.20 \
 		nu-ansi-term-0.46.0 \
 		num-conv-0.1.0 \
 		num-traits-0.2.19 \
+		num_cpus-1.16.0 \
 		nutmeg-0.1.4 \
 		once_cell-1.19.0 \
 		output_vt100-0.1.3 \
@@ -219,8 +222,5 @@ CARGO_CRATES=	aho-corasick-0.7.20 \
 		yansi-0.5.1
 
 PLIST_FILES=	bin/${PORTNAME}
-
-post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 .include <bsd.port.mk>

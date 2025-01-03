@@ -1,6 +1,6 @@
 PORTNAME=	gping
 DISTVERSIONPREFIX=	gping-v
-DISTVERSION=	1.17.3
+DISTVERSION=	1.19.0
 CATEGORIES=	net-mgmt
 
 MAINTAINER=	ehaupt@FreeBSD.org
@@ -18,7 +18,7 @@ PLIST_FILES=	bin/gping \
 		share/man/man1/gping.1.gz
 
 do-install:
-	${INSTALL_PROGRAM} ${WRKDIR}/target/*/release/${PORTNAME} \
+	${INSTALL_PROGRAM} ${WRKDIR}/target/release/${PORTNAME} \
 		${STAGEDIR}${PREFIX}/bin
 	${INSTALL_MAN} ${WRKSRC}/gping.1 ${STAGEDIR}${PREFIX}/share/man/man1
 
