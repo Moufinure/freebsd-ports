@@ -9,7 +9,7 @@ MAINTAINER=		pierre.gnaedig@mailoo.org
 COMMENT=		A set of fonts replicating various road sign typefaces
 WWW=			https://github.com/sammdot/roadgeek-fonts
 
-DEPENDS=		fontforge:x11-fonts/fontforge
+DEPENDS=		fontforge:print/fontforge
 
 USES=			fonts
 
