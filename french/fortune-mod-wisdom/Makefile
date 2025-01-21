@@ -1,4 +1,4 @@
-PORTNAME=	fortune-mod-wisdom-fr
+PORTNAME=	fortune-mod-wisdom
 PORTVERSION=	1.4
 PORTREVISION=	1
 CATEGORIES=	french
