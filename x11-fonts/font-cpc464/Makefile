@@ -12,7 +12,7 @@ WWW=			https://github.com/damianvila/font-cpc464
 
 USES=			fonts
 
-USE_GITHUB=		nodefault
+USE_GITHUB=		yes
 GH_ACCOUNT=		damianvila
 
 NO_ARCH=		yes
