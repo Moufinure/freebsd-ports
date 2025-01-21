@@ -1,7 +1,7 @@
 PORTNAME=	fortune-mod-wisdom-fr
 PORTVERSION=	1.4
 PORTREVISION=	1
-CATEGORIES=	misc
+CATEGORIES=	french
 
 MAINTAINER=	pierre.gnaedig@mailoo.org
 COMMENT=	Une Liste de Citations en Français pour Fortune-Mod

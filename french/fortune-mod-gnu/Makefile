@@ -1,7 +1,7 @@
 PORTNAME=	fortune-mod-gnu
 PORTVERSION=	0.1
 PORTREVISION=	1
-CATEGORIES=	misc
+CATEGORIES=	french
 
 MAINTAINER=	pierre.gnaedig@mailoo.org
 COMMENT=	Le guide du Neuneu sur Usenet maintenant en fortunes.
