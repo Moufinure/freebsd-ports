@@ -1,4 +1,4 @@
-PORTNAME=	fortune-mod-gnu-fr
+PORTNAME=	fortune-mod-gnu
 PORTVERSION=	0.1
 PORTREVISION=	1
 CATEGORIES=	misc
