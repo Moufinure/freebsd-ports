@@ -1,0 +1,8 @@
+sbin/dgamelaunch
+share/man/man8/dgamelaunch.8.gz
+%%EXAMPLESDIR%%/dgamelaunch.conf
+%%EXAMPLESDIR%%/dgl_menu_main_anon.txt
+%%EXAMPLESDIR%%/dgl_menu_main_user.txt
+%%EXAMPLESDIR%%/dgl_menu_watchmenu_help.txt
+%%EXAMPLESDIR%%/dgl-banner
+%%EXAMPLESDIR%%/dgl-create-chroot.conf.example.freebsd
