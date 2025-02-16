@@ -1,6 +1,6 @@
 PORTNAME=	evolution-data-server
 DISTVERSION=	3.44.4
-PORTREVISION=	7
+PORTREVISION=	10
 CATEGORIES=	databases gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome
@@ -14,14 +14,14 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libsoup-2.4.so:devel/libsoup \
 		libfribidi.so:converters/fribidi \
-		libgcr-base-3.so:security/gcr \
+		libgcr-base-3.so:security/gcr3 \
 		libgoa-1.0.so:net/gnome-online-accounts \
 		libgdata.so:devel/libgdata \
 		libharfbuzz.so:print/harfbuzz \
 		libical.so:devel/libical \
 		libnss3.so:security/nss \
 		libicudata.so:devel/icu \
-		libwebkit2gtk-4.0.so:www/webkit2-gtk3 \
+		libwebkit2gtk-4.0.so:www/webkit2-gtk@40 \
 		libjson-glib-1.0.so:devel/json-glib \
 		libp11-kit.so:security/p11-kit \
 		libnspr4.so:devel/nspr \
@@ -31,8 +31,8 @@ LIB_DEPENDS=	libsoup-2.4.so:devel/libsoup \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		bdb:5 cmake compiler:c++11-lib cpe gettext gnome gperf \
-		iconv:wchar_t localbase pathfix pkgconfig python:build\
+USES=		bdb:5 cmake compiler:c++17-lang cpe gettext gnome gperf \
+		iconv:wchar_t localbase pathfix pkgconfig python:build \
 		sqlite tar:xz xorg
 USE_CXXSTD=	gnu++11
 USE_GNOME=	cairo gdkpixbuf2 gtk30 intltool introspection:build libxml2
@@ -40,10 +40,10 @@ USE_XORG=	x11
 USE_LDCONFIG=	yes
 CPE_VENDOR=	gnome
 
+CMAKE_OFF=	CMAKE_CXX_EXTENSIONS
 CMAKE_ARGS=	-DENABLE_INTROSPECTION=ON \
-		-DENABLE_UOA=OFF
-
-CMAKE_ARGS+=	-DWITH_LIBDB_CFLAGS=-I${LOCALBASE}/include/db5 \
+		-DENABLE_UOA=OFF \
+		-DWITH_LIBDB_CFLAGS=-I${LOCALBASE}/include/db5 \
 		-DWITH_LIBDB_LIBS="-L${LOCALBASE}/lib -ldb-5"
 
 GLIB_SCHEMAS=	org.gnome.evolution-data-server.addressbook.gschema.xml \

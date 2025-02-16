@@ -1,6 +1,5 @@
 PORTNAME=	fpylll
-PORTVERSION=	0.5.9
-PORTREVISION=	1
+PORTVERSION=	0.6.3
 CATEGORIES=	math python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -11,10 +10,11 @@ WWW=		https://github.com/fplll/fpylll
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=	${PYNUMPY}	\
-		cython:lang/cython	\
+		${PYTHON_PKGNAMEPREFIX}cython3>0:lang/cython3@${PY_FLAVOR}	\
 		${PYTHON_PKGNAMEPREFIX}black>0:devel/py-black@${PY_FLAVOR}	\
 		${PYTHON_PKGNAMEPREFIX}pythran>0:devel/py-pythran@${PY_FLAVOR}	\
-		${PYTHON_PKGNAMEPREFIX}cysignals>0:devel/py-cysignals@${PY_FLAVOR}
+		${PYTHON_PKGNAMEPREFIX}cysignals>0:devel/py-cysignals@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}setuptools>=0:devel/py-setuptools@${PY_FLAVOR}
 LIB_DEPENDS=	libfplll.so:math/fplll	\
 		libgmp.so:math/gmp	\
 		libmpfr.so:math/mpfr	\

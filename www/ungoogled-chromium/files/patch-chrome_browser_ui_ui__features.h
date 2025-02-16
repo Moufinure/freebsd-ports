@@ -1,11 +1,20 @@
---- chrome/browser/ui/ui_features.h.orig	2024-06-22 08:49:42 UTC
+--- chrome/browser/ui/ui_features.h.orig	2025-01-25 09:34:31 UTC
 +++ chrome/browser/ui/ui_features.h
-@@ -288,7 +288,7 @@ bool IsToolbarPinningEnabled();
- 
- BASE_DECLARE_FEATURE(kTopChromeWebUIUsesSpareRenderer);
+@@ -68,7 +68,7 @@ extern const base::FeatureParam<bool> kAppMenuChipColo
+ BASE_DECLARE_FEATURE(kExtensionsMenuInAppMenu);
+ bool IsExtensionMenuInRootAppMenu();
  
 -#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
 +#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
- BASE_DECLARE_FEATURE(kUpdateTextOptions);
- extern const base::FeatureParam<int> kUpdateTextOptionNumber;
+ BASE_DECLARE_FEATURE(kFewerUpdateConfirmations);
  #endif
+ 
+@@ -277,7 +277,7 @@ BASE_DECLARE_FEATURE(kViewsJSAppModalDialog);
+ 
+ BASE_DECLARE_FEATURE(kStopLoadingAnimationForHiddenWindow);
+ 
+-#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS)
++#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_BSD)
+ BASE_DECLARE_FEATURE(kUsePortalAccentColor);
+ #endif
+ 

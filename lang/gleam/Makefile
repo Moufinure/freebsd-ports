@@ -1,6 +1,6 @@
 PORTNAME=	gleam
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.2.0
+DISTVERSION=	1.7.0
 PORTREVISION=	1
 CATEGORIES=	lang
 
@@ -39,9 +39,6 @@ do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/bin/
 	${MV} ${WRKSRC}/target/release/gleam \
 		${STAGEDIR}${PREFIX}/bin/
-
-post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/gleam
 
 post-install-DOCS-on:
 	(cd ${WRKSRC} && \

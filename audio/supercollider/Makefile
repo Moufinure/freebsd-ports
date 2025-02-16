@@ -1,5 +1,6 @@
 PORTNAME=	supercollider
 DISTVERSION=	3.13.0
+PORTREVISION=	1
 CATEGORIES=	audio
 MASTER_SITES=	https://github.com/supercollider/supercollider/releases/download/Version-${PORTVERSION}/
 DISTNAME=	SuperCollider-${PORTVERSION}-Source
@@ -10,6 +11,8 @@ WWW=		https://supercollider.github.io
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
+
+BROKEN=		fails to build with boost-1.85+
 
 LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
 		libjack.so:audio/jack \

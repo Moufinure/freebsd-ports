@@ -1,6 +1,6 @@
---- chrome/browser/chrome_browser_interface_binders.cc.orig	2024-06-17 12:56:06 UTC
+--- chrome/browser/chrome_browser_interface_binders.cc.orig	2025-01-15 09:18:26 UTC
 +++ chrome/browser/chrome_browser_interface_binders.cc
-@@ -132,12 +132,12 @@
+@@ -126,12 +126,12 @@
  #endif  // BUILDFLAG(FULL_SAFE_BROWSING)
  
  #if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || \
@@ -13,27 +13,36 @@
 -#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
 +#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
  #include "chrome/browser/ui/webui/app_settings/web_app_settings_ui.h"
+ #include "chrome/browser/ui/webui/on_device_translation_internals/on_device_translation_internals_ui.h"
  #include "ui/webui/resources/cr_components/app_management/app_management.mojom.h"
- #endif
-@@ -228,7 +228,7 @@
+@@ -221,7 +221,7 @@
  #endif  // BUILDFLAG(IS_ANDROID)
  
  #if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || \
 -    BUILDFLAG(IS_CHROMEOS)
 +    BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_BSD)
- #include "chrome/browser/companion/visual_query/visual_query_suggestions_service_factory.h"
+ #include "chrome/browser/screen_ai/screen_ai_service_router.h"
+ #include "chrome/browser/screen_ai/screen_ai_service_router_factory.h"
  #include "chrome/browser/ui/web_applications/sub_apps_service_impl.h"
- #include "chrome/browser/ui/webui/discards/discards.mojom.h"
-@@ -854,7 +854,7 @@ void BindScreen2xMainContentExtractor(
- #endif
+@@ -231,7 +231,7 @@
+ #endif  // BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) ||
+         // BUILDFLAG(IS_CHROMEOS)
+ 
+-#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
++#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
+ #include "chrome/browser/ui/webui/whats_new/whats_new_ui.h"
+ #endif  // BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
+ 
+@@ -735,7 +735,7 @@ void BindMediaFoundationPreferences(
+ #endif  // BUILDFLAG(IS_WIN)
  
  #if BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_MAC) || \
 -    BUILDFLAG(IS_WIN)
 +    BUILDFLAG(IS_WIN) || BUILDFLAG(IS_BSD)
- void BindVisualSuggestionsModelProvider(
+ void BindScreenAIAnnotator(
      content::RenderFrameHost* frame_host,
-     mojo::PendingReceiver<
-@@ -1050,7 +1050,7 @@ void PopulateChromeFrameBinders(
+     mojo::PendingReceiver<screen_ai::mojom::ScreenAIAnnotator> receiver) {
+@@ -873,7 +873,7 @@ void PopulateChromeFrameBinders(
  #endif  // BUILDFLAG(ENABLE_SPEECH_SERVICE)
  
  #if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || \
@@ -42,8 +51,8 @@
    if (base::FeatureList::IsEnabled(blink::features::kDesktopPWAsSubApps) &&
        !render_frame_host->GetParentOrOuterDocument()) {
      // The service binder will reject non-primary main frames, but we still need
-@@ -1137,7 +1137,7 @@ void PopulateChromeWebUIFrameBinders(
-       commerce::CommerceInternalsUI>(map);
+@@ -961,7 +961,7 @@ void PopulateChromeWebUIFrameBinders(
+       DataSharingInternalsUI>(map);
  
  #if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || \
 -    BUILDFLAG(IS_CHROMEOS_ASH)
@@ -51,7 +60,7 @@
    RegisterWebUIControllerInterfaceBinder<
        connectors_internals::mojom::PageHandler,
        enterprise_connectors::ConnectorsInternalsUI>(map);
-@@ -1148,7 +1148,7 @@ void PopulateChromeWebUIFrameBinders(
+@@ -972,7 +972,7 @@ void PopulateChromeWebUIFrameBinders(
                                           policy::DlpInternalsUI>(map);
  #endif
  
@@ -59,8 +68,25 @@
 +#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
    RegisterWebUIControllerInterfaceBinder<
        app_management::mojom::PageHandlerFactory, WebAppSettingsUI>(map);
- #endif
-@@ -1759,7 +1759,7 @@ void PopulateChromeWebUIFrameBinders(
+ 
+@@ -1065,14 +1065,14 @@ void PopulateChromeWebUIFrameBinders(
+       page_image_service::mojom::PageImageServiceHandler, HistoryUI,
+       HistoryClustersSidePanelUI, NewTabPageUI, BookmarksSidePanelUI>(map);
+ 
+-#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
++#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
+   RegisterWebUIControllerInterfaceBinder<whats_new::mojom::PageHandlerFactory,
+                                          WhatsNewUI>(map);
+ #endif  // BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
+ 
+   RegisterWebUIControllerInterfaceBinder<
+       browser_command::mojom::CommandHandlerFactory,
+-#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
++#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
+       WhatsNewUI,
+ #endif  // BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
+       NewTabPageUI>(map);
+@@ -1589,7 +1589,7 @@ void PopulateChromeWebUIFrameBinders(
  #endif  // BUILDFLAG(IS_CHROMEOS_ASH)
  
  #if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || \

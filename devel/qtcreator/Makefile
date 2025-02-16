@@ -1,5 +1,5 @@
 PORTNAME=	qtcreator
-DISTVERSION=	13.0.2
+DISTVERSION=	15.0.1
 CATEGORIES=	devel
 MASTER_SITES=	QT/official_releases/qtcreator/${DISTVERSION:R}/${DISTVERSION}
 DISTNAME=	qt-creator-opensource-src-${DISTVERSION}
@@ -25,8 +25,9 @@ USES=		cmake compiler:c++17-lang desktop-file-utils gl \
 		qt:6 shebangfix tar:xz
 USE_GL=		gl
 USE_LDCONFIG=	${LOCALBASE}/lib/${PORTNAME}
-USE_QT=		5compat base declarative positioning quick3d quicktimeline \
-		serialport shadertools sqldriver-sqlite svg tools translations webchannel
+USE_QT=		5compat base declarative positioning quick3d \
+		quicktimeline serialport shadertools sqldriver-sqlite \
+		svg tools translations webchannel
 
 SHEBANG_GLOB=	*.pl *.py *.sh
 SHEBANG_FILES=	src/plugins/terminal/tests/* \
@@ -41,8 +42,10 @@ CMAKE_ARGS+=	-DCMAKE_PREFIX_PATH:STRING="${LLVM_PREFIX};${PREFIX}"
 CMAKE_ON=	CMAKE_DISABLE_FIND_PACKAGE_elfutils \
 		CMAKE_DISABLE_FIND_PACKAGE_Googletest
 # - Disable precompiled headers for now, they are missing compile flags.
+# - Disable the AppStatisticsPlugin for now, not implemented for FreeBSD.
 # - Suppress installed yaml-cpp, use bundled.
 CMAKE_OFF=	BUILD_WITH_PCH \
+		BUILD_PLUGIN_APPSTATISTICSMONITOR \
 		yaml-cpp_FOUND
 
 LDFLAGS+=	-lexecinfo

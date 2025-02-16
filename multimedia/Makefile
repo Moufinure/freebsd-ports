@@ -34,12 +34,13 @@
     SUBDIR += cmrtlib
     SUBDIR += cx88
     SUBDIR += dav1d
+    SUBDIR += decord
     SUBDIR += deforaos-player
     SUBDIR += dirac
+    SUBDIR += dovi_tool
     SUBDIR += dragon
     SUBDIR += droidcam
     SUBDIR += dtv-scan-tables
-    SUBDIR += dumpmpeg
     SUBDIR += dv2sub
     SUBDIR += dvb-apps
     SUBDIR += dvbcut
@@ -55,6 +56,7 @@
     SUBDIR += ffaudioconverter
     SUBDIR += ffdec
     SUBDIR += ffmpeg
+    SUBDIR += ffmpeg3
     SUBDIR += ffmpeg4
     SUBDIR += ffmpegthumbnailer
     SUBDIR += ffms2
@@ -88,7 +90,6 @@
     SUBDIR += gstreamer1-plugins-dts
     SUBDIR += gstreamer1-plugins-dv
     SUBDIR += gstreamer1-plugins-dvdread
-    SUBDIR += gstreamer1-plugins-gnonlin
     SUBDIR += gstreamer1-plugins-good
     SUBDIR += gstreamer1-plugins-hls
     SUBDIR += gstreamer1-plugins-libde265
@@ -108,9 +109,9 @@
     SUBDIR += gstreamer1-plugins-ugly
     SUBDIR += gstreamer1-plugins-v4l2
     SUBDIR += gstreamer1-plugins-vpx
+    SUBDIR += gstreamer1-plugins-webrtc
     SUBDIR += gstreamer1-plugins-x264
     SUBDIR += gstreamer1-plugins-x265
-    SUBDIR += gstreamer1-qt
     SUBDIR += gstreamer1-rtsp-server
     SUBDIR += gstreamer1-vaapi
     SUBDIR += gstreamer1-validate
@@ -121,10 +122,10 @@
     SUBDIR += haruna
     SUBDIR += harvid
     SUBDIR += helvum
-    SUBDIR += hypnotix
     SUBDIR += intel-media-sdk
     SUBDIR += iso2mkv
     SUBDIR += jellyfin
+    SUBDIR += jellyfin-media-player
     SUBDIR += jmref
     SUBDIR += kaffeine
     SUBDIR += kamoso
@@ -203,6 +204,7 @@
     SUBDIR += libzen
     SUBDIR += linux-c7-libtheora
     SUBDIR += linux-c7-libv4l
+    SUBDIR += linux-rl9-aom
     SUBDIR += linux-rl9-ffmpeg
     SUBDIR += linux-rl9-gstreamer1
     SUBDIR += linux-rl9-gstreamer1-libav
@@ -211,6 +213,8 @@
     SUBDIR += linux-rl9-libva
     SUBDIR += linux-rl9-libvdpau
     SUBDIR += linux-rl9-libvpx
+    SUBDIR += linux-rl9-qt5-qtmultimedia
+    SUBDIR += linux-rl9-vmaf
     SUBDIR += linux-tsmuxer
     SUBDIR += linux_dvbwrapper-kmod
     SUBDIR += livego
@@ -221,6 +225,7 @@
     SUBDIR += makemkv
     SUBDIR += mediaelch
     SUBDIR += mediainfo
+    SUBDIR += mediamtx
     SUBDIR += mencoder
     SUBDIR += minisatip
     SUBDIR += minitube
@@ -235,7 +240,6 @@
     SUBDIR += mp3cd
     SUBDIR += mp4v2
     SUBDIR += mpc-qt
-    SUBDIR += mpeg_encode
     SUBDIR += mplayer
     SUBDIR += mplayer-skins
     SUBDIR += mplex
@@ -273,6 +277,7 @@
     SUBDIR += opentimelineio
     SUBDIR += opentoonz
     SUBDIR += oscam
+    SUBDIR += ossia-score
     SUBDIR += p5-Audio-M4P
     SUBDIR += p5-FFmpeg-Command
     SUBDIR += p5-FLV-Info
@@ -283,12 +288,12 @@
     SUBDIR += peek
     SUBDIR += phonon
     SUBDIR += phonon-designerplugin
+    SUBDIR += phonon-mpv
     SUBDIR += phonon-vlc
     SUBDIR += photofilmstrip
     SUBDIR += pipe-viewer
     SUBDIR += pipewire
     SUBDIR += pitivi
-    SUBDIR += plasma5-plank-player
     SUBDIR += plasmatube
     SUBDIR += playerctl
     SUBDIR += plexmediaserver
@@ -302,6 +307,7 @@
     SUBDIR += py-PySceneDetect
     SUBDIR += py-av
     SUBDIR += py-cec
+    SUBDIR += py-decord
     SUBDIR += py-enzyme
     SUBDIR += py-ffmpeg-python
     SUBDIR += py-gstreamer1
@@ -316,11 +322,13 @@
     SUBDIR += py-pymediainfo
     SUBDIR += py-pysubs2
     SUBDIR += py-python-mpv
+    SUBDIR += py-pytube
     SUBDIR += py-soco
     SUBDIR += py-srt
     SUBDIR += py-subliminal
     SUBDIR += py-tartube
     SUBDIR += py-tvnamer
+    SUBDIR += py-ustreamer
     SUBDIR += qmmp-plugin-pack-qt5
     SUBDIR += qmmp-plugin-pack-qt6
     SUBDIR += qmmp-qt5
@@ -332,7 +340,6 @@
     SUBDIR += qwinff
     SUBDIR += rage
     SUBDIR += rav1e
-    SUBDIR += recmpeg
     SUBDIR += recordmydesktop
     SUBDIR += replex
     SUBDIR += ringrtc
@@ -343,6 +350,7 @@
     SUBDIR += rubygem-streamio-ffmpeg
     SUBDIR += scte35dump
     SUBDIR += shotcut
+    SUBDIR += shotcut-qt6
     SUBDIR += simplescreenrecorder
     SUBDIR += smpeg
     SUBDIR += smpeg2
@@ -385,7 +393,6 @@
     SUBDIR += video-trimmer
     SUBDIR += vlc
     SUBDIR += vmaf
-    SUBDIR += vtkmpeg2encode
     SUBDIR += vvdec
     SUBDIR += vvenc
     SUBDIR += w_scan2

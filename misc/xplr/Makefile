@@ -1,6 +1,6 @@
 PORTNAME=	xplr
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.21.8
+DISTVERSION=	0.21.9
 PORTREVISION=	1
 CATEGORIES=	misc
 
@@ -29,8 +29,6 @@ _ASSETS=	${WRKSRC}/assets
 _ICONS=		${STAGEDIR}${PREFIX}/share/icons/hicolor
 
 post-install:
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
-
 	${INSTALL_DATA} ${_ASSETS}/desktop/${PORTNAME}.desktop \
 		${STAGEDIR}${PREFIX}/share/applications/${PORTNAME}.desktop
 

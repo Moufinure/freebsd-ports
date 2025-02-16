@@ -1,7 +1,7 @@
---- chrome/browser/ui/views/frame/browser_frame.cc.orig	2024-02-25 20:22:18 UTC
+--- chrome/browser/ui/views/frame/browser_frame.cc.orig	2025-01-25 09:34:31 UTC
 +++ chrome/browser/ui/views/frame/browser_frame.cc
-@@ -54,7 +54,7 @@
- #include "components/user_manager/user_manager.h"
+@@ -52,7 +52,7 @@
+ #include "ui/aura/window.h"
  #endif
  
 -#if BUILDFLAG(IS_LINUX)
@@ -9,7 +9,7 @@
  #include "ui/display/screen.h"
  #include "ui/linux/linux_ui.h"
  #endif
-@@ -89,7 +89,7 @@ class ThemeChangedObserver : public views::WidgetObser
+@@ -87,7 +87,7 @@ class ThemeChangedObserver : public views::WidgetObser
  };
  
  bool IsUsingLinuxSystemTheme(Profile* profile) {
@@ -18,7 +18,7 @@
    return ThemeServiceFactory::GetForProfile(profile)->UsingSystemTheme();
  #else
    return false;
-@@ -184,7 +184,7 @@ void BrowserFrame::InitBrowserFrame() {
+@@ -182,7 +182,7 @@ void BrowserFrame::InitBrowserFrame() {
  
    Init(std::move(params));
  
@@ -27,7 +27,7 @@
    SelectNativeTheme();
  #else
    SetNativeTheme(ui::NativeTheme::GetInstanceForNativeUi());
-@@ -370,7 +370,7 @@ void BrowserFrame::OnNativeWidgetWorkspaceChanged() {
+@@ -369,7 +369,7 @@ void BrowserFrame::OnNativeWidgetWorkspaceChanged() {
    chrome::SaveWindowWorkspace(browser_view_->browser(), GetWorkspace());
    chrome::SaveWindowVisibleOnAllWorkspaces(browser_view_->browser(),
                                             IsVisibleOnAllWorkspaces());

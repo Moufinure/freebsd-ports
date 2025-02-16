@@ -1,3 +1,5 @@
-TIMESTAMP = 1720600290
-SHA256 (YosysHQ-yosys-yosys-0.43_GH0.tar.gz) = e341d7c3712f58787554c28c12c9f4cb5e102f9ff154f5a5e49238c1adfb309f
-SIZE (YosysHQ-yosys-yosys-0.43_GH0.tar.gz) = 2808745
+TIMESTAMP = 1739341635
+SHA256 (YosysHQ-yosys-v0.50_GH0.tar.gz) = 5fe9224b145d0fa40f2d2ec8f2ea70075e00bcfa0d9c6f4f45caec5c5f721334
+SIZE (YosysHQ-yosys-v0.50_GH0.tar.gz) = 3266956
+SHA256 (jarro2783-cxxopts-4bf61f0_GH0.tar.gz) = b82f3475956e9456e416c2234e12dcd8151099278b9cbf1617aa30483af00c58
+SIZE (jarro2783-cxxopts-4bf61f0_GH0.tar.gz) = 160621

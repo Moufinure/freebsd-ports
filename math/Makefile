@@ -3,7 +3,6 @@
     SUBDIR += 4ti2
     SUBDIR += GiNaC
     SUBDIR += Imath
-    SUBDIR += PDL
     SUBDIR += R
     SUBDIR += R-cran-ADGofTest
     SUBDIR += R-cran-Amelia
@@ -17,6 +16,7 @@
     SUBDIR += R-cran-FNN
     SUBDIR += R-cran-Formula
     SUBDIR += R-cran-FrF2
+    SUBDIR += R-cran-GPArotation
     SUBDIR += R-cran-KFAS
     SUBDIR += R-cran-LearnBayes
     SUBDIR += R-cran-MCMCpack
@@ -103,6 +103,7 @@
     SUBDIR += R-cran-misc3d
     SUBDIR += R-cran-miscTools
     SUBDIR += R-cran-mitools
+    SUBDIR += R-cran-mnormt
     SUBDIR += R-cran-moments
     SUBDIR += R-cran-mvtnorm
     SUBDIR += R-cran-ncdf4
@@ -128,6 +129,7 @@
     SUBDIR += R-cran-quantreg
     SUBDIR += R-cran-raster
     SUBDIR += R-cran-recipes
+    SUBDIR += R-cran-reformulas
     SUBDIR += R-cran-rgenoud
     SUBDIR += R-cran-robustbase
     SUBDIR += R-cran-sandwich
@@ -208,6 +210,7 @@
     SUBDIR += bsdnt
     SUBDIR += btor2tools
     SUBDIR += cadabra2
+    SUBDIR += cadiback
     SUBDIR += cadical
     SUBDIR += cado-nfs
     SUBDIR += calc
@@ -339,6 +342,7 @@
     SUBDIR += flann
     SUBDIR += flexfloat
     SUBDIR += flexiblas
+    SUBDIR += flint
     SUBDIR += flint2
     SUBDIR += flintqs
     SUBDIR += flopc++
@@ -440,7 +444,6 @@
     SUBDIR += latte-integrale
     SUBDIR += lcalc
     SUBDIR += ldouble
-    SUBDIR += lean
     SUBDIR += lean4
     SUBDIR += leangz
     SUBDIR += lemon
@@ -449,6 +452,7 @@
     SUBDIR += libRmath
     SUBDIR += libbraiding
     SUBDIR += libccd
+    SUBDIR += libceed
     SUBDIR += libcerf
     SUBDIR += libdivide
     SUBDIR += libdivsufsort
@@ -542,8 +546,10 @@
     SUBDIR += ntpoly
     SUBDIR += numdiff
     SUBDIR += obake
+    SUBDIR += ocaml-farith
     SUBDIR += ocaml-num
     SUBDIR += ocaml-ocamlgraph
+    SUBDIR += ocaml-ocplib-simplex
     SUBDIR += ocaml-zarith
     SUBDIR += ocamlgsl
     SUBDIR += octave
@@ -585,6 +591,7 @@
     SUBDIR += octave-forge-geometry
     SUBDIR += octave-forge-gnuplot
     SUBDIR += octave-forge-gsl
+    SUBDIR += octave-forge-hdf5oct
     SUBDIR += octave-forge-ident
     SUBDIR += octave-forge-image
     SUBDIR += octave-forge-informationtheory
@@ -616,6 +623,8 @@
     SUBDIR += octave-forge-nurbs
     SUBDIR += octave-forge-oct2mat
     SUBDIR += octave-forge-octave-pool
+    SUBDIR += octave-forge-octave_tar
+    SUBDIR += octave-forge-octave_zstd
     SUBDIR += octave-forge-octclip
     SUBDIR += octave-forge-octproj
     SUBDIR += octave-forge-odbc
@@ -677,7 +686,6 @@
     SUBDIR += openlibm
     SUBDIR += openmesh
     SUBDIR += openscop
-    SUBDIR += opensolaris-libm
     SUBDIR += openturns
     SUBDIR += optpp
     SUBDIR += or-tools
@@ -808,6 +816,24 @@
     SUBDIR += p5-Number-Uncertainty
     SUBDIR += p5-Number-WithError
     SUBDIR += p5-Number-WithError-LaTeX
+    SUBDIR += p5-PDL
+    SUBDIR += p5-PDL-DateTime
+    SUBDIR += p5-PDL-Fit
+    SUBDIR += p5-PDL-GSL
+    SUBDIR += p5-PDL-Graphics-IIS
+    SUBDIR += p5-PDL-Graphics-Limits
+    SUBDIR += p5-PDL-Graphics-PLplot
+    SUBDIR += p5-PDL-IO-Browser
+    SUBDIR += p5-PDL-IO-Dicom
+    SUBDIR += p5-PDL-IO-ENVI
+    SUBDIR += p5-PDL-IO-GD
+    SUBDIR += p5-PDL-IO-HDF
+    SUBDIR += p5-PDL-IO-IDL
+    SUBDIR += p5-PDL-LinearAlgebra
+    SUBDIR += p5-PDL-Minuit
+    SUBDIR += p5-PDL-Opt-Simplex
+    SUBDIR += p5-PDL-Perldl2
+    SUBDIR += p5-PDL-Transform-Proj4
     SUBDIR += p5-Parse-Range
     SUBDIR += p5-Roman
     SUBDIR += p5-Set-IntSpan
@@ -861,14 +887,14 @@
     SUBDIR += php82-gmp
     SUBDIR += php83-bcmath
     SUBDIR += php83-gmp
+    SUBDIR += php84-bcmath
+    SUBDIR += php84-gmp
     SUBDIR += physcalc
     SUBDIR += picosat
     SUBDIR += piranha
     SUBDIR += planarity
     SUBDIR += plantri
     SUBDIR += plman
-    SUBDIR += ploticus
-    SUBDIR += ploticus-nox11
     SUBDIR += plplot
     SUBDIR += poly2tri
     SUBDIR += polyclipper
@@ -891,7 +917,6 @@
     SUBDIR += py-Py-BOBYQA
     SUBDIR += py-PyMetis
     SUBDIR += py-PySCIPOpt
-    SUBDIR += py-PyWavelets
     SUBDIR += py-Pyomo
     SUBDIR += py-SQNomad
     SUBDIR += py-affine
@@ -939,6 +964,7 @@
     SUBDIR += py-docplex
     SUBDIR += py-ducc0
     SUBDIR += py-ecos
+    SUBDIR += py-emcee
     SUBDIR += py-evalidate
     SUBDIR += py-faiss
     SUBDIR += py-fastcluster
@@ -964,6 +990,7 @@
     SUBDIR += py-hepstats
     SUBDIR += py-heyoka
     SUBDIR += py-hmmlearn
+    SUBDIR += py-hypernetx
     SUBDIR += py-igraph
     SUBDIR += py-iminuit
     SUBDIR += py-intspan
@@ -979,6 +1006,7 @@
     SUBDIR += py-keras-preprocessing
     SUBDIR += py-kiwisolver
     SUBDIR += py-levmar
+    SUBDIR += py-libceed
     SUBDIR += py-libpoly
     SUBDIR += py-linearmodels
     SUBDIR += py-lmfit
@@ -997,8 +1025,10 @@
     SUBDIR += py-ml-dtypes
     SUBDIR += py-mnnpy
     SUBDIR += py-moarchiving
+    SUBDIR += py-modin
     SUBDIR += py-mpmath
     SUBDIR += py-munkres
+    SUBDIR += py-narwhals
     SUBDIR += py-ndindex
     SUBDIR += py-networkx
     SUBDIR += py-nevergrad
@@ -1044,6 +1074,7 @@
     SUBDIR += py-pyodesys
     SUBDIR += py-pyprobables
     SUBDIR += py-pyreadr
+    SUBDIR += py-pyreadstat
     SUBDIR += py-pyrr
     SUBDIR += py-pysmt
     SUBDIR += py-pystan
@@ -1055,6 +1086,7 @@
     SUBDIR += py-python-picard
     SUBDIR += py-pytorchvideo
     SUBDIR += py-pyvtk
+    SUBDIR += py-pywavelets
     SUBDIR += py-qats
     SUBDIR += py-qdldl
     SUBDIR += py-quadprog
@@ -1108,6 +1140,7 @@
     SUBDIR += qposases
     SUBDIR += qrupdate
     SUBDIR += qtiplot-doc
+    SUBDIR += quich
     SUBDIR += qwtplot3d
     SUBDIR += qxfun
     SUBDIR += randlib
@@ -1126,6 +1159,7 @@
     SUBDIR += rubiks
     SUBDIR += rubygem-algebra
     SUBDIR += rubygem-bigdecimal
+    SUBDIR += rubygem-cmath
     SUBDIR += rubygem-enumerable-statistics
     SUBDIR += rubygem-expression_parser
     SUBDIR += rubygem-fftw3
@@ -1140,7 +1174,6 @@
     SUBDIR += rubygem-rb-gsl
     SUBDIR += rumur
     SUBDIR += saga
-    SUBDIR += sage
     SUBDIR += savage
     SUBDIR += sc
     SUBDIR += sc-im
@@ -1208,7 +1241,6 @@
     SUBDIR += symphony
     SUBDIR += sympol
     SUBDIR += sympow
-    SUBDIR += tablix
     SUBDIR += taucs
     SUBDIR += tblis
     SUBDIR += testu01

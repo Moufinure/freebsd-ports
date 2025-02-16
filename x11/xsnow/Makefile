@@ -1,8 +1,9 @@
 PORTNAME=	xsnow
-PORTVERSION=	3.7.6
-PORTREVISION=	1
+DISTVERSION=	3.8.4
+DISTVERSIONSUFFIX=	~pre01
 CATEGORIES=	x11
-MASTER_SITES=	SF/${PORTNAME}/
+MASTER_SITES=	https://ratrabbit.nl/downloads/xsnow/ \
+		SF/${PORTNAME}/
 
 MAINTAINER=	fluffy@FreeBSD.org
 COMMENT=	Create a snowy and Santa-y desktop

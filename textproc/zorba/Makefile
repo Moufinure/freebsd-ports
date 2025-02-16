@@ -1,6 +1,6 @@
 PORTNAME=	zorba
 PORTVERSION=	2.7.0
-PORTREVISION=	40
+PORTREVISION=	42
 CATEGORIES=	textproc java
 MASTER_SITES=	https://launchpadlibrarian.net/119058962/
 DISTNAME=	${PORTNAME}-src-${PORTVERSION}
@@ -11,6 +11,9 @@ WWW=		http://www.zorba.io/
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
+
+DEPRECATED=	Unmaintained, outdated and fails to build with ICU 76.1
+EXPIRATION_DATE=2025-02-28
 
 LIB_DEPENDS=	libxerces-c.so:textproc/xerces-c3 \
 		libicudata.so:devel/icu \
@@ -24,12 +27,17 @@ WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
 OPTIONS_DEFINE=	PHP PYTHON RUBY JAVA DOCS DOXYGEN
 OPTIONS_SUB=	yes
 
-DOXYGEN_BUILD_DEPENDS+=	doxygen:devel/doxygen
 DOXYGEN_IMPLIES=	DOCS
+DOXYGEN_BUILD_DEPENDS+=	doxygen:devel/doxygen
+JAVA_CATEGORIES=	java
+JAVA_USES=		java
+JAVA_CMAKE_BOOL=	WITH_JAVA
+JAVA_CMAKE_ON=	-DJAVA_LIBDIR:PATH=${JAVALIBDIR}
+JAVA_CONFIGURE_ENV=	JAVA_HOME=${JAVA_HOME}
+JAVA_VARS=		WITH_SWIG=yes
 PHP_CMAKE_BOOL=		WITH_PHP5
 PYTHON_CMAKE_BOOL=	WITH_PYTHON
 RUBY_CMAKE_BOOL=	WITH_RUBY
-JAVA_CMAKE_BOOL=	WITH_JAVA
 
 # Both install include/xqc.h
 CONFLICTS=	xqilla
@@ -76,14 +84,6 @@ USES+=	ruby
 WITH_SWIG=	yes
 .endif
 
-.if ${PORT_OPTIONS:MJAVA}
-USE_JAVA=	yes
-CONFIGURE_ENV+=	JAVA_HOME=${JAVA_HOME}
-CATEGORIES+=	java
-WITH_SWIG=	yes
-CMAKE_ARGS+=	-DJAVA_LIBDIR:PATH=${JAVALIBDIR}
-.endif
-
 .if defined(WITH_SWIG)
 BUILD_DEPENDS+=	swig:devel/swig
 .endif
@@ -93,14 +93,16 @@ post-patch:
 		-e 's|FreeBSD|${OPSYS}|g' ${WRKSRC}/CMakeLists.txt
 	${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|g' \
 		${WRKSRC}/cmake_modules/FindPHP5.cmake
-.if !${PORT_OPTIONS:MDOCS}
+
+post-patch-DOCS-on:
 	${REINPLACE_CMD} -e '/ADD_SUBDIRECTORY(doc)/d' \
 		${WRKSRC}/CMakeLists.txt
-.endif
 
 post-install:
 	${LN} -sf libzorba_simplestore.so.${PORTVERSION} ${STAGEDIR}${PREFIX}/lib/libzorba_simplestore.so.${PORTVERSION:R:R}
-.if ${PORT_OPTIONS:MDOCS} && !${PORT_OPTIONS:MDOXYGEN}
+
+post-install-DOCS-on:
+.if !${PORT_OPTIONS:MDOXYGEN}
 	cd ${STAGEDIR}${DOCSDIR} && ${RMDIR} c/html code/html code cxx/html zorba/html zorba/xqdoc zorba
 .endif
 

@@ -39,7 +39,6 @@
     SUBDIR += atunes
     SUBDIR += aubio
     SUBDIR += audacity
-    SUBDIR += audiere
     SUBDIR += audiocd-kio
     SUBDIR += audiowmark
     SUBDIR += aumix
@@ -70,7 +69,6 @@
     SUBDIR += bslizr-lv2
     SUBDIR += cadence
     SUBDIR += calf-lv2
-    SUBDIR += cam
     SUBDIR += cantata
     SUBDIR += caps-lv2
     SUBDIR += caps-plugins
@@ -133,7 +131,6 @@
     SUBDIR += elisa
     SUBDIR += emms
     SUBDIR += enscribe
-    SUBDIR += epos-devel
     SUBDIR += eq10q-lv2
     SUBDIR += espeak-ng
     SUBDIR += espressivo-lv2
@@ -192,6 +189,7 @@
     SUBDIR += fogpad-lv2
     SUBDIR += fomp-lv2
     SUBDIR += foo-yc20
+    SUBDIR += fooyin
     SUBDIR += fossmixer
     SUBDIR += freac
     SUBDIR += freealut
@@ -200,7 +198,6 @@
     SUBDIR += freepats
     SUBDIR += ft2-clone
     SUBDIR += ft2play
-    SUBDIR += funktrackergold
     SUBDIR += furnace
     SUBDIR += ganv
     SUBDIR += gbsplay
@@ -222,13 +219,13 @@
     SUBDIR += gogglesmm
     SUBDIR += gonic
     SUBDIR += goobox
-    SUBDIR += gqradio
     SUBDIR += gramofile
     SUBDIR += grip
     SUBDIR += gsequencer
     SUBDIR += gsm
     SUBDIR += gsound
     SUBDIR += gstreamer1-plugins-a52dec
+    SUBDIR += gstreamer1-plugins-alsa
     SUBDIR += gstreamer1-plugins-amrnb
     SUBDIR += gstreamer1-plugins-amrwbdec
     SUBDIR += gstreamer1-plugins-bs2b
@@ -246,7 +243,6 @@
     SUBDIR += gstreamer1-plugins-lv2
     SUBDIR += gstreamer1-plugins-modplug
     SUBDIR += gstreamer1-plugins-mpg123
-    SUBDIR += gstreamer1-plugins-musepack
     SUBDIR += gstreamer1-plugins-ogg
     SUBDIR += gstreamer1-plugins-openmpt
     SUBDIR += gstreamer1-plugins-opus
@@ -270,7 +266,6 @@
     SUBDIR += gtultra
     SUBDIR += guidoar
     SUBDIR += guidolib
-    SUBDIR += guitarix-lv2
     SUBDIR += gula-plugins-lv2
     SUBDIR += guspat
     SUBDIR += gvolwheel
@@ -282,7 +277,6 @@
     SUBDIR += hts_engine-API
     SUBDIR += hydrogen
     SUBDIR += icecast
-    SUBDIR += icecast-kh
     SUBDIR += icegenerator
     SUBDIR += ices
     SUBDIR += id3el
@@ -342,15 +336,12 @@
     SUBDIR += libcanberra-gtk2
     SUBDIR += libcanberra-gtk3
     SUBDIR += libcdaudio
-    SUBDIR += libcddb
-    SUBDIR += libcddb-doc
     SUBDIR += libconvolve
     SUBDIR += libcoverart
     SUBDIR += libdiscid
     SUBDIR += libdjinterop
     SUBDIR += libdssialsacompat
     SUBDIR += libebur128
-    SUBDIR += libechonest
     SUBDIR += libfilteraudio
     SUBDIR += libfishsound
     SUBDIR += libg722
@@ -362,7 +353,7 @@
     SUBDIR += libkcddb
     SUBDIR += libkcompactdisc
     SUBDIR += libkeyfinder
-    SUBDIR += liblastfm-qt5
+    SUBDIR += liblastfm
     SUBDIR += liblo
     SUBDIR += liblscp
     SUBDIR += libltc
@@ -386,10 +377,8 @@
     SUBDIR += libopusenc
     SUBDIR += libremidi
     SUBDIR += libsamplerate
-    SUBDIR += libshairport
     SUBDIR += libshout
     SUBDIR += libsidplay
-    SUBDIR += libsidplay2
     SUBDIR += libsidplayfp
     SUBDIR += libsmf
     SUBDIR += libsndfile
@@ -537,9 +526,6 @@
     SUBDIR += ogg2mp3
     SUBDIR += openal-soft
     SUBDIR += opencore-amr
-    SUBDIR += openspc
-    SUBDIR += optimfrog
-    SUBDIR += optimfrog-sse2
     SUBDIR += opus
     SUBDIR += opus-tools
     SUBDIR += opusfile
@@ -608,10 +594,8 @@
     SUBDIR += picard
     SUBDIR += picard-plugins
     SUBDIR += pipewire-module-xrdp
+    SUBDIR += pipewire-spa-oss
     SUBDIR += pithos
-    SUBDIR += plasma5-kpipewire
-    SUBDIR += plasma5-oxygen-sounds
-    SUBDIR += plasma5-plasma-pa
     SUBDIR += plasma6-kpipewire
     SUBDIR += plasma6-ocean-sound-theme
     SUBDIR += plasma6-oxygen-sounds
@@ -679,7 +663,7 @@
     SUBDIR += py-soxr
     SUBDIR += py-speechrecognition
     SUBDIR += py-spotipy
-    SUBDIR += py-tagpy
+    SUBDIR += py-supysonic
     SUBDIR += py-torchaudio
     SUBDIR += py-vosk
     SUBDIR += py-wavio
@@ -700,7 +684,6 @@
     SUBDIR += raul
     SUBDIR += rawrec
     SUBDIR += re
-    SUBDIR += resid
     SUBDIR += rexima
     SUBDIR += rezound
     SUBDIR += rhvoice
@@ -742,8 +725,6 @@
     SUBDIR += shntool
     SUBDIR += shortwave
     SUBDIR += shuriken
-    SUBDIR += sidplay
-    SUBDIR += sidplay2
     SUBDIR += sidplayer
     SUBDIR += sidplayfp
     SUBDIR += simplemod
@@ -757,6 +738,7 @@
     SUBDIR += sonata
     SUBDIR += songrec
     SUBDIR += sonic-visualiser
+    SUBDIR += sonicradio
     SUBDIR += sonivox
     SUBDIR += sonivox-eas
     SUBDIR += sorcer-lv2
@@ -774,7 +756,6 @@
     SUBDIR += speexdsp
     SUBDIR += spek
     SUBDIR += spiralloops
-    SUBDIR += spiralsynth
     SUBDIR += spiralsynthmodular
     SUBDIR += spotify-player
     SUBDIR += spotify-qt
@@ -835,6 +816,7 @@
     SUBDIR += umix
     SUBDIR += umodplayer
     SUBDIR += umurmur
+    SUBDIR += unflac
     SUBDIR += vamp-plugin-sdk
     SUBDIR += vban
     SUBDIR += vgmplay
@@ -863,6 +845,7 @@
     SUBDIR += wavplay
     SUBDIR += webrtc-audio-processing
     SUBDIR += webrtc-audio-processing0
+    SUBDIR += webrtc-audio-processing2
     SUBDIR += welle.io
     SUBDIR += whysynth
     SUBDIR += wildmidi

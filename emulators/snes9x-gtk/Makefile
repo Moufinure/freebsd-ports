@@ -1,7 +1,11 @@
 PORTNAME=	snes9x
 DISTVERSION=	1.63
+PORTREVISION=	1
 CATEGORIES=	emulators
 PKGNAMESUFFIX=	-gtk
+
+PATCH_SITES=	https://github.com/snes9xgit/snes9x/commit/
+PATCHFILES=	bff02194a797b44f7d0082c4594a2c8c0381bb1b.patch:-p1
 
 MAINTAINER=	jhale@FreeBSD.org
 COMMENT=	Super Nintendo Entertainment System (SNES) Emulator

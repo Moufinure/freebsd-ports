@@ -14,19 +14,22 @@ LICENSE_COMB=	multi
 
 BUILD_DEPENDS=	ocamlbuild:devel/ocaml-ocamlbuild
 
+USES=		gmake ocaml:camlp4,findplist
+
 OPTIONS_DEFINE=	DOCS
 
 CONFIGURE_ARGS=	--disable-docs --prefix ${PREFIX}
 HAS_CONFIGURE=	yes
 MAKE_JOBS_UNSAFE=	yes
-USE_OCAML=	yes
-USE_OCAML_CAMLP4=	yes
-USE_OCAML_FINDLIB=	yes
-USE_OCAMLFIND_PLIST=	yes
-USES=		gmake
 
 DOCSDIR=	${OCAML_DOCSDIR}/${PORTNAME}
 PORTDOCS=	*
+
+.include <bsd.port.options.mk>
+
+.if ${ARCH} == powerpc
+USE_BINUTILS=	yes
+.endif
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/${OCAML_SITELIBDIR}/type_conv/pa_type_conv.cmxs

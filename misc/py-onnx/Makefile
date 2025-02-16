@@ -1,5 +1,6 @@
 PORTNAME=	onnx
-DISTVERSION=	1.16.1
+DISTVERSION=	1.16.2
+PORTREVISION=	5
 CATEGORIES=	misc # machine-learning
 MASTER_SITES=	PYPI \
 		https://github.com/abseil/abseil-cpp/archive/refs/tags/:abseil \
@@ -17,6 +18,9 @@ WWW=		https://onnx.ai/
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
+
+DEPRECATED=	Depends on expired devel/py-pytest-runner
+EXPIRATION_DATE=2025-03-31
 
 BUILD_DEPENDS=	bash:shells/bash \
 		cmake:devel/cmake-core \

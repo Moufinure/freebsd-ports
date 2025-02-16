@@ -1,6 +1,5 @@
 PORTNAME=	chrome
 PORTVERSION=	${CHROME_VER}
-PORTREVISION=	1
 CATEGORIES=	www linux
 MASTER_SITES=	https://dl.google.com/linux/chrome/rpm/stable/x86_64/
 DISTNAME=	google-${PORTNAME}-stable-${CHROME_VER}-${CHROME_BUILD}.x86_64
@@ -15,9 +14,10 @@ RUN_DEPENDS=	linux-rl9-wget>0:ftp/linux-rl9-wget \
 		update-mime-database:misc/shared-mime-info
 
 USES=		cpe desktop-file-utils gnome linux:rl9 shared-mime-info shebangfix
-USE_LINUX=	alsalib alsa-plugins-oss alsa-plugins-pulseaudio ca-certificates \
-		cups-libs curl dbuslibs dri ffmpeg-libs gstreamer1-libav \
-		gtk3 libunistring nss p11-kit sqlite3 xorglibs
+USE_LINUX=	alsalib alsa-plugins-oss alsa-plugins-pulseaudio at-spi2-atk \
+		ca-certificates cairo cups-libs curl dbuslibs dri expat \
+		ffmpeg-libs gnupg gstreamer1-libav gtk3 libxkbcommon libunistring \
+		nspr nss p11-kit pango sqlite3 wget xorglibs
 ONLY_FOR_ARCHS=	amd64
 
 SHEBANG_FILES=	opt/google/chrome/google-chrome
@@ -32,7 +32,7 @@ SRC_SUFX?=		.src${EXTRACT_SUFX}
 
 REINPLACE_ARGS=	-i ""
 
-CHROME_VER?=	121.0.6167.160
+CHROME_VER?=	132.0.6834.110
 CHROME_BUILD?=	1
 
 DATADIR=	${PREFIX}/share/${PORTNAME}

@@ -1,16 +1,24 @@
 PORTNAME=	libretro-shaders-slang
-DISTVERSION=	g20231023
+DISTVERSION=	g20250124
 CATEGORIES=	games
 
-MAINTAINER=	ports@FreeBSD.org
-COMMENT=	Collection of slang (Vulkan) shaders for libretro
+MAINTAINER=	bsdcode@disroot.org
+COMMENT=	Collection of slang shaders from libretro
 WWW=		https://github.com/libretro/slang-shaders
 
-LICENSE=	GPLv3
+# https://github.com/libretro/slang-shaders/issues/150
+LICENSE=	GPLv1+ GPLv2+ GPLv3+ MIT PD
+LICENSE_COMB=	multi
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	libretro
 GH_PROJECT=	slang-shaders
-GH_TAGNAME=	3c281372a31e7cc72fdbea699dc09047439386ce
+GH_TAGNAME=	f60a104a4d89b59c364f8ae88ade36d527d5a4f9
+
+MAKE_ARGS=	PREFIX=${PREFIX}
+
+DATADIR=	${PREFIX}/share/libretro/shaders/shaders_slang
+NO_ARCH=	yes
+NO_BUILD=	yes
 
 .include <bsd.port.mk>

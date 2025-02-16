@@ -1,16 +1,16 @@
---- components/password_manager/core/browser/features/password_features.cc.orig	2024-06-25 12:08:48 UTC
+--- components/password_manager/core/browser/features/password_features.cc.orig	2024-12-22 12:24:29 UTC
 +++ components/password_manager/core/browser/features/password_features.cc
-@@ -36,7 +36,7 @@ BASE_FEATURE(kClearUndecryptablePasswords,
- 
+@@ -45,7 +45,7 @@ BASE_FEATURE(kClearUndecryptablePasswords,
  BASE_FEATURE(kClearUndecryptablePasswordsOnSync,
               "ClearUndecryptablePasswordsInSync",
--#if BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_IOS)
-+#if BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_IOS) || BUILDFLAG(IS_BSD)
+ #if BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_IOS) || \
+-    BUILDFLAG(IS_WIN)
++    BUILDFLAG(IS_WIN) || BUILDFLAG(IS_BSD)
               base::FEATURE_ENABLED_BY_DEFAULT
  #else
               base::FEATURE_DISABLED_BY_DEFAULT
-@@ -98,7 +98,7 @@ BASE_FEATURE(kPasswordManualFallbackAvailable,
-              "PasswordManualFallbackAvailable",
+@@ -108,7 +108,7 @@ BASE_FEATURE(kReuseDetectionBasedOnPasswordHashes,
+              "ReuseDetectionBasedOnPasswordHashes",
               base::FEATURE_DISABLED_BY_DEFAULT);
  
 -#if BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)

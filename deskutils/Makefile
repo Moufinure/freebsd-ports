@@ -1,5 +1,6 @@
     COMMENT = Things that used to be on the desktop before computers were invented
 
+    SUBDIR += R-cran-exams
     SUBDIR += affiche
     SUBDIR += akonadi-calendar-tools
     SUBDIR += akonadi-import-wizard
@@ -12,7 +13,6 @@
     SUBDIR += ausweisapp2
     SUBDIR += autocutsel
     SUBDIR += baobab
-    SUBDIR += basket
     SUBDIR += belcard
     SUBDIR += bigyear
     SUBDIR += bijiben
@@ -42,6 +42,7 @@
     SUBDIR += coregarage
     SUBDIR += countdown
     SUBDIR += dailystrips
+    SUBDIR += deforaos-notes
     SUBDIR += deforaos-todo
     SUBDIR += dfshow
     SUBDIR += dmenu-wayland
@@ -50,6 +51,7 @@
     SUBDIR += dstask
     SUBDIR += easystroke
     SUBDIR += elementary-calendar
+    SUBDIR += elementary-iconbrowser
     SUBDIR += fasd
     SUBDIR += fbreader
     SUBDIR += feathernotes
@@ -60,6 +62,7 @@
     SUBDIR += freebsd-update-notify
     SUBDIR += freemind
     SUBDIR += freeplane
+    SUBDIR += fyi
     SUBDIR += ganttproject
     SUBDIR += gcal
     SUBDIR += gcalcli
@@ -123,7 +126,6 @@
     SUBDIR += i3lock
     SUBDIR += i3status
     SUBDIR += ical
-    SUBDIR += iconbrowser
     SUBDIR += itinerary
     SUBDIR += jjclient
     SUBDIR += jlj
@@ -160,6 +162,7 @@
     SUBDIR += libportal-gtk3
     SUBDIR += libportal-gtk4
     SUBDIR += libportal-qt5
+    SUBDIR += libportal-qt6
     SUBDIR += ljclive
     SUBDIR += lumina-archiver
     SUBDIR += lumina-calculator
@@ -184,6 +187,7 @@
     SUBDIR += mindforger
     SUBDIR += moregroupware
     SUBDIR += mozo
+    SUBDIR += mybee-qt
     SUBDIR += mytetra
     SUBDIR += nanonote
     SUBDIR += nautilus-sendto
@@ -211,9 +215,6 @@
     SUBDIR += pipecolor
     SUBDIR += plan
     SUBDIR += plans
-    SUBDIR += plasma5-milou
-    SUBDIR += plasma5-sddm-kcm
-    SUBDIR += plasma5-xdg-desktop-portal-kde
     SUBDIR += plasma6-milou
     SUBDIR += plasma6-sddm-kcm
     SUBDIR += plasma6-xdg-desktop-portal-kde
@@ -236,6 +237,7 @@
     SUBDIR += py-taskw
     SUBDIR += py-term-background
     SUBDIR += py-todoman
+    SUBDIR += py-trash-cli
     SUBDIR += py-vdirsyncer
     SUBDIR += py-vobject
     SUBDIR += py-vorta

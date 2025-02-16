@@ -1,5 +1,6 @@
 PORTNAME=	hostapd
 PORTVERSION=	${COMMIT_DATE}
+PORTREVISION=	1
 CATEGORIES=	net
 PKGNAMESUFFIX=	-devel
 
@@ -10,14 +11,15 @@ WWW=		https://w1.fi/hostapd/
 USE_GITHUB=	yes
 GH_ACCOUNT=	cschuber
 GH_PROJECT=	hostap
-GH_TAGNAME=	c9db4925f
-COMMIT_DATE=	2024.06.20
+GH_TAGNAME=	339a33455
+COMMIT_DATE=	2025.02.05
 
 LICENSE=	BSD3CLAUSE
 
 USES=		cpe gmake ssl
 CPE_VENDOR=	w1.fi
 BUILD_WRKSRC=	${WRKSRC}/hostapd
+CFLAGS+=	-Wno-incompatible-function-pointer-types
 CFLAGS+=	-I${OPENSSLINC}
 LDFLAGS+=	-L${OPENSSLLIB}
 

@@ -1,64 +1,77 @@
-Obtained from:	https://github.com/NLnetLabs/ldns/pull/231
-
---- contrib/python/ldns_rdf.i.orig	2022-08-15 10:38:22 UTC
+--- contrib/python/ldns_buffer.i.orig	2024-07-20 05:07:42 UTC
++++ contrib/python/ldns_buffer.i
+@@ -45,7 +45,7 @@
+ /* Result generation, appends (ldns_buffer *) after the result. */
+ %typemap(argout, noblock=1) (ldns_buffer **)
+ {
+-  $result = SWIG_Python_AppendOutput($result,
++  $result = SWIG_AppendOutput($result,
+      SWIG_NewPointerObj(SWIG_as_voidptr($1_buf),
+        SWIGTYPE_p_ldns_struct_buffer, SWIG_POINTER_OWN | 0));
+ }
+--- contrib/python/ldns_key.i.orig	2024-07-20 05:07:42 UTC
++++ contrib/python/ldns_key.i
+@@ -38,7 +38,7 @@
+ /* result generation */
+ %typemap(argout,noblock=1) (ldns_key **)
+ {
+-  $result = SWIG_Python_AppendOutput($result, SWIG_NewPointerObj(SWIG_as_voidptr($1_key), SWIGTYPE_p_ldns_struct_key, SWIG_POINTER_OWN |  0 ));
++  $result = SWIG_AppendOutput($result, SWIG_NewPointerObj(SWIG_as_voidptr($1_key), SWIGTYPE_p_ldns_struct_key, SWIG_POINTER_OWN |  0 ));
+ }
+ 
+ %typemap(argout) ldns_rdf *r "Py_INCREF($input);"
+--- contrib/python/ldns_packet.i.orig	2024-07-20 05:07:42 UTC
++++ contrib/python/ldns_packet.i
+@@ -45,7 +45,7 @@
+ /* Result generation, appends (ldns_pkt *) after the result. */
+ %typemap(argout,noblock=1) (ldns_pkt **)
+ {
+-  $result = SWIG_Python_AppendOutput($result,
++  $result = SWIG_AppendOutput($result,
+     SWIG_NewPointerObj(SWIG_as_voidptr($1_pkt),
+       SWIGTYPE_p_ldns_struct_pkt, SWIG_POINTER_OWN |  0 ));
+ }
+--- contrib/python/ldns_rdf.i.orig	2024-07-20 05:07:42 UTC
 +++ contrib/python/ldns_rdf.i
-@@ -50,6 +50,7 @@
+@@ -45,7 +45,7 @@
+ /* Result generation, appends (ldns_rdf *) after the result. */
+ %typemap(argout, noblock=1) (ldns_rdf **)
+ {
+-  $result = SWIG_Python_AppendOutput($result,
++  $result = SWIG_AppendOutput($result,
+     SWIG_NewPointerObj(SWIG_as_voidptr($1_rdf),
        SWIGTYPE_p_ldns_struct_rdf, SWIG_POINTER_OWN | 0));
  }
- 
-+#if SWIG_VERSION < 0x040200
- /*
-  * Automatic conversion of const (ldns_rdf *) parameter from string.
-  * Argument default value.
-@@ -95,6 +96,51 @@
-     SWIG_Python_str_DelForPy3($1_str); /* Is a empty macro for Python < 3. */
-   }
+--- contrib/python/ldns_resolver.i.orig	2024-07-20 05:07:42 UTC
++++ contrib/python/ldns_resolver.i
+@@ -45,7 +45,7 @@
+ /* Result generation, appends (ldns_resolver *) after the result. */
+ %typemap(argout,noblock=1) (ldns_resolver **r)
+ {
+-  $result = SWIG_Python_AppendOutput($result,
++  $result = SWIG_AppendOutput($result,
+     SWIG_NewPointerObj(SWIG_as_voidptr($1_res),
+       SWIGTYPE_p_ldns_struct_resolver, SWIG_POINTER_OWN |  0 ));
  }
-+
-+#else
-+/*
-+ * Automatic conversion of const (ldns_rdf *) parameter from string.
-+ * Argument default value.
-+ */
-+%typemap(arginit, noblock=1) const ldns_rdf *
-+{
-+  PyObject *$1_bytes = NULL;
-+}
-+
-+/*
-+ * Automatic conversion of const (ldns_rdf *) parameter from string.
-+ * Preparation of arguments.
-+ */
-+%typemap(in, noblock=1) const ldns_rdf * (void* argp, $1_ltype tmp = 0, int res)
-+{
-+  if (Python_str_Check($input)) {
-+    const char *$1_str = SWIG_PyUnicode_AsUTF8AndSize($input, NULL, &$1_bytes);
-+    if ($1_str == NULL) {
-+      %argument_fail(SWIG_TypeError, "char *", $symname, $argnum);
-+    }
-+    tmp = ldns_dname_new_frm_str($1_str);
-+    if (tmp == NULL) {
-+      %argument_fail(SWIG_TypeError, "char *", $symname, $argnum);
-+    }
-+    $1 = ($1_ltype) tmp;
-+  } else {
-+    res = SWIG_ConvertPtr($input, &argp, SWIGTYPE_p_ldns_struct_rdf, 0 | 0);
-+    if (!SWIG_IsOK(res)) {
-+      %argument_fail(res, "ldns_rdf const *", $symname, $argnum);
-+    }
-+    $1 = ($1_ltype) argp;
-+  }
-+}
-+
-+/*
-+ * Automatic conversion of const (ldns_rdf *) parameter from string.
-+ * Freeing of allocated memory (it's a no op unless compiling for some older versions of the Python stable ABI).
-+ */
-+%typemap(freearg, noblock=1) const ldns_rdf *
-+{
-+  Py_XDECREF($1_bytes);
-+}
-+#endif
+--- contrib/python/ldns_rr.i.orig	2024-07-20 05:07:42 UTC
++++ contrib/python/ldns_rr.i
+@@ -45,7 +45,7 @@
+ /* Result generation, appends (ldns_rr *) after the result. */
+ %typemap(argout, noblock=1) (ldns_rr **) 
+ {
+-  $result = SWIG_Python_AppendOutput($result,
++  $result = SWIG_AppendOutput($result,
+     SWIG_NewPointerObj(SWIG_as_voidptr($1_rr),
+       SWIGTYPE_p_ldns_struct_rr, SWIG_POINTER_OWN |  0 ));
+ }
+--- contrib/python/ldns_zone.i.orig	2024-07-20 05:07:42 UTC
++++ contrib/python/ldns_zone.i
+@@ -39,7 +39,7 @@
+ /* result generation */
+ %typemap(argout,noblock=1) (ldns_zone **)
+ {
+- $result = SWIG_Python_AppendOutput($result, SWIG_NewPointerObj(SWIG_as_voidptr($1_zone), SWIGTYPE_p_ldns_struct_zone, SWIG_POINTER_OWN |  0 ));
++ $result = SWIG_AppendOutput($result, SWIG_NewPointerObj(SWIG_as_voidptr($1_zone), SWIGTYPE_p_ldns_struct_zone, SWIG_POINTER_OWN |  0 ));
+ }
  
- %nodefaultctor ldns_struct_rdf; /* No default constructor. */
- %nodefaultdtor ldns_struct_rdf; /* No default destructor. */
+ %nodefaultctor ldns_struct_zone; //no default constructor & destructor

@@ -1,5 +1,5 @@
 PORTNAME=	xdgmenumaker
-PORTVERSION=	2.1
+PORTVERSION=	2.2
 PORTREVISION=	1
 CATEGORIES=	x11-wm python
 
@@ -19,5 +19,7 @@ GH_ACCOUNT=	gapan
 SHEBANG_FILES=	src/xdgmenumaker
 
 ALL_TARGET=	man
+TEST_ENV=	PYTHON=${PYTHON_CMD}
+TEST_TARGET=	test
 
 .include <bsd.port.mk>

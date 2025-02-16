@@ -1,6 +1,7 @@
 PORTNAME=	luakit
 DISTVERSION=	2.3.6-7
 DISTVERSIONSUFFIX=	-g0bc0e39
+PORTREVISION=	2
 PORTEPOCH=	2
 CATEGORIES=	www
 PKGNAMESUFFIX=	-devel
@@ -15,7 +16,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING.GPLv3
 BUILD_DEPENDS=	${LUA_MODLIBDIR}/lfs.so:devel/luafilesystem@${LUA_FLAVOR}
 LIB_DEPENDS=	libharfbuzz.so:print/harfbuzz \
 		libsoup-2.4.so:devel/libsoup \
-		libwebkit2gtk-4.0.so:www/webkit2-gtk3
+		libwebkit2gtk-4.0.so:www/webkit2-gtk@40
 RUN_DEPENDS=	${LUA_PKGNAMEPREFIX}luafilesystem>=0:devel/luafilesystem@${LUA_FLAVOR}
 
 USES=		compiler:c++11-lang desktop-file-utils gmake \
@@ -34,7 +35,7 @@ PORTDOCS=	*
 OPTIONS_DEFINE=	DOCS LUAJIT
 OPTIONS_DEFAULT=	LUAJIT
 LUAJIT_DESC=	Use the Just-In-Time compiler for lua
-LUAJIT_LIB_DEPENDS=	libluajit-5.1.so:lang/luajit
+LUAJIT_USES=		luajit
 LUAJIT_MAKE_ARGS=	USE_LUAJIT=1
 LUAJIT_MAKE_ARGS_OFF=	USE_LUAJIT=0
 

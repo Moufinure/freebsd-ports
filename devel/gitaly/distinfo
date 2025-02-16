@@ -1,5 +1,7 @@
-TIMESTAMP = 1720693115
-SHA256 (go/devel_gitaly/gitaly-v17.1.2/go.mod) = 46321e96184062643db930c26d8033bdb94f79cd766b3768b96cf2feced18b8b
-SIZE (go/devel_gitaly/gitaly-v17.1.2/go.mod) = 11095
-SHA256 (go/devel_gitaly/gitaly-v17.1.2/gitaly-v17.1.2.tar.bz2) = 0dfdc45ce8937a6aac654db95464e534b32926eb3973f3c539bff4b958e98cf5
-SIZE (go/devel_gitaly/gitaly-v17.1.2/gitaly-v17.1.2.tar.bz2) = 2630856
+TIMESTAMP = 1739360745
+SHA256 (go/devel_gitaly/gitaly-v17.8.2/go.mod) = 261a27c85b313537dc7204da0aff2b759da37364a91b8763e96194c7c7044d1d
+SIZE (go/devel_gitaly/gitaly-v17.8.2/go.mod) = 12398
+SHA256 (go/devel_gitaly/gitaly-v17.8.2/gitaly-v17.8.2.tar.bz2) = 714afe39bee2e491f5b4b9853e4b664e75c392e0c4cf45dfcfa44c38e4b4e7a7
+SIZE (go/devel_gitaly/gitaly-v17.8.2/gitaly-v17.8.2.tar.bz2) = 4400841
+SHA256 (go/devel_gitaly/gitaly-v17.8.2/git-v2.47.0.tar.bz2) = bda955065ff46d04f980a25858b45352e49de18f04d8dd319b6a681c55ee4529
+SIZE (go/devel_gitaly/gitaly-v17.8.2/git-v2.47.0.tar.bz2) = 8892022

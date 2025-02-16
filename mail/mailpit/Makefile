@@ -1,7 +1,6 @@
 PORTNAME=	mailpit
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.19.0
-PORTREVISION=	1
+DISTVERSION=	1.22.2
 CATEGORIES=	mail devel
 MASTER_SITES=	https://www.madpilot.net/mailpit/:npmcache \
 		LOCAL/madpilot/mailpit:npmcache
@@ -14,9 +13,11 @@ WWW=		https://github.com/axllent/mailpit
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
+BROKEN_i386=	Fails to build on i386
+
 BUILD_DEPENDS=	npm>0:www/npm
 
-USES=		go:modules tar:zstd
+USES=		go:1.23,modules tar:zstd
 USE_RC_SUBR=	mailpit
 GO_MODULE=	github.com/axllent/mailpit
 GO_BUILDFLAGS=	-ldflags="-s -w -X \"github.com/axllent/mailpit/config.Version=${DISTVERSIONPREFIX}${DISTVERSION}\""

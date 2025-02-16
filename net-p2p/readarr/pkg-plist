@@ -1,5 +1,6 @@
-%%DATADIR%%/bin/BouncyCastle.Crypto.dll
+%%DATADIR%%/bin/BouncyCastle.Cryptography.dll
 %%DATADIR%%/bin/Dapper.dll
+%%DATADIR%%/bin/Diacritical.dll
 %%DATADIR%%/bin/DryIoc.Microsoft.DependencyInjection.dll
 %%DATADIR%%/bin/DryIoc.dll
 %%DATADIR%%/bin/Dynamitey.dll
@@ -72,6 +73,7 @@
 %%DATADIR%%/bin/Localization/Core/uk.json
 %%DATADIR%%/bin/Localization/Core/vi.json
 %%DATADIR%%/bin/Localization/Core/zh_CN.json
+%%DATADIR%%/bin/Localization/Core/zh_Hans.json
 %%DATADIR%%/bin/Localization/Core/zh_TW.json
 %%DATADIR%%/bin/MailKit.dll
 %%DATADIR%%/bin/Microsoft.AspNetCore.Antiforgery.dll
@@ -448,13 +450,13 @@
 %%DATADIR%%/bin/System.Xml.dll
 %%DATADIR%%/bin/System.dll
 %%DATADIR%%/bin/TagLibSharp.dll
-%%DATADIR%%/bin/UI/607-678d3c964d6dffc74c37.js
-%%DATADIR%%/bin/UI/607-678d3c964d6dffc74c37.js.LICENSE.txt
-%%DATADIR%%/bin/UI/607-678d3c964d6dffc74c37.js.map
-%%DATADIR%%/bin/UI/84-96a1cec7cc8f253c3d1d.js
-%%DATADIR%%/bin/UI/84-96a1cec7cc8f253c3d1d.js.map
-%%DATADIR%%/bin/UI/Content/84-46fa18d6f0645c8a854d.css
-%%DATADIR%%/bin/UI/Content/84-46fa18d6f0645c8a854d.css.map
+%%DATADIR%%/bin/UI/123-c7d517290591b0c1a29e.js
+%%DATADIR%%/bin/UI/123-c7d517290591b0c1a29e.js.map
+%%DATADIR%%/bin/UI/211-da884239b013b9258dbc.js
+%%DATADIR%%/bin/UI/211-da884239b013b9258dbc.js.LICENSE.txt
+%%DATADIR%%/bin/UI/211-da884239b013b9258dbc.js.map
+%%DATADIR%%/bin/UI/Content/123-369d405e5920d599731b.css
+%%DATADIR%%/bin/UI/Content/123-369d405e5920d599731b.css.map
 %%DATADIR%%/bin/UI/Content/Fonts/Roboto-Light.ttf
 %%DATADIR%%/bin/UI/Content/Fonts/Roboto-Light.woff
 %%DATADIR%%/bin/UI/Content/Fonts/Roboto-Light.woff2
@@ -495,8 +497,8 @@
 %%DATADIR%%/bin/UI/Content/robots.txt
 %%DATADIR%%/bin/UI/Content/styles.css
 %%DATADIR%%/bin/UI/Content/styles.css.map
-%%DATADIR%%/bin/UI/index-65db769df340cb1f2a26.js
-%%DATADIR%%/bin/UI/index-65db769df340cb1f2a26.js.map
+%%DATADIR%%/bin/UI/index-4fb811108ffa239c440c.js
+%%DATADIR%%/bin/UI/index-4fb811108ffa239c440c.js.map
 %%DATADIR%%/bin/UI/index.html
 %%DATADIR%%/bin/UI/login.html
 %%DATADIR%%/bin/UI/oauth.html

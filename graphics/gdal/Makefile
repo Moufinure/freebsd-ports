@@ -1,5 +1,5 @@
 PORTNAME=	gdal
-PORTVERSION=	3.9.1
+PORTVERSION=	3.10.1
 CATEGORIES=	graphics geography
 MASTER_SITES=	https://download.osgeo.org/gdal/${PORTVERSION}/ \
 		LOCAL/sunpoet
@@ -54,7 +54,8 @@ CMAKE_OFF=	BUILD_CSHARP_BINDINGS \
 		GDAL_USE_TIFF_INTERNAL \
 		GDAL_USE_ZLIB_INTERNAL \
 		HDFS_ENABLED \
-		SWIG_REGENERATE_PYTHON
+		SWIG_REGENERATE_PYTHON \
+		CMAKE_CXX_SCAN_FOR_MODULES
 CMAKE_ON=	BUILD_APPS \
 		BUILD_SHARED_LIBS \
 		BUILD_STATIC_LIBS \
@@ -201,10 +202,18 @@ TILEDB_CMAKE_BOOL=	GDAL_USE_TILEDB
 TILEDB_LIB_DEPENDS=	libtiledb.so:databases/tiledb
 WEBP_CMAKE_BOOL=	GDAL_USE_WEBP
 WEBP_LIB_DEPENDS=	libwebp.so:graphics/webp
-XERCES_CMAKE_BOOL=	GDAL_USE_XERCES
+XERCES_CMAKE_BOOL=	GDAL_USE_XERCESC
 XERCES_LIB_DEPENDS=	libxerces-c.so:textproc/xerces-c3
 ZSTD_CMAKE_BOOL=	GDAL_USE_ZSTD
 ZSTD_LIB_DEPENDS=	libzstd.so:archivers/zstd
+
+.include <bsd.port.options.mk>
+
+.if ${ARCH} == powerpc || ${ARCH} == powerpc64
+PLIST_SUB+=	BIGENDIAN="@comment "
+.else
+PLIST_SUB+=	BIGENDIAN=""
+.endif
 
 # Clean up bundled libraries
 .if !defined(MAINTAINER_MODE)

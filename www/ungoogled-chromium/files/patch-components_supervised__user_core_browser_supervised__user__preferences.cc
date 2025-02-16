@@ -1,8 +1,8 @@
---- components/supervised_user/core/browser/supervised_user_preferences.cc.orig	2024-06-22 08:49:42 UTC
+--- components/supervised_user/core/browser/supervised_user_preferences.cc.orig	2025-01-25 09:34:31 UTC
 +++ components/supervised_user/core/browser/supervised_user_preferences.cc
-@@ -153,7 +153,7 @@ void RegisterProfilePrefs(PrefRegistrySimple* registry
-       static_cast<int>(FirstTimeInterstitialBannerState::kUnknown));
-   registry->RegisterBooleanPref(prefs::kChildAccountStatusKnown, false);
+@@ -147,7 +147,7 @@ void RegisterProfilePrefs(PrefRegistrySimple* registry
+       prefs::kFamilyLinkUserState,
+       static_cast<int>(FamilyLinkUserState::kUnknown));
  #if BUILDFLAG(ENABLE_EXTENSIONS) && \
 -    (BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX))
 +    (BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD))

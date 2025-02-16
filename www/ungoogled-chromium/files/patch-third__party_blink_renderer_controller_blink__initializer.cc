@@ -1,6 +1,6 @@
---- third_party/blink/renderer/controller/blink_initializer.cc.orig	2024-06-22 08:49:42 UTC
+--- third_party/blink/renderer/controller/blink_initializer.cc.orig	2025-01-25 09:34:31 UTC
 +++ third_party/blink/renderer/controller/blink_initializer.cc
-@@ -81,12 +81,12 @@
+@@ -82,12 +82,12 @@
  #include "third_party/blink/renderer/controller/private_memory_footprint_provider.h"
  #endif
  

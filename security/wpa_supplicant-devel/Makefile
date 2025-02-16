@@ -1,5 +1,6 @@
 PORTNAME=	wpa_supplicant
 PORTVERSION=	${COMMIT_DATE}
+PORTREVISION=	1
 CATEGORIES=	security net
 PKGNAMESUFFIX=	-devel
 
@@ -10,8 +11,8 @@ WWW=		https://w1.fi/wpa_supplicant/
 USE_GITHUB=	yes
 GH_ACCOUNT=	cschuber
 GH_PROJECT=	hostap
-GH_TAGNAME=	c9db4925f
-COMMIT_DATE=	2024.06.20
+GH_TAGNAME=	339a33455
+COMMIT_DATE=	2025.02.05
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/README
@@ -19,6 +20,7 @@ LICENSE_FILE=	${WRKSRC}/README
 USES=		cpe gmake pkgconfig:build readline ssl
 BUILD_WRKSRC=	${WRKSRC}/wpa_supplicant
 INSTALL_WRKSRC=	${WRKSRC}/src
+CPPFLAGS+=	-Wno-incompatible-function-pointer-types
 CFLAGS+=	${CPPFLAGS} # USES=readline only augments CPPFLAGS and LDFLAGS
 CFLAGS+=	-I${OPENSSLINC}
 CFLAGS+=	-Wno-deprecated-declarations
@@ -51,7 +53,7 @@ OPTIONS_DEFAULT=	BSD WIRED \
 			INTERWORKING HS20 DBUS MATCH IEEE80211R IEEE80211W \
 			IEEE8021X_EAPOL WPS_ER WPS_NFC WPS_UPNP \
 			FAST PWD PAX SAKE GPSK TNC IKEV2 EKE \
-			WNM MBO RSN_PREAUTH WEP
+			WNM MBO RSN_PREAUTH WEP PASN
 OPTIONS_SUB=
 
 WPS_DESC=		Wi-Fi Protected Setup
@@ -78,7 +80,7 @@ INTERWORKING_DESC=	Improve ext. network interworking (IEEE 802.11u)
 HS20_DESC=		Hotspot 2.0
 NO_ROAMING_DESC=	Disable roaming
 P2P_DESC=		Peer-to-Peer support
-PASN_DESC=		PASN support
+PASN_DESC=		Pre-Association Security Negotiation
 TDLS_DESC=		Tunneled Direct Link Setup
 MATCH_DESC=		Interface match mode
 

@@ -1,6 +1,6 @@
 PORTNAME=	arrow
-DISTVERSION=	15.0.2
-PORTREVISION=	1
+DISTVERSION=	18.0.0
+PORTREVISION=	6
 CATEGORIES=	databases
 MASTER_SITES=	APACHE/${PORTNAME}/${PORTNAME}-${DISTVERSION} \
 		https://github.com/apache/orc/archive/rel/:orc
@@ -24,6 +24,8 @@ USE_GITHUB=	nodefault
 GH_ACCOUNT=	apache
 
 WRKSRC_SUBDIR=	cpp
+
+PLIST_SUB+=	LIBVERSION=${DISTVERSION:S/.//g}
 
 CMAKE_ARGS=	-DCMAKE_CXX_STANDARD=17 -DARROW_SIMD_LEVEL=NONE -DARROW_RUNTIME_SIMD_LEVEL=NONE \
 		-DPython3_EXECUTABLE=${PYTHON_CMD}
@@ -91,7 +93,6 @@ FLIGHT_LIB_DEPENDS=		libgflags.so:devel/gflags \
 				libgrpc.so:devel/grpc \
 				libre2.so:devel/re2
 FLIGHT_IMPLIES=			IPC COMPUTE # see https://github.com/apache/arrow/issues/40766
-FLIGHT_BROKEN=			configure breaks: Could not find a package configuration file provided by "re2"
 
 GANDIVA_DESC=			Gandiva libraries
 GANDIVA_USES=			llvm:17,lib ssl

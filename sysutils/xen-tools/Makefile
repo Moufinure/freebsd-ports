@@ -1,12 +1,11 @@
 PORTNAME=	xen
 PKGNAMESUFFIX=	-tools
-DISTVERSION=	4.18.2.20240411
-PORTREVISION=	1
+DISTVERSION=	4.19.0.20241112
 CATEGORIES=	sysutils emulators
 
 USE_GITLAB=	yes
 GL_ACCOUNT=	xen-project
-GL_TAGNAME=	2d38302c33b117aa9a417056db241aefc840c2f0
+GL_TAGNAME=	251a9496485a86f302980a3f8d3c656831b5a62f
 GL_TUPLE=	qemu-project:qemu:v8.0.4:qemu \
 		qemu-project:dtc:b6910bec:dtc \
 		qemu-project:meson:3a9b285a:meson \
@@ -24,8 +23,7 @@ LICENSE_COMB=	multi
 LIB_DEPENDS=	libyajl.so:devel/yajl \
 		liblzo2.so:archivers/lzo2 \
 		libpixman-1.so:x11/pixman \
-		libargp.so:devel/argp-standalone \
-		libxml2.so:textproc/libxml2
+		libargp.so:devel/argp-standalone
 BUILD_DEPENDS=	seabios>0:misc/seabios \
 		${LOCALBASE}/share/edk2-xen/XEN_X64_EFI.fd:sysutils/edk2@xen_x64 \
 		bash>0:shells/bash
@@ -46,7 +44,7 @@ ONLY_FOR_ARCHS_REASON=	not yet ported to anything other than amd64
 
 USES=		cpe gettext gmake gnome libtool localbase:ldflags perl5 \
 		pkgconfig python shebangfix iconv bison ninja:build
-USE_GNOME=	glib20
+USE_GNOME=	glib20 libxml2
 USE_LDCONFIG=	yes
 USE_PYTHON=	py3kplist
 HAS_CONFIGURE=	yes

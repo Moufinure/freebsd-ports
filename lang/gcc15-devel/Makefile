@@ -1,5 +1,5 @@
 PORTNAME=	gcc
-PORTVERSION=	15.0.0.s20240630
+PORTVERSION=	15.0.1.s20250209
 CATEGORIES=	lang
 MASTER_SITES=	GCC/snapshots/${DIST_VERSION}
 PKGNAMESUFFIX=	${SUFFIX}-devel
@@ -42,6 +42,8 @@ CXXFLAGS:=	${CXXFLAGS:N-mretpoline}
 
 OPTIONS_DEFINE=		GRAPHITE
 OPTIONS_DEFAULT_aarch64=STANDARD_BOOTSTRAP
+OPTIONS_DEFAULT_armv6=	STANDARD_BOOTSTRAP
+OPTIONS_DEFAULT_armv7=	STANDARD_BOOTSTRAP
 OPTIONS_DEFAULT_amd64=	STANDARD_BOOTSTRAP
 OPTIONS_DEFAULT_i386=	STANDARD_BOOTSTRAP
 OPTIONS_DEFAULT_powerpc=LTO_BOOTSTRAP
@@ -107,6 +109,7 @@ INSTALL_TARGET=	install-strip
 BINMODE=	755
 .endif
 CONFIGURE_ARGS+=--disable-nls \
+		--disable-libssp \
 		--enable-gnu-indirect-function \
 		--enable-host-shared \
 		--enable-plugin \
@@ -138,7 +141,7 @@ INFO=		gcc${SUFFIX}/cpp \
 .if ${ARCH} == amd64 || ${ARCH} == i386
 INFO+=		gcc${SUFFIX}/libquadmath
 .endif
-.if ${ARCH} == amd64 || ${ARCH} == i386 || ${ARCH} == aarch64
+.if ${ARCH} == amd64 || ${ARCH} == i386 || ${ARCH} == aarch64 || ${ARCH:Marmv?}
 INFO+=		gcc${SUFFIX}/libitm
 .endif
 SUB_FILES=	pkg-message

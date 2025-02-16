@@ -1,8 +1,7 @@
 PORTNAME=	nlcglib
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.0b-20230622
-PORTREVISION=	4
-DISTVERSIONSUFFIX=	-gac293eb
+DISTVERSION=	1.1.0
+PORTREVISION=	2
 CATEGORIES=	science
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -16,6 +15,10 @@ BUILD_DEPENDS=	nlohmann-json>0:devel/nlohmann-json
 LIB_DEPENDS=	libkokkoscore.so:devel/kokkos \
 		libopenblas.so:math/openblas
 TEST_DEPENDS=	googletest>0:devel/googletest
+
+.if !exists(/usr/include/omp.h)
+BROKEN=		requires OpenMP support that is missing on this architecture
+.endif
 
 USES=		cmake:testing pkgconfig
 USE_LDCONFIG=	yes

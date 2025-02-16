@@ -1,4 +1,4 @@
---- chrome/browser/enterprise/connectors/reporting/realtime_reporting_client.cc.orig	2024-06-25 12:08:48 UTC
+--- chrome/browser/enterprise/connectors/reporting/realtime_reporting_client.cc.orig	2024-12-22 12:24:29 UTC
 +++ chrome/browser/enterprise/connectors/reporting/realtime_reporting_client.cc
 @@ -58,7 +58,7 @@
  #include "base/strings/utf_string_conversions.h"
@@ -7,9 +7,9 @@
 -#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
 +#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
  #include "chrome/browser/enterprise/signals/signals_aggregator_factory.h"
+ #include "chrome/browser/enterprise/signin/enterprise_signin_prefs.h"
  #include "components/device_signals/core/browser/signals_aggregator.h"
- #include "components/device_signals/core/common/signals_constants.h"
-@@ -132,7 +132,7 @@ void UploadSecurityEventReport(base::Value::Dict event
+@@ -143,7 +143,7 @@ void UploadSecurityEventReport(base::Value::Dict event
        std::move(upload_callback));
  }
  
@@ -36,3 +36,12 @@
    Profile* profile = Profile::FromBrowserContext(context_);
    device_signals::SignalsAggregator* signals_aggregator =
        enterprise_signals::SignalsAggregatorFactory::GetForProfile(profile);
+@@ -503,7 +503,7 @@ std::string RealtimeReportingClient::GetProfileUserNam
+   std::string username =
+       identity_manager_ ? GetProfileEmail(identity_manager_) : std::string();
+ 
+-#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
++#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
+   if (username.empty()) {
+     username = Profile::FromBrowserContext(context_)->GetPrefs()->GetString(
+         enterprise_signin::prefs::kProfileUserEmail);

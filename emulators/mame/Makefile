@@ -1,5 +1,5 @@
 PORTNAME=	mame
-DISTVERSION=	0.264
+DISTVERSION=	0.274
 CATEGORIES=	emulators games
 
 MAINTAINER=	agh@riseup.net

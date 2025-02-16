@@ -1,11 +1,12 @@
 PORTNAME=	casadi
-DISTVERSION=	3.6.5
-PORTREVISION=	1
+DISTVERSION=	3.6.7
+PORTREVISION=	2
 CATEGORIES=	math
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Symbolic framework for numeric optimization
-WWW=		https://web.casadi.org/
+WWW=		https://web.casadi.org/ \
+		https://github.com/casadi/casadi
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt

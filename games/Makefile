@@ -29,8 +29,6 @@
     SUBDIR += abuse_sdl
     SUBDIR += ace-of-penguins
     SUBDIR += adom
-    SUBDIR += adonthell
-    SUBDIR += adonthell-wastesedge
     SUBDIR += aestats
     SUBDIR += affenspiel
     SUBDIR += afternoonstalker
@@ -46,7 +44,6 @@
     SUBDIR += alienarena-data
     SUBDIR += alienblaster
     SUBDIR += alienwave
-    SUBDIR += allacrost
     SUBDIR += amnesia-tdd
     SUBDIR += amoebax
     SUBDIR += an
@@ -315,6 +312,7 @@
     SUBDIR += galaxis
     SUBDIR += galaxyhack
     SUBDIR += garden-of-coloured-lights
+    SUBDIR += gargoyle
     SUBDIR += gbrainy
     SUBDIR += gcompris-qt
     SUBDIR += gemdropx
@@ -355,6 +353,7 @@
     SUBDIR += gnushogi
     SUBDIR += gnustep-ladder
     SUBDIR += gnustep-sudoku
+    SUBDIR += gobang
     SUBDIR += gogrepo
     SUBDIR += gogui
     SUBDIR += golddig
@@ -388,6 +387,7 @@
     SUBDIR += highmoon
     SUBDIR += hinversi
     SUBDIR += hitori
+    SUBDIR += hivetui
     SUBDIR += hllib
     SUBDIR += holotz-castle
     SUBDIR += hoverboard-sdl
@@ -488,6 +488,7 @@
     SUBDIR += legesmotus
     SUBDIR += lexter
     SUBDIR += lgeneral
+    SUBDIR += lgogdownloader
     SUBDIR += libgnome-games-support
     SUBDIR += libkdegames
     SUBDIR += libkmahjongg
@@ -598,6 +599,7 @@
     SUBDIR += lpairs
     SUBDIR += lskat
     SUBDIR += ltris
+    SUBDIR += luanti
     SUBDIR += lugaru
     SUBDIR += luola
     SUBDIR += lwjgl
@@ -608,11 +610,11 @@
     SUBDIR += magiccube4d
     SUBDIR += mahjong
     SUBDIR += maitretarot
-    SUBDIR += manaplus
     SUBDIR += mancala
     SUBDIR += mangband
     SUBDIR += marblemarcher
     SUBDIR += mari0
+    SUBDIR += mastermind
     SUBDIR += masterserver
     SUBDIR += maxr
     SUBDIR += meandmyshadow
@@ -627,7 +629,6 @@
     SUBDIR += minecraft-client
     SUBDIR += minecraft-server
     SUBDIR += minerbold
-    SUBDIR += minetest
     SUBDIR += minetest_game
     SUBDIR += minetestmapper
     SUBDIR += mirrormagic
@@ -639,6 +640,7 @@
     SUBDIR += moon-buggy
     SUBDIR += moonlander
     SUBDIR += moonlight-embedded
+    SUBDIR += moonlight-embedded-devel
     SUBDIR += moonlight-qt
     SUBDIR += moria
     SUBDIR += motogt
@@ -787,9 +789,9 @@
     SUBDIR += powder-toy-devel
     SUBDIR += powermanga
     SUBDIR += powwow
-    SUBDIR += prboom
     SUBDIR += prboom-plus
     SUBDIR += primateplunge
+    SUBDIR += prismlauncher
     SUBDIR += puckman
     SUBDIR += punchy
     SUBDIR += pvpgn
@@ -802,6 +804,7 @@
     SUBDIR += py-pysol-cards
     SUBDIR += py-sgflib
     SUBDIR += py-sgfsummary
+    SUBDIR += py-trueskill
     SUBDIR += pysolfc
     SUBDIR += pysolfc-cardsets
     SUBDIR += pyspacewar
@@ -901,7 +904,6 @@
     SUBDIR += seabattle
     SUBDIR += searchandrescue
     SUBDIR += searchandrescue-data
-    SUBDIR += senken
     SUBDIR += sets
     SUBDIR += sex
     SUBDIR += sgt-puzzles
@@ -943,6 +945,7 @@
     SUBDIR += stratagus
     SUBDIR += stuntrally
     SUBDIR += sudsol
+    SUBDIR += sulis
     SUBDIR += supertux
     SUBDIR += supertux2
     SUBDIR += supertuxkart
@@ -959,6 +962,7 @@
     SUBDIR += tenebrae
     SUBDIR += tesseract
     SUBDIR += tesseract-data
+    SUBDIR += tetrigo
     SUBDIR += tetrinet
     SUBDIR += tetrinet-x
     SUBDIR += tetzle
@@ -1082,6 +1086,7 @@
     SUBDIR += xdino
     SUBDIR += xemeraldia
     SUBDIR += xeyesplus
+    SUBDIR += xfce4-eyes-plugin
     SUBDIR += xfireworks
     SUBDIR += xfrisk
     SUBDIR += xgalaga

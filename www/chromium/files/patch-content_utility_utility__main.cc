@@ -1,8 +1,8 @@
---- content/utility/utility_main.cc.orig	2024-06-17 12:56:06 UTC
+--- content/utility/utility_main.cc.orig	2025-01-15 09:18:26 UTC
 +++ content/utility/utility_main.cc
 @@ -38,17 +38,21 @@
- #include "third_party/icu/source/common/unicode/unistr.h"
- #include "third_party/icu/source/i18n/unicode/timezone.h"
+ #include "services/tracing/public/cpp/trace_startup.h"
+ #include "services/video_effects/public/cpp/buildflags.h"
  
 -#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS)
 +#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_BSD)
@@ -23,7 +23,7 @@
  #include "services/audio/audio_sandbox_hook_linux.h"
  #include "services/network/network_sandbox_hook_linux.h"
  // gn check is not smart enough to realize that this include only applies to
-@@ -60,10 +64,15 @@
+@@ -60,11 +64,16 @@
  #endif
  #endif
  
@@ -32,15 +32,17 @@
  #include "media/gpu/sandbox/hardware_video_decoding_sandbox_hook_linux.h"
  #endif  // BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS_ASH)
  
+-#if BUILDFLAG(ENABLE_VIDEO_EFFECTS) && BUILDFLAG(IS_LINUX)
 +#if BUILDFLAG(IS_BSD)
 +#include "sandbox/policy/sandbox.h"
 +#include "content/common/gpu_pre_sandbox_hook_bsd.h"
 +#endif
 +
- #if BUILDFLAG(IS_CHROMEOS_ASH)
- #include "chromeos/ash/components/assistant/buildflags.h"
- #include "chromeos/ash/services/ime/ime_sandbox_hook.h"
-@@ -75,7 +84,7 @@
++#if BUILDFLAG(ENABLE_VIDEO_EFFECTS) && (BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD))
+ #include "services/video_effects/video_effects_sandbox_hook_linux.h"  // nogncheck
+ #endif  // BUILDFLAG(ENABLE_VIDEO_EFFECTS) && BUILDFLAG(IS_LINUX)
+ 
+@@ -79,7 +88,7 @@
  #endif  // BUILDFLAG(IS_CHROMEOS_ASH)
  
  #if (BUILDFLAG(ENABLE_SCREEN_AI_SERVICE) && \
@@ -49,7 +51,16 @@
  #include "services/screen_ai/public/cpp/utilities.h"  // nogncheck
  #include "services/screen_ai/sandbox/screen_ai_sandbox_hook_linux.h"  // nogncheck
  #endif
-@@ -102,7 +111,7 @@ namespace content {
+@@ -103,7 +112,7 @@
+ sandbox::TargetServices* g_utility_target_services = nullptr;
+ #endif  // BUILDFLAG(IS_WIN)
+ 
+-#if BUILDFLAG(ENABLE_ON_DEVICE_TRANSLATION) && BUILDFLAG(IS_LINUX)
++#if BUILDFLAG(ENABLE_ON_DEVICE_TRANSLATION) && (BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD))
+ #include "components/services/on_device_translation/sandbox_hook.h"
+ #endif  // BUILDFLAG(ENABLE_ON_DEVICE_TRANSLATION) && BUILDFLAG(IS_LINUX)
+ 
+@@ -111,7 +120,7 @@ namespace content {
  
  namespace {
  
@@ -58,7 +69,7 @@
  std::vector<std::string> GetNetworkContextsParentDirectories() {
    base::MemoryMappedFile::Region region;
    base::ScopedFD read_pipe_fd = base::FileDescriptorStore::GetInstance().TakeFD(
-@@ -129,9 +138,10 @@ std::vector<std::string> GetNetworkContextsParentDirec
+@@ -138,9 +147,10 @@ std::vector<std::string> GetNetworkContextsParentDirec
    return dirs;
  }
  
@@ -70,7 +81,7 @@
        sandbox_type == sandbox::mojom::Sandbox::kHardwareVideoDecoding ||
  #endif  // BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS_ASH)
        sandbox_type == sandbox::mojom::Sandbox::kHardwareVideoEncoding;
-@@ -146,6 +156,7 @@ bool ShouldUseAmdGpuPolicy(sandbox::mojom::Sandbox san
+@@ -155,6 +165,7 @@ bool ShouldUseAmdGpuPolicy(sandbox::mojom::Sandbox san
  
    return false;
  }
@@ -78,7 +89,7 @@
  #endif  // BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS)
  
  #if BUILDFLAG(IS_WIN)
-@@ -250,7 +261,8 @@ int UtilityMain(MainFunctionParams parameters) {
+@@ -252,7 +263,8 @@ int UtilityMain(MainFunctionParams parameters) {
      CHECK(on_device_model::OnDeviceModelService::PreSandboxInit());
    }
  
@@ -88,7 +99,7 @@
    // Thread type delegate of the process should be registered before first
    // thread type change in ChildProcess constructor. It also needs to be
    // registered before the process has multiple threads, which may race with
-@@ -262,7 +274,7 @@ int UtilityMain(MainFunctionParams parameters) {
+@@ -264,7 +276,7 @@ int UtilityMain(MainFunctionParams parameters) {
    }
  #endif  // BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS)
  
@@ -97,16 +108,32 @@
    // Initializes the sandbox before any threads are created.
    // TODO(jorgelo): move this after GTK initialization when we enable a strict
    // Seccomp-BPF policy.
-@@ -300,7 +312,7 @@ int UtilityMain(MainFunctionParams parameters) {
+@@ -294,7 +306,7 @@ int UtilityMain(MainFunctionParams parameters) {
+       pre_sandbox_hook =
+           base::BindOnce(&speech::SpeechRecognitionPreSandboxHook);
+       break;
+-#if BUILDFLAG(ENABLE_ON_DEVICE_TRANSLATION) && BUILDFLAG(IS_LINUX)
++#if BUILDFLAG(ENABLE_ON_DEVICE_TRANSLATION) && (BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD))
+     case sandbox::mojom::Sandbox::kOnDeviceTranslation:
+       pre_sandbox_hook = base::BindOnce(
+           &on_device_translation::OnDeviceTranslationSandboxHook);
+@@ -308,13 +320,13 @@ int UtilityMain(MainFunctionParams parameters) {
                               screen_ai::GetBinaryPathSwitch()));
        break;
  #endif
+-#if BUILDFLAG(IS_LINUX)
++#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
+     case sandbox::mojom::Sandbox::kVideoEffects:
+       pre_sandbox_hook =
+           base::BindOnce(&video_effects::VideoEffectsPreSandboxHook);
+       break;
+ #endif  // BUILDFLAG(IS_LINUX)
 -#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS_ASH)
 +#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS_ASH) || BUILDFLAG(IS_BSD)
      case sandbox::mojom::Sandbox::kHardwareVideoDecoding:
        pre_sandbox_hook =
            base::BindOnce(&media::HardwareVideoDecodingPreSandboxHook);
-@@ -327,6 +339,7 @@ int UtilityMain(MainFunctionParams parameters) {
+@@ -341,6 +353,7 @@ int UtilityMain(MainFunctionParams parameters) {
      default:
        break;
    }
@@ -114,7 +141,7 @@
    if (!sandbox::policy::IsUnsandboxedSandboxType(sandbox_type) &&
        (parameters.zygote_child || !pre_sandbox_hook.is_null())) {
      sandbox_options.use_amd_specific_policies =
-@@ -334,6 +347,11 @@ int UtilityMain(MainFunctionParams parameters) {
+@@ -348,6 +361,11 @@ int UtilityMain(MainFunctionParams parameters) {
      sandbox::policy::Sandbox::Initialize(
          sandbox_type, std::move(pre_sandbox_hook), sandbox_options);
    }

@@ -1,6 +1,6 @@
 PORTNAME=	paraview
 DISTVERSION=	${PARAVIEW_VER}.1
-PORTREVISION=	2
+PORTREVISION=	18
 CATEGORIES=	science graphics
 MASTER_SITES=	http://www.paraview.org/files/v${PARAVIEW_VER}/
 DISTNAME=	ParaView-v${PORTVERSION}
@@ -12,6 +12,7 @@ WWW=		https://www.paraview.org/
 # See https://www.paraview.org/license/
 LICENSE=	BSD3CLAUSE
 
+BROKEN=		fails to build with Boost>=1.87
 BROKEN_i386=	no matching member function for call to 'getArrayType'
 
 BUILD_DEPENDS=	${PYNUMPY}	\
@@ -113,8 +114,8 @@ OPTIONS_SUB=	yes
 OSMESA_DESC=	Use Mesa for off-screen rendering
 
 # mpi4py and other programs must be compiled against the same MPI provider
-MPICH_BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}mpi4py>0:net/py-mpi4py-mpich@${PY_FLAVOR}
-MPICH_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}mpi4py>0:net/py-mpi4py-mpich@${PY_FLAVOR}
+MPICH_BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}mpi4py-mpich>=0:net/py-mpi4py-mpich@${PY_FLAVOR}
+MPICH_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}mpi4py-mpich>=0:net/py-mpi4py-mpich@${PY_FLAVOR}
 MPICH_USES=		mpi # mpich is set by default, use mpi:openmpi if needed
 MPICH_CMAKE_ON=		-DPARAVIEW_USE_MPI:BOOL=ON
 MPICH_CMAKE_OFF=		-DPARAVIEW_USE_MPI:BOOL=OFF

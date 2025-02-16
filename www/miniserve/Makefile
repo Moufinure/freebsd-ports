@@ -1,6 +1,6 @@
 PORTNAME=	miniserve
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.27.1
+DISTVERSION=	0.28.0
 PORTREVISION=	3
 CATEGORIES=	www
 
@@ -26,9 +26,6 @@ PLIST_FILES=	bin/miniserve
 PORTDOCS=	README.md
 
 OPTIONS_DEFINE=	DOCS
-
-post-install:
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/miniserve
 
 post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}

@@ -2,12 +2,16 @@ PORTNAME=	pass-secrets
 PORTVERSION=	s20240404
 CATEGORIES=	sysutils
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Freedesktop secrets provider that uses pass as a backend
 WWW=		https://github.com/nullobsi/pass-secrets
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BROKEN=		https://github.com/nullobsi/pass-secrets/issues/17
+DEPRECATED=	Listed as BROKEN and unmaintained for months
+EXPIRATION_DATE=2025-02-28 
 
 LIB_DEPENDS=	libsdbus-c++.so:devel/sdbus-cpp
 RUN_DEPENDS=	pass:sysutils/password-store
