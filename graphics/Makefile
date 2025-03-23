@@ -9,6 +9,7 @@
     SUBDIR += O2-tools
     SUBDIR += R-cran-DiagrammeR
     SUBDIR += R-cran-GDD
+    SUBDIR += R-cran-R.devices
     SUBDIR += R-cran-RColorBrewer
     SUBDIR += R-cran-colorspace
     SUBDIR += R-cran-cowplot
@@ -37,6 +38,7 @@
     SUBDIR += R-cran-viridis
     SUBDIR += R-cran-viridisLite
     SUBDIR += R-cran-visNetwork
+    SUBDIR += R-cran-webp
     SUBDIR += SciPlot
     SUBDIR += a2png
     SUBDIR += aalib
@@ -103,6 +105,7 @@
     SUBDIR += chafa
     SUBDIR += charls
     SUBDIR += cimg
+    SUBDIR += clang-uml
     SUBDIR += cloudcompare
     SUBDIR += clutter
     SUBDIR += clutter-gtk3
@@ -151,6 +154,7 @@
     SUBDIR += drm-510-kmod
     SUBDIR += drm-515-kmod
     SUBDIR += drm-61-kmod
+    SUBDIR += drm-66-kmod
     SUBDIR += drm-kmod
     SUBDIR += drm_info
     SUBDIR += dspdfviewer
@@ -228,6 +232,7 @@
     SUBDIR += gdal
     SUBDIR += gdal-grass
     SUBDIR += gdchart
+    SUBDIR += gdk-pixbuf-extra
     SUBDIR += gdk-pixbuf2
     SUBDIR += gdk-pixbuf2-xlib
     SUBDIR += gdtclft
@@ -408,7 +413,6 @@
     SUBDIR += khronos-texture
     SUBDIR += kimageannotator
     SUBDIR += kimagemapeditor
-    SUBDIR += kipi-plugins
     SUBDIR += klatexformula
     SUBDIR += kludge3d
     SUBDIR += kmscube
@@ -479,7 +483,6 @@
     SUBDIR += libjxr
     SUBDIR += libkdcraw
     SUBDIR += libkexiv2
-    SUBDIR += libkipi
     SUBDIR += libksane
     SUBDIR += libliftoff
     SUBDIR += liblqr-1
@@ -559,6 +562,12 @@
     SUBDIR += linux-rl9-qt5-qtimageformats
     SUBDIR += linux-rl9-qt5-qtsvg
     SUBDIR += linux-rl9-qt5-qtwayland
+    SUBDIR += linux-rl9-sdl2_gfx
+    SUBDIR += linux-rl9-sdl2_image
+    SUBDIR += linux-rl9-sdl2_ttf
+    SUBDIR += linux-rl9-sdl_gfx
+    SUBDIR += linux-rl9-sdl_image
+    SUBDIR += linux-rl9-sdl_ttf
     SUBDIR += linux-rl9-shaderc
     SUBDIR += linux-rl9-spirv-tools
     SUBDIR += linux-rl9-tiff
@@ -623,6 +632,7 @@
     SUBDIR += nvidia-drm-510-kmod
     SUBDIR += nvidia-drm-515-kmod
     SUBDIR += nvidia-drm-61-kmod
+    SUBDIR += nvidia-drm-66-kmod
     SUBDIR += nvidia-drm-kmod
     SUBDIR += nvidia-texture-tools
     SUBDIR += ocaml-cairo
@@ -804,7 +814,6 @@
     SUBDIR += pecl-qrencode
     SUBDIR += pecl-vips
     SUBDIR += pencil2d
-    SUBDIR += peps
     SUBDIR += perceptualdiff
     SUBDIR += peruse
     SUBDIR += pfstools
@@ -839,6 +848,7 @@
     SUBDIR += pixie
     SUBDIR += plantuml
     SUBDIR += plasma-kmod
+    SUBDIR += plasma6-spectacle
     SUBDIR += plotutils
     SUBDIR += plutosvg
     SUBDIR += plutovg
@@ -1166,7 +1176,6 @@
     SUBDIR += shared-color-profiles
     SUBDIR += sharpconstruct
     SUBDIR += shotwell
-    SUBDIR += showimage
     SUBDIR += silgraphite
     SUBDIR += simage
     SUBDIR += simple-scan
@@ -1174,7 +1183,6 @@
     SUBDIR += simpleviewer
     SUBDIR += skanlite
     SUBDIR += skanpage
-    SUBDIR += spectacle
     SUBDIR += spirv-cross
     SUBDIR += spirv-tools
     SUBDIR += springgraph
@@ -1262,6 +1270,7 @@
     SUBDIR += xfractint
     SUBDIR += xglurbules
     SUBDIR += xgrasp
+    SUBDIR += xiccd
     SUBDIR += ximaging
     SUBDIR += xli
     SUBDIR += xmedcon
@@ -1275,7 +1284,6 @@
     SUBDIR += xpdf
     SUBDIR += xpdf3
     SUBDIR += xpdf4
-    SUBDIR += xpeps
     SUBDIR += xpx
     SUBDIR += xsane
     SUBDIR += xtexcad

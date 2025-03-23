@@ -46,7 +46,7 @@
     SUBDIR += dhall
     SUBDIR += dlang-tools
     SUBDIR += dotnet
-    SUBDIR += dotnet-runtime
+    SUBDIR += dotnet-host
     SUBDIR += dotnet8
     SUBDIR += duktape
     SUBDIR += duktape-lib
@@ -70,6 +70,7 @@
     SUBDIR += erlang-runtime25
     SUBDIR += erlang-runtime26
     SUBDIR += erlang-runtime27
+    SUBDIR += erlang-runtime28
     SUBDIR += erlang-wx
     SUBDIR += execline
     SUBDIR += expect
@@ -124,6 +125,7 @@
     SUBDIR += go121
     SUBDIR += go122
     SUBDIR += go123
+    SUBDIR += go124
     SUBDIR += gomacro
     SUBDIR += gprolog
     SUBDIR += gptscript
@@ -217,7 +219,6 @@
     SUBDIR += neocmakelsp
     SUBDIR += nesasm
     SUBDIR += newlisp
-    SUBDIR += nhc98
     SUBDIR += nickle
     SUBDIR += nim
     SUBDIR += njs
@@ -230,6 +231,7 @@
     SUBDIR += ocaml
     SUBDIR += ocaml-autoconf
     SUBDIR += ocaml-camlidl
+    SUBDIR += odin
     SUBDIR += oo2c
     SUBDIR += opencoarrays
     SUBDIR += opensycl

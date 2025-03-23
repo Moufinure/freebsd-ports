@@ -1,6 +1,5 @@
 PORTNAME=	xfce4-settings
-PORTVERSION=	4.20.0
-PORTREVISION=	1
+PORTVERSION=	4.20.1
 CATEGORIES=	sysutils xfce
 MASTER_SITES=	XFCE
 DIST_SUBDIR=	xfce4
@@ -20,9 +19,9 @@ RUN_DEPENDS=	hwdata>0:misc/hwdata
 
 USES=		compiler:c11 desktop-file-utils gettext-tools gmake gnome \
 		libtool pkgconfig python shebangfix tar:bzip2 xfce xorg
-USE_GNOME=	cairo gdkpixbuf2 glib20 gtk30 libxml2:build
+USE_GNOME=	cairo gdkpixbuf glib20 gtk30 libxml2:build
 USE_XFCE=	garcon libexo xfconf
-USE_XORG=	x11 xcursor xi xorgproto xrandr
+USE_XORG=	x11 xcursor xext xi xorgproto xrandr
 
 SHEBANG_FILES=	dialogs/mime-settings/helpers/xfce4-compose-mail
 GNU_CONFIGURE=	yes

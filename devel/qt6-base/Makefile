@@ -1,7 +1,13 @@
 PORTNAME=	base
 DISTVERSION=	${QT6_VERSION}
+PORTREVISION=	4
 CATEGORIES=	devel
 PKGNAMEPREFIX=	qt6-
+
+PATCH_SITES=	https://invent.kde.org/qt/qt/qtbase/-/commit/
+PATCHFILES+=	12d4bf1ab52748cb84894f50d437064b439e0b7d.patch:-p1
+PATCHFILES+=	2ef615228bba9a8eb282437bfb7472f925610e89.patch:-p1
+PATCHFILES+=	a43c7e58046604796aa69974ea1c5d3e2648c755.patch:-p1
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Qt base (core, gui, widgets, network,...)
@@ -12,6 +18,7 @@ BUILD_DEPENDS=	xml:textproc/xmlstarlet \
 LIB_DEPENDS=	libatk-1.0.so:accessibility/at-spi2-core \
 		libatk-bridge-2.0.so:accessibility/at-spi2-core \
 		libatspi.so:accessibility/at-spi2-core \
+		libb2.so:devel/libb2 \
 		libbrotlidec.so:archivers/brotli \
 		libdbus-1.so:devel/dbus \
 		libdouble-conversion.so:devel/double-conversion \
@@ -37,7 +44,7 @@ LIB_DEPENDS=	libatk-1.0.so:accessibility/at-spi2-core \
 USES=		cmake compiler:c++17-lang gl gnome jpeg perl5 pkgconfig python \
 		qt-dist:6 shebangfix ssl
 USE_GL=		egl opengl
-USE_GNOME=	cairo gdkpixbuf2 glib20 gtk30 pango
+USE_GNOME=	cairo gdkpixbuf glib20 gtk30 pango
 USE_LDCONFIG=	${PREFIX}/${QT_LIBDIR_REL}
 USE_LOCALE=	C.UTF-8
 

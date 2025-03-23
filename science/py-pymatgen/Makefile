@@ -1,6 +1,6 @@
 PORTNAME=	pymatgen
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2025.1.24
+DISTVERSION=	2025.3.10
 CATEGORIES=	science python
 #MASTER_SITES=	PYPI # no tests
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -13,7 +13,8 @@ WWW=		https://pymatgen.org/ \
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	${PYNUMPY} \
+BUILD_DEPENDS=	${PY_SETUPTOOLS} \
+		${PYNUMPY} \
 		${PYTHON_PKGNAMEPREFIX}wheel>0:devel/py-wheel@${PY_FLAVOR}
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}beautifulsoup>0:www/py-beautifulsoup@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}joblib>=1:devel/py-joblib@${PY_FLAVOR} \
@@ -58,11 +59,6 @@ post-install: # strip binaries
 		optimization/neighbors*.so \
 		util/coord_cython*.so
 
-# tests as of 2025.1.23: see https://github.com/materialsproject/pymatgen/issues/4264
-# Results (4376.26s (1:12:56)):
-#    2814 passed
-#      36 failed
-#     194 skipped
-#     141 skipped
+# tests as of 2025.2.18: 56 failed, 2912 passed, 149 skipped, 1980 warnings in 11080.55s (3:04:40), see https://github.com/materialsproject/pymatgen/issues/4264
 
 .include <bsd.port.mk>

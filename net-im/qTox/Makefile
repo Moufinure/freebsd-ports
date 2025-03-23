@@ -1,7 +1,7 @@
 PORTNAME=	qTox
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.18.2
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	net-im net-p2p
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -15,8 +15,6 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 BUILD_DEPENDS=	${LOCALBASE}/include/linux/videodev2.h:multimedia/v4l_compat
 LIB_DEPENDS=	libavcodec.so:multimedia/ffmpeg \
 		libexif.so:graphics/libexif \
-		libfontconfig.so:x11-fonts/fontconfig \
-		libfreetype.so:print/freetype2 \
 		libopus.so:audio/opus \
 		libqrencode.so:graphics/libqrencode \
 		libsodium.so:security/libsodium \
@@ -59,12 +57,12 @@ APPINDICATOR_BROKEN=	can not find appindicator-0.1
 GTK_SYSTRAY_DESC=	Enable GTK systray
 GTK_SYSTRAY_CMAKE_BOOL=	ENABLE_GTK_SYSTRAY
 GTK_SYSTRAY_USES=	gnome
-GTK_SYSTRAY_USE=	GNOME=atk,cairo,gdkpixbuf2,gtk20
+GTK_SYSTRAY_USE=	GNOME=atk,cairo,gdkpixbuf,gtk20
 
 STATUSNOTIFIER_DESC=	Enable status notifier
 STATUSNOTIFIER_CMAKE_BOOL=	ENABLE_STATUSNOTIFIER
 STATUSNOTIFIER_USES=	gnome
-STATUSNOTIFIER_USE=	GNOME=atk,cairo,gdkpixbuf2,gtk20
+STATUSNOTIFIER_USE=	GNOME=atk,cairo,gdkpixbuf,gtk20
 
 PLIST_FILES=	bin/qtox \
 		share/applications/io.github.qtox.qTox.desktop \

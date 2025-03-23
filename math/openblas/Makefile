@@ -9,6 +9,10 @@ DISTFILES=	large.tgz:lapack_tmg \
 		timing.tgz:lapack_tmg
 DIST_SUBDIR=	openblas
 
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+PATCHFILES=	e8b11a126bbbcabdfa0ca06bbf4dcca44b8e650f.patch:-p1 \
+		643966d9c7eba16de75da14e60c3e554d4019595.patch:-p1
+
 MAINTAINER=	phd_kimberlite@yahoo.co.jp
 COMMENT=	Optimized BLAS library based on GotoBLAS2
 WWW=		https://github.com/OpenMathLib/OpenBLAS

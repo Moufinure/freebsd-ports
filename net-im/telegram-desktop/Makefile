@@ -1,6 +1,6 @@
 PORTNAME=	telegram-desktop
-DISTVERSION=	5.10.7
-PORTREVISION=	2
+DISTVERSION=	5.12.3
+PORTREVISION=	1
 CATEGORIES=	net-im
 MASTER_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/releases/download/v${DISTVERSION}/
 DISTNAME=	tdesktop-${DISTVERSION}-full
@@ -33,6 +33,8 @@ LIB_DEPENDS=	libabsl_base.so:devel/abseil \
 		libdbus-1.so:devel/dbus \
 		libdispatch.so:devel/libdispatch \
 		libfmt.so:devel/libfmt \
+		libgeoclue-2.so:net/geoclue \
+		libgeocode-glib-2.so:net/geocode-glib2 \
 		libhunspell-1.7.so:textproc/hunspell \
 		liblz4.so:archivers/liblz4 \
 		libopenh264.so:multimedia/openh264 \
@@ -107,10 +109,6 @@ TELEGRAM_API_ID=	601761
 CMAKE_ARGS+=	-DCMAKE_CC_COMPILER_LAUNCHER="${LOCALBASE}/bin/ccache" \
 		-DCMAKE_CPP_COMPILER_LAUNCHER="${LOCALBASE}/bin/ccache" \
 		-DCMAKE_CXX_COMPILER_LAUNCHER="${LOCALBASE}/bin/ccache"
-.endif
-
-.if ${OPSYS} == FreeBSD && ${COMPILER_TYPE} == clang && ${COMPILER_VERSION} < 190
-EXTRA_PATCHES=		${PATCHDIR}/extrapatch-Telegram_lib__base_base_qt_qt__compare.h
 .endif
 
 post-extract:

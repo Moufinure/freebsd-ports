@@ -419,6 +419,8 @@
     SUBDIR += linux-rl9-opus
     SUBDIR += linux-rl9-pulseaudio-libs
     SUBDIR += linux-rl9-pulseaudio-utils
+    SUBDIR += linux-rl9-sdl2_mixer
+    SUBDIR += linux-rl9-sdl_sound
     SUBDIR += linuxsampler
     SUBDIR += linuxwave
     SUBDIR += liquidsfz
@@ -523,6 +525,7 @@
     SUBDIR += nyquist
     SUBDIR += oaml
     SUBDIR += ocp
+    SUBDIR += odin2-synthesizer
     SUBDIR += ogg2mp3
     SUBDIR += openal-soft
     SUBDIR += opencore-amr
@@ -738,6 +741,7 @@
     SUBDIR += sonata
     SUBDIR += songrec
     SUBDIR += sonic-visualiser
+    SUBDIR += sonicradio
     SUBDIR += sonivox
     SUBDIR += sonivox-eas
     SUBDIR += sorcer-lv2
@@ -746,6 +750,7 @@
     SUBDIR += soundtouch
     SUBDIR += soundtracker
     SUBDIR += sox
+    SUBDIR += sox-noise
     SUBDIR += spc2it
     SUBDIR += spectacle-lv2
     SUBDIR += spectmorph
@@ -867,6 +872,7 @@
     SUBDIR += xmmix
     SUBDIR += xmp
     SUBDIR += xoscope
+    SUBDIR += xsynth
     SUBDIR += xsynth-dssi
     SUBDIR += xuidesigner
     SUBDIR += xwave

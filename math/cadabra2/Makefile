@@ -10,6 +10,7 @@ WWW=		https://cadabra.science/
 LICENSE=	LGPL3
 LICENSE_FILE=	${WRKSRC}/doc/license.txt
 
+BROKEN=		fails to build with Boost>=1.87
 BROKEN_FreeBSD_15=	compilation fails with clang-17, see https://github.com/kpeeters/cadabra2/issues/285
 
 BUILD_DEPENDS=	${LOCALBASE}/include/websocketpp/client.hpp:devel/websocketpp
@@ -47,7 +48,7 @@ OPTIONS_DEFAULT=	GUI
 OPTIONS_SUB=		yes
 
 GUI_USES=		desktop-file-utils
-GUI_USE=		GNOME=gtkmm30,gdkpixbuf2
+GUI_USE=		GNOME=gtkmm30,gdkpixbuf
 GUI_CMAKE_BOOL=		ENABLE_FRONTEND
 
 _PY_SONAME=	${PYTHON_EXT_SUFFIX}

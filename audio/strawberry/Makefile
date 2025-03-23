@@ -1,5 +1,6 @@
 PORTNAME=	strawberry
 DISTVERSION=	1.2.7
+PORTREVISION=	1
 CATEGORIES=	audio
 MASTER_SITES=	https://github.com/strawberrymusicplayer/${PORTNAME}/releases/download/${DISTVERSION}/
 
@@ -51,7 +52,7 @@ EBUR128_CMAKE_BOOL=	ENABLE_EBUR128
 IPOD_LIB_DEPENDS=	libgpod.so:audio/libgpod \
 			libimobiledevice-1.0.so:comms/libimobiledevice \
 			libplist-2.0.so:devel/libplist
-IPOD_USE=		GNOME=gdkpixbuf2
+IPOD_USE=		GNOME=gdkpixbuf
 IPOD_CMAKE_BOOL=	ENABLE_GPOD
 
 MOODBAR_LIB_DEPENDS=	libfftw3.so:math/fftw3

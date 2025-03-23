@@ -1,5 +1,5 @@
 PORTNAME=	xfce4-desktop
-PORTVERSION=	4.20.0
+PORTVERSION=	4.20.1
 CATEGORIES=	x11-wm xfce
 MASTER_SITES=	XFCE
 DISTNAME=	xfdesktop-${DISTVERSIONFULL}
@@ -18,7 +18,7 @@ LIB_DEPENDS=	libharfbuzz.so:print/harfbuzz \
 
 USES=		compiler:c11 gettext-tools gmake gnome pkgconfig tar:bzip2 xfce \
 		xorg
-USE_GNOME=	cairo gdkpixbuf2 glib20 gtk30 libwnck3
+USE_GNOME=	cairo gdkpixbuf glib20 gtk30 libwnck3
 USE_XFCE=	garcon libexo windowing xfconf
 USE_XORG=	ice sm x11
 

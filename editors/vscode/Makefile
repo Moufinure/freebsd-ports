@@ -1,6 +1,6 @@
 PORTNAME=	vscode
-DISTVERSION=	1.96.4
-PORTREVISION=	2
+DISTVERSION=	1.98.2
+PORTREVISION=	1
 CATEGORIES=	editors
 MASTER_SITES=	https://github.com/tagattie/FreeBSD-VSCode/releases/download/${DISTVERSION}/:node_modules
 DISTFILES=	vscode-node-modules-${DISTVERSION}${EXTRACT_SUFX}:node_modules \
@@ -34,7 +34,6 @@ LIB_DEPENDS=	libatk-bridge-2.0.so:accessibility/at-spi2-core \
 		libepoll-shim.so:devel/libepoll-shim \
 		libevent.so:devel/libevent \
 		libffi.so:devel/libffi \
-		libinotify.so:devel/libinotify \
 		libnotify.so:devel/libnotify \
 		libpci.so:devel/libpci \
 		libnspr4.so:devel/nspr \
@@ -71,14 +70,14 @@ USES=		desktop-file-utils gl gmake gnome iconv:wchar_t jpeg \
 USE_GITHUB=	yes
 GH_ACCOUNT=	microsoft
 
-SOURCE_COMMIT_HASH=	cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba
+SOURCE_COMMIT_HASH=	ddc367ed5c8936efe395cffeec279b04ffd7db78
 
 BINARY_ALIAS=	python=${PYTHON_CMD}
 
 USE_XORG=	x11 xcb xcomposite xcursor xdamage xext xfixes xi xkbfile \
 		xrandr xrender xscrnsaver xtst
 USE_GL=		gbm gl glesv2
-USE_GNOME=	atk cairo pango gdkpixbuf2 gtk30 libxml2 libxslt
+USE_GNOME=	atk cairo pango gdkpixbuf gtk30 libxml2 libxslt
 
 SHEBANG_REGEX=	./(extensions|node_modules|resources|scripts|src)/.*\.sh$$
 PATHFIX_FILES=	src/vs/workbench/contrib/debug/node/terminals.ts
@@ -99,7 +98,7 @@ MAKE_ENV+=	PYTHONDONTWRITEBYTECODE=1
 
 NODEJS_DIR=	${.CURDIR:H:H}/www/node20
 .include "${NODEJS_DIR}/Makefile.version"
-ELECTRON_DIR=	${.CURDIR:H:H}/devel/electron32
+ELECTRON_DIR=	${.CURDIR:H:H}/devel/electron34
 .include "${ELECTRON_DIR}/Makefile.version"
 
 ELECTRON_DOWNLOAD_URL=	https://github.com/electron/electron/releases/download/v${ELECTRON_VER}
@@ -201,6 +200,8 @@ pre-build:
 # copy rg binary file to @vscode/ripgrep node module directory
 	@${MKDIR} ${WRKSRC}/node_modules/@vscode/ripgrep/bin
 	@${CP} ${LOCALBASE}/bin/rg ${WRKSRC}/node_modules/@vscode/ripgrep/bin
+	@${MKDIR} ${WRKSRC}/build/node_modules/@vscode/ripgrep/bin
+	@${CP} ${LOCALBASE}/bin/rg ${WRKSRC}/build/node_modules/@vscode/ripgrep/bin
 	@${MKDIR} ${WRKSRC}/remote/node_modules/@vscode/ripgrep/bin
 	@${CP} ${LOCALBASE}/bin/rg ${WRKSRC}/remote/node_modules/@vscode/ripgrep/bin
 

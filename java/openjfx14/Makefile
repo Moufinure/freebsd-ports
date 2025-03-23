@@ -1,6 +1,6 @@
 PORTNAME=	openjfx
 DISTVERSION=	14.0.2.1+1
-PORTREVISION=	15
+PORTREVISION=	16
 CATEGORIES=	java x11-toolkits devel
 MASTER_SITES=	https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-core/7.7.1/:core \
 		https://repo.maven.apache.org/maven2/org/apache/lucene/lucene-grouping/7.7.1/:grouping \
@@ -40,7 +40,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	openjdk
 GH_PROJECT=	jfx
 USE_GL=		gl
-USE_GNOME=	atk cairo gdkpixbuf2 glib20 gtk20 gtk30 pango
+USE_GNOME=	atk cairo gdkpixbuf glib20 gtk20 gtk30 pango
 JAVA_VERSION=	11
 USE_LDCONFIG=	yes
 USE_XORG=	x11 xtst xxf86vm

@@ -557,6 +557,7 @@
     SUBDIR += pg_repack
     SUBDIR += pg_similarity
     SUBDIR += pg_stat_kcache
+    SUBDIR += pg_store_plans
     SUBDIR += pg_tileserv
     SUBDIR += pgaccess
     SUBDIR += pgadmin3
@@ -575,6 +576,7 @@
     SUBDIR += pgpool-II-43
     SUBDIR += pgpool-II-44
     SUBDIR += pgpool-II-45
+    SUBDIR += pgpool-II-46
     SUBDIR += pgreplay
     SUBDIR += pgroonga
     SUBDIR += pgrouting
@@ -642,7 +644,6 @@
     SUBDIR += plpgsql_check
     SUBDIR += pointcloud
     SUBDIR += postgis-jdbc
-    SUBDIR += postgis31
     SUBDIR += postgis33
     SUBDIR += postgis34
     SUBDIR += postgis35
@@ -836,6 +837,7 @@
     SUBDIR += py-sqlalchemy14
     SUBDIR += py-sqlalchemy20
     SUBDIR += py-sqlcipher3
+    SUBDIR += py-sqlframe
     SUBDIR += py-sqlglot
     SUBDIR += py-sqlglotrs
     SUBDIR += py-sqlite-anyio
@@ -875,7 +877,6 @@
     SUBDIR += redis
     SUBDIR += redis-devel
     SUBDIR += redis62
-    SUBDIR += redis70
     SUBDIR += redis72
     SUBDIR += redis_exporter
     SUBDIR += redisdesktopmanager
@@ -1011,6 +1012,7 @@
     SUBDIR += rubygem-rbase
     SUBDIR += rubygem-red-arrow
     SUBDIR += rubygem-red-arrow-dataset
+    SUBDIR += rubygem-red-arrow-flight
     SUBDIR += rubygem-red-gandiva
     SUBDIR += rubygem-red-parquet
     SUBDIR += rubygem-redis
@@ -1078,7 +1080,6 @@
     SUBDIR += symphytum
     SUBDIR += tarantool
     SUBDIR += tarantool-c
-    SUBDIR += tarantool2
     SUBDIR += tcl-Mysql
     SUBDIR += tcl-lmdb
     SUBDIR += tcl-sqlite3
